@@ -1,0 +1,300 @@
+Ôr@Ÿªassertions¤code´customTransformCache¬dependencies¢id¤meta±moduleSideEffects¬originalCode±originalSourcemap«resolvedIds®sourcemapChainµsyntheticNamedExportsµtransformDependencies®transformFiles¨cacheAstÔrAÚ0Üvar __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+if (!("finalizeConstruction" in ViewPU.prototype)) {
+    Reflect.set(ViewPU.prototype, "finalizeConstruction", () => { });
+}
+import { RecipePage } from "./Users/Recipe/RecipePage";
+import { UserPage } from "./Users/User/UserPage";
+import { MarketPage } from "./Users/Market/MarketPage";
+import { HomePage } from "./Users/Home/HomePage";
+// è·³è½¬é¡µé¢å…¥å£å‡½æ•°
+export function LayoutBuilder(parent = null) {
+    {
+        (parent ? parent : this).observeComponentCreation2((elmtId, isInitialRender) => {
+            if (isInitialRender) {
+                let componentCall = new Layout(parent ? parent : this, {}, undefined, elmtId, () => { }, { page: "ArktsFrontend/entry/src/main/ets/pages/Layout.ets", line: 16, col: 3 });
+                ViewV2.create(componentCall);
+                let paramsLambda = () => {
+                    return {};
+                };
+                componentCall.paramsGenerator_ = paramsLambda;
+            }
+            else {
+                (parent ? parent : this).updateStateVarsOfChildByElmtId(elmtId, {});
+            }
+        }, { name: "Layout" });
+    }
+}
+class Layout extends ViewV2 {
+    constructor(parent, params, __localStorage, elmtId = -1, paramsLambda, extraInfo) {
+        super(parent, elmtId, extraInfo);
+        this.currentIndex = 0;
+        this.pathStack = new NavPathStack();
+        this.tabData = [
+            // HomePage é¦–é¡µ å«ä»Šæ—¥æ¨èèœè°±  AIæ¨èå¡ç‰‡  è·³è½¬-ã€‹èœè°±è¯¦æƒ…
+            //
+            { text: 'é¦–é¡µ', icon: { "id": 16777272, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
+            // RecipePage èœè°± å«åˆ†ç±»ç­›é€‰  æœç´¢æ   è·³è½¬ -ã€‹ èœè°±è¯¦æƒ…
+            { text: 'èœè°±', icon: { "id": 16777256, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
+            // MarketPage å¸‚åœº å«å•†æˆ·åˆ†ç±»åˆ—è¡¨  åœ°å›¾å®šä½  è·³è½¬-ã€‹å•†æˆ·è¯¦æƒ…-ã€‹å•†å“è´­ä¹°
+            { text: 'å¸‚åœº', icon: { "id": 16777263, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
+            // UserPage æˆ‘çš„ å«ç”¨æˆ·èµ„æ–™  æ”¶è—èœè°± è®¢å•åˆ—è¡¨ è®¾ç½® è·³è½¬->ä¿®æ”¹åŸºæœ¬ä¿¡æ¯ ä¿®æ”¹å¯†ç 
+            { text: 'æˆ‘çš„', icon: { "id": 16777262, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } }
+        ];
+        this.finalizeConstruction();
+    }
+    tabBuilder(item, index, parent = null) {
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Column.create({ space: 5 });
+        }, Column);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Image.create(item.icon);
+            Image.width(25);
+            Image.fillColor(this.currentIndex === index ? Color.Pink : Color.Green);
+        }, Image);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Text.create(item.text);
+            Text.fontSize(14);
+            Text.fontColor(this.currentIndex === index ? Color.Pink : Color.Green);
+        }, Text);
+        Text.pop();
+        Column.pop();
+    }
+    initialRender() {
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            NavDestination.create(() => {
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    Tabs.create({ barPosition: BarPosition.End });
+                    Tabs.backgroundColor('#3B4043');
+                    Tabs.onChange((index) => {
+                        this.currentIndex = index;
+                    });
+                    Tabs.expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
+                }, Tabs);
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    ForEach.create();
+                    const forEachItemGenFunction = (_item, index) => {
+                        const item = _item;
+                        this.observeComponentCreation2((elmtId, isInitialRender) => {
+                            TabContent.create(() => {
+                                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                    If.create();
+                                    if (this.currentIndex === 0) {
+                                        this.ifElseBranchUpdateFunction(0, () => {
+                                            {
+                                                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                                    if (isInitialRender) {
+                                                        let componentCall = new HomePage(this, {}, undefined, elmtId, () => { }, { page: "ArktsFrontend/entry/src/main/ets/pages/Layout.ets", line: 52, col: 15 });
+                                                        ViewPU.create(componentCall);
+                                                        let paramsLambda = () => {
+                                                            return {};
+                                                        };
+                                                        componentCall.paramsGenerator_ = paramsLambda;
+                                                    }
+                                                    else {
+                                                        this.updateStateVarsOfChildByElmtId(elmtId, {});
+                                                    }
+                                                }, { name: "HomePage" });
+                                            }
+                                        });
+                                    }
+                                    else if (this.currentIndex === 1) {
+                                        this.ifElseBranchUpdateFunction(1, () => {
+                                            {
+                                                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                                    if (isInitialRender) {
+                                                        let componentCall = new RecipePage(this, {}, undefined, elmtId, () => { }, { page: "ArktsFrontend/entry/src/main/ets/pages/Layout.ets", line: 54, col: 15 });
+                                                        ViewPU.create(componentCall);
+                                                        let paramsLambda = () => {
+                                                            return {};
+                                                        };
+                                                        componentCall.paramsGenerator_ = paramsLambda;
+                                                    }
+                                                    else {
+                                                        this.updateStateVarsOfChildByElmtId(elmtId, {});
+                                                    }
+                                                }, { name: "RecipePage" });
+                                            }
+                                        });
+                                    }
+                                    else if (this.currentIndex === 2) {
+                                        this.ifElseBranchUpdateFunction(2, () => {
+                                            {
+                                                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                                    if (isInitialRender) {
+                                                        let componentCall = new MarketPage(this, {}, undefined, elmtId, () => { }, { page: "ArktsFrontend/entry/src/main/ets/pages/Layout.ets", line: 56, col: 15 });
+                                                        ViewPU.create(componentCall);
+                                                        let paramsLambda = () => {
+                                                            return {};
+                                                        };
+                                                        componentCall.paramsGenerator_ = paramsLambda;
+                                                    }
+                                                    else {
+                                                        this.updateStateVarsOfChildByElmtId(elmtId, {});
+                                                    }
+                                                }, { name: "MarketPage" });
+                                            }
+                                        });
+                                    }
+                                    else if (this.currentIndex === 3) {
+                                        this.ifElseBranchUpdateFunction(3, () => {
+                                            {
+                                                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                                    if (isInitialRender) {
+                                                        let componentCall = new UserPage(this, {}, undefined, elmtId, () => { }, { page: "ArktsFrontend/entry/src/main/ets/pages/Layout.ets", line: 58, col: 15 });
+                                                        ViewPU.create(componentCall);
+                                                        let paramsLambda = () => {
+                                                            return {};
+                                                        };
+                                                        componentCall.paramsGenerator_ = paramsLambda;
+                                                    }
+                                                    else {
+                                                        this.updateStateVarsOfChildByElmtId(elmtId, {});
+                                                    }
+                                                }, { name: "UserPage" });
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        this.ifElseBranchUpdateFunction(4, () => {
+                                        });
+                                    }
+                                }, If);
+                                If.pop();
+                            });
+                            TabContent.tabBar({ builder: () => {
+                                    this.tabBuilder.call(this, item, index);
+                                } });
+                            TabContent.backgroundColor(Color.Black);
+                            TabContent.expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
+                        }, TabContent);
+                        TabContent.pop();
+                    };
+                    this.forEachUpdateFunction(elmtId, this.tabData, forEachItemGenFunction, undefined, true, false);
+                }, ForEach);
+                ForEach.pop();
+                Tabs.pop();
+            }, { moduleName: "entry", pagePath: "ArktsFrontend/entry/src/main/ets/pages/Layout" });
+            NavDestination.onReady((context) => {
+                this.pathStack = context.pathStack;
+            });
+        }, NavDestination);
+        NavDestination.pop();
+    }
+    rerender() {
+        this.updateDirtyElements();
+    }
+}
+__decorate([
+    Local
+], Layout.prototype, "currentIndex", void 0);
+(function () {
+    if (typeof NavigationBuilderRegister === "function") {
+        NavigationBuilderRegister("Layout", wrapBuilder(LayoutBuilder));
+    }
+})();
+//# sourceMappingURL=Layout.js.mapÂ”ÙOQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Recipe\RecipePage.etsÙKQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\User\UserPage.etsÙOQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Market\MarketPage.etsÙKQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Home\HomePage.etsÙ>Q:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Layout.etsÔrBš°belongModulePathªmoduleName±isLocalDependency¯isNodeEntryFile§pkgPath±belongProjectPath§pkgNameªpkgVersion±dependencyPkgInfo¯hostModulesInfoÙ Q:\MarketApp\ArktsFrontend\entry¥entryÃÂÙ Q:\MarketApp\ArktsFrontend\entry¬Q:\MarketApp¥entry¥1.0.0Ô  ÃÚ
+import { it } from "@ohos/hypium"
+import { RecipePage } from "./Users/Recipe/RecipePage"
+import { UserPage } from "./Users/User/UserPage"
+import { MarketPage } from "./Users/Market/MarketPage"
+import { HomePage } from "./Users/Home/HomePage"
+
+interface TabClass {
+  text: string
+  icon: ResourceStr
+}
+
+
+// è·³è½¬é¡µé¢å…¥å£å‡½æ•°
+@Builder
+export function LayoutBuilder() {
+  Layout()
+}
+
+@ComponentV2
+struct Layout {
+  @Local currentIndex: number = 0
+  pathStack: NavPathStack = new NavPathStack()
+  tabData: TabClass[] = [
+    // HomePage é¦–é¡µ å«ä»Šæ—¥æ¨èèœè°±  AIæ¨èå¡ç‰‡  è·³è½¬-ã€‹èœè°±è¯¦æƒ…
+    //
+    { text: 'é¦–é¡µ', icon: $r('app.media.ic_recommend') },
+    // RecipePage èœè°± å«åˆ†ç±»ç­›é€‰  æœç´¢æ   è·³è½¬ -ã€‹ èœè°±è¯¦æƒ…
+    { text: 'èœè°±', icon: $r('app.media.ic_find') },
+    // MarketPage å¸‚åœº å«å•†æˆ·åˆ†ç±»åˆ—è¡¨  åœ°å›¾å®šä½  è·³è½¬-ã€‹å•†æˆ·è¯¦æƒ…-ã€‹å•†å“è´­ä¹°
+    { text: 'å¸‚åœº', icon: $r('app.media.ic_moment') },
+    // UserPage æˆ‘çš„ å«ç”¨æˆ·èµ„æ–™  æ”¶è—èœè°± è®¢å•åˆ—è¡¨ è®¾ç½® è·³è½¬->ä¿®æ”¹åŸºæœ¬ä¿¡æ¯ ä¿®æ”¹å¯†ç 
+    { text: 'æˆ‘çš„', icon: $r('app.media.ic_mine') }
+  ]
+
+  @Builder tabBuilder(item: TabClass, index: number) {
+    Column({ space: 5 }) {
+      Image(item.icon)
+        .width(25)
+        .fillColor(this.currentIndex === index ? Color.Pink : Color.Green)
+      Text(item.text)
+        .fontSize(14)
+        .fontColor(this.currentIndex === index ? Color.Pink : Color.Green)
+    }
+  }
+
+  build() {
+    NavDestination() {
+      Tabs({ barPosition: BarPosition.End }) {
+        ForEach(this.tabData, (item: TabClass, index: number) => {
+          TabContent() {
+            if (this.currentIndex === 0) {
+              HomePage()
+            } else if (this.currentIndex === 1) {
+              RecipePage()
+            }else if (this.currentIndex === 2){
+              MarketPage()
+            }else if (this.currentIndex ===3 ){
+              UserPage()
+            }
+          }
+          .tabBar(this.tabBuilder(item, index))
+          .backgroundColor(Color.Black)
+          .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
+
+        })
+      }
+      .backgroundColor('#3B4043')
+      .onChange((index: number) => {
+        this.currentIndex = index
+      })
+      .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
+    }
+
+    // .title('å¸ƒå±€é¡µé¢')
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack
+    })
+
+  }
+
+
+}
+ÀÔrC”¹./Users/Market/MarketPageµ./Users/User/UserPage¹./Users/Recipe/RecipePageµ./Users/Home/HomePageÔrD—ªassertions¨external¢id¤meta±moduleSideEffectsªresolvedByµsyntheticNamedExportsAÂÙOQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Market\MarketPage.etsAÃªoh-resolveÂDAÂÙKQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\User\UserPage.etsAÃªoh-resolveÂDAÂÙOQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Recipe\RecipePage.etsAÃªoh-resolveÂDAÂÙKQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Home\HomePage.etsAÃªoh-resolveÂ’ÔrE–§version¤fileªsourceRoot§sources¥names¨mappings©Layout.js ‘ªLayout.etsÜ Â˜”   ” ”	 	” ” ” ”6 6”7 6˜”   ” ”	 	” ” ” ”0 0”1 0˜”   ” ”	 	” ” ” ”6 6”7 6˜”   ” ”	 	” ” ” ”0 0”1 0’”   ” ””   ” ” ” ’”( ”. ‘” ’” ” ‘”  ’”  ” !”” ”  ”) ,”+ .‘” ’” ”4 ,’” ” ™” ” ” 
+” ” ” ” ”Ì‹ 4”Ì 6’” ”3 +™” ” ” 
+” ” ” ” ”Ì‹ /”Ì 1’” ”: 2™” ” ” 
+” ” ” ” ”Ì‹ 1”Ì 3’” ”> 6™” ” ” 
+” ” ” ” ”Ì‹ /”Ì 1‘”	  ‘” –” "” "” "” "$” "&” "3˜” #” #
+” #” #”! #”# #”$ #”& #–” $” $” $” $” $”" $–” $” $” %	” %” %” %Ü ” $” $” &	” &” &”  &”! &”- &$”2 &)”7 &.”8 &/”9 &0”: &1”? &6”Ì@ &7”ÌD &;”ÌE &<”ÌF &=”ÌG &>”ÌL &ÌC”ÌM &ÌD”ÌR &ÌI–” '” '
+” '” '” '”! '–” '” '
+” (	” (” (” (Ü ” '” '
+” )	” )” )” )”  )”, )$”1 ))”6 ).”7 )/”8 )0”9 )1”> )6”? )7”ÌC );”ÌD )<”ÌE )=”ÌF )>”ÌK )ÌC”ÌL )ÌD”ÌQ )ÌI’” '” '
+’” #” #
+‘” +‘” -š” /” /
+”  /”" /”- /”/ /”: /%”; /&”> /)”Ì@ /+–” /” /
+” ÌB”( ÌB”) ÌB”2 ÌB ™” /” /
+” ÌC”! ÌC”" ÌC”# ÌC”( ÌC”* ÌC ”, ÌC"—” ÌD” ÌD” ÌD”) ÌD”, ÌD”1 ÌD!”2 ÌD!’” ÌE” ÌEÜ ” /” /
+” ÌF”' ÌF”( ÌF”) ÌF”5 ÌF#”6 ÌF$”< ÌF*”= ÌF+”? ÌF-”Ì@ ÌF.”ÌL ÌF:”ÌM ÌF;”ÌP ÌF>”ÌR ÌFÌ@”Ì^ ÌFÌL”Ì_ ÌFÌM”Ìe ÌFÌS”Ìf ÌFÌT’” 0” 0’”; 0/”Ì@ 0<˜”$ 2”( 2”, 2”- 2”9 2!”> 2&”? 2'”ÌA 2)’”ÌP 3”ÌX 3‘”% 4˜”) 4”- 4”1 4”2 4”> 4(”ÌC 4-”ÌD 4.”ÌF 40’”ÌP 5”ÌZ 5‘”% 6˜”) 6”- 6”1 6”2 6”> 6'”ÌC 6,”ÌD 6-”ÌF 6.’”ÌP 7”ÌZ 7‘”% 8˜”) 8”- 8”1 8”2 8”> 8'”ÌC 8+”ÌD 8,”ÌF 8.’”ÌP 9”ÌX 9‘”% :‘”% :’”' <”- <˜”$ <”( <”) <”3 <!”? <"”ÌC <&”ÌE <(”ÌJ <-–”' =”6 =”7 =”< = ”= =!”ÌB =&Ü ”' >”5 >”6 >”7 >”ÌC >'”ÌD >(”ÌJ >.”ÌK >/”ÌM >1”ÌN >2”ÌZ >>”Ì[ >?”Ì^ >ÌB”Ì` >ÌD”Ìl >ÌP”Ìm >ÌQ”Ìs >ÌW”Ìt >ÌX””7 0”; 0”< 0”ÌC 0’” 0” 0’” /” /
+—” ÌJ”" ÌJ”# ÌJ”$ ÌJ”+ ÌJ,”- ÌJ.”/ ÌJ0™” ÌK” ÌK
+” ÌK” ÌK”! ÌK”( ÌK”) ÌK”2 ÌK(”3 ÌK(’” ÌL” ÌL‘” ÌN‘”  	’” ”	 ‘”, !ÔrF–§version¤file§sources®sourcesContent¥names¨mappingsÀ‘À‘ÀÜ È‘”    ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”  	 ‘”  
+ ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”   ‘”    ‘”  ! ‘”  " ‘”  # ‘”  $ ‘”  % ‘”  & ‘”  ' ‘”  ( ‘”  ) ‘”  * ‘”  + ‘”  , ‘”  - ‘”  . ‘”  / ‘”  0 ‘”  1 ‘”  2 ‘”  3 ‘”  4 ‘”  5 ‘”  6 ‘”  7 ‘”  8 ‘”  9 ‘”  : ‘”  ; ‘”  < ‘”  = ‘”  > ‘”  ? ‘”  Ì@ ‘”  ÌA ‘”  ÌB ‘”  ÌC ‘”  ÌD ‘”  ÌE ‘”  ÌF ‘”  ÌG ‘”  ÌH ‘”  ÌI ‘”  ÌJ ‘”  ÌK ‘”  ÌL ‘”  ÌM ‘”  ÌN ‘”  ÌO ‘”  ÌP ‘”  ÌQ ‘”  ÌR ‘”  ÌS ‘”  ÌT ‘”  ÌU ‘”  ÌV ‘”  ÌW ‘”  ÌX ‘”  ÌY ‘”  ÌZ ‘”  Ì[ ‘”  Ì\ ‘”  Ì] ‘”  Ì^ ‘”  Ì_ ‘”  Ì` ‘”  Ìa ‘”  Ìb ‘”  Ìc ‘”  Ìd ‘”  Ìe ‘”  Ìf ‘”  Ìg ‘”  Ìh ‘”  Ìi ‘”  Ìj ‘”  Ìk ‘”  Ìl ‘”  Ìm ‘”  Ìn ‘”  Ìo ‘”  Ìp ‘”  Ìq ‘”  Ìr ‘”  Ìs ‘”  Ìt ‘”  Ìu ‘”  Ìv ‘”  Ìw ‘”  Ìx ‘”  Ìy ‘”  Ìz ‘”  Ì{ ‘”  Ì| ‘”  Ì} ‘”  Ì~ ‘”  Ì ‘”  Ì€ ‘”  Ì ‘”  Ì‚ ‘”  Ìƒ ‘”  Ì„ ‘”  Ì… ‘”  Ì† ‘”  Ì‡ ‘”  Ìˆ ‘”  Ì‰ ‘”  ÌŠ ‘”  Ì‹ ‘”  ÌŒ ‘”  Ì ‘”  Ì ‘”  Ì ‘”  Ì ‘”  Ì‘ ‘”  Ì’ ‘”  Ì“ ‘”  Ì” ‘”  Ì• ‘”  Ì– ‘”  Ì— ‘”  Ì˜ ‘”  Ì™ ‘”  Ìš ‘”  Ì› ‘”  Ìœ ‘”  Ì ‘”  Ì ‘”  ÌŸ ‘”  Ì  ‘”  Ì¡ ‘”  Ì¢ ‘”  Ì£ ‘”  Ì¤ ‘”  Ì¥ ‘”  Ì¦ ‘”  Ì§ ‘”  Ì¨ ‘”  Ì© ‘”  Ìª ‘”  Ì« ‘”  Ì¬ ‘”  Ì­ ‘”  Ì® ‘”  Ì¯ ‘”  Ì° ‘”  Ì± ‘”  Ì² ‘”  Ì³ ‘”  Ì´ ‘”  Ìµ ‘”  Ì¶ ‘”  Ì· ‘”  Ì¸ ‘”  Ì¹ ‘”  Ìº ‘”  Ì» ‘”  Ì¼ ‘”  Ì½ ‘”  Ì¾ ‘”  Ì¿ ‘”  ÌÀ ‘”  ÌÁ ‘”  ÌÂ ‘”  ÌÃ ‘”  ÌÄ ‘”  ÌÅ ‘”  ÌÆ ‘”  ÌÇ ÂÔ  ÔrG”²dynamicImportCache¹exportAllDeclarationCache»exportNamedDeclarationCache«importCache‘ÔrH–¤type¥start£end«declarationªspecifiers¦source¶ExportNamedDeclarationÍ§Í™ÔrI™¤type¥start£end¢idªexpression©generator¥async¦params¤body³FunctionDeclarationÍ®Í™ÔrJ”¤type¥start£end¤nameªIdentifierÍ·ÍÄ­LayoutBuilderÂÂÂ‘ÔrK•¤type¥start£end¤left¥right±AssignmentPatternÍÅÍÒJªIdentifierÍÅÍË¦parentÔrL•¤type¥start£end¥value£raw§LiteralÍÎÍÒÀ¤nullÔrM”¤type¥start£end¤body®BlockStatementÍÔÍ™‘M®BlockStatementÍÛÍ–‘ÔrN”¤type¥start£endªexpression³ExpressionStatementÍæÍÔrO–¤type¥start£end¦callee©arguments¨optional®CallExpressionÍæÍÔrP—¤type¥start£end¦object¨property¨computed¨optional°MemberExpressionÍæÍÔrQ–¤type¥start£end¤testªconsequent©alternateµConditionalExpressionÍçÍıJªIdentifierÍçÍí¦parentJªIdentifierÍğÍö¦parentÔrR“¤type¥start£end®ThisExpressionÍùÍıJªIdentifierÍÿÍ¹observeComponentCreation2ÂÂ’I·ArrowFunctionExpressionÍÍyÀÂÂÂ’JªIdentifierÍÍ ¦elmtIdJªIdentifierÍ"Í1¯isInitialRenderM®BlockStatementÍ6Íy‘Q«IfStatementÍEÍnJªIdentifierÍIÍX¯isInitialRenderM®BlockStatementÍZÍõ”ÔrS•¤type¥start£end¬declarations¤kind³VariableDeclarationÍmÍ‘ÔrT•¤type¥start£end¢id¤init²VariableDeclaratorÍqÍJªIdentifierÍqÍ~­componentCallÔrU•¤type¥start£end¦callee©arguments­NewExpressionÍÍJªIdentifierÍ…Í‹¦Layout–QµConditionalExpressionÍŒÍ¢JªIdentifierÍŒÍ’¦parentJªIdentifierÍ•Í›¦parentR®ThisExpressionÍÍ¢ÔrV”¤type¥start£endªproperties°ObjectExpressionÍ¤Í¦JªIdentifierÍ¨Í±©undefinedJªIdentifierÍ³Í¹¦elmtIdI·ArrowFunctionExpressionÍ»ÍÄÀÂÂÂM®BlockStatementÍÁÍÄV°ObjectExpressionÍÆÍ“ÔrW™¤type¥start£end¦method©shorthand¨computed£key¥value¤kind¨PropertyÍÈÍÂÂÂJªIdentifierÍÈÍÌ¤pageL§LiteralÍÎÍÙ1ArktsFrontend/entry/src/main/ets/pages/Layout.etsÙ3"ArktsFrontend/entry/src/main/ets/pages/Layout.ets"¤initW¨PropertyÍÍÂÂÂJªIdentifierÍÍ¤lineL§LiteralÍ	Í¢16¤initW¨PropertyÍÍÂÂÂJªIdentifierÍÍ£colL§LiteralÍÍ¡3¤init£letN³ExpressionStatementÍ)ÍFO®CallExpressionÍ)ÍEP°MemberExpressionÍ)Í6JªIdentifierÍ)Í/¦ViewV2JªIdentifierÍ0Í6¦createÂÂ‘JªIdentifierÍ7ÍD­componentCallÂS³VariableDeclarationÍXÍ¦‘T²VariableDeclaratorÍ\Í¥JªIdentifierÍ\Íh¬paramsLambdaI·ArrowFunctionExpressionÍkÍ¥ÀÂÂÂM®BlockStatementÍqÍ¥‘ÔrX”¤type¥start£end¨argument¯ReturnStatementÍˆÍ’V°ObjectExpressionÍÍ‘£letN³ExpressionStatementÍ¸ÍæÔrY–¤type¥start£end¨operator¤left¥right´AssignmentExpressionÍ¸Íå¡=P°MemberExpressionÍ¸ÍÖJªIdentifierÍ¸ÍÅ­componentCallJªIdentifierÍÆÍÖ°paramsGenerator_ÂÂJªIdentifierÍÙÍå¬paramsLambdaM®BlockStatementÍÍn‘N³ExpressionStatementÍÍ_O®CallExpressionÍÍ^P°MemberExpressionÍÍRQµConditionalExpressionÍÍ2JªIdentifierÍÍ"¦parentJªIdentifierÍ%Í+¦parentR®ThisExpressionÍ.Í2JªIdentifierÍ4ÍR¾updateStateVarsOfChildByElmtIdÂÂ’JªIdentifierÍSÍY¦elmtIdV°ObjectExpressionÍ[Í]ÂV°ObjectExpressionÍ{Í‘W¨PropertyÍ}Í‹ÂÂÂJªIdentifierÍ}Í¤nameL§LiteralÍƒÍ‹¦Layout¨"Layout"¤initÂÀ”ÔrZ•¤type¥start£endªspecifiers¦source±ImportDeclarationÍÂÍù‘Ôr[•¤type¥start£end¨imported¥local¯ImportSpecifierÍËÍÕJªIdentifierÍËÍÕªRecipePageJªIdentifierÍËÍÕªRecipePageL§LiteralÍİÍø¹./Users/Recipe/RecipePage»"./Users/Recipe/RecipePage"Z±ImportDeclarationÍûÍ,‘[¯ImportSpecifierÍÍJªIdentifierÍÍ¨UserPageJªIdentifierÍÍ¨UserPageL§LiteralÍÍ+µ./Users/User/UserPage·"./Users/User/UserPage"Z±ImportDeclarationÍ.Íe‘[¯ImportSpecifierÍ7ÍAJªIdentifierÍ7ÍAªMarketPageJªIdentifierÍ7ÍAªMarketPageL§LiteralÍIÍd¹./Users/Market/MarketPage»"./Users/Market/MarketPage"Z±ImportDeclarationÍgÍ˜‘[¯ImportSpecifierÍpÍxJªIdentifierÍpÍx¨HomePageJªIdentifierÍpÍx¨HomePageL§LiteralÍ€Í—µ./Users/Home/HomePage·"./Users/Home/HomePage"

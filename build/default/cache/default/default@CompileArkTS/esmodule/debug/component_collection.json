@@ -1,0 +1,50 @@
+{
+  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Start.ets": [
+    "NavDestination",
+    "Button"
+  ],
+  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets": [
+    "Column",
+    "Image",
+    "Text",
+    "NavDestination",
+    "Tabs",
+    "ForEach",
+    "TabContent",
+    "If"
+  ],
+  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": [
+    "Column",
+    "Text"
+  ],
+  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets": [
+    "Column",
+    "Text"
+  ],
+  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Market\\MarketPage.ets": [
+    "Column",
+    "Row",
+    "Text",
+    "Blank",
+    "Image",
+    "Divider",
+    "Scroll",
+    "ForEach",
+    "Flex",
+    "Button"
+  ],
+  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets": [
+    "Column",
+    "Row",
+    "Image",
+    "Text",
+    "Blank",
+    "Scroll"
+  ],
+  "ArktsFrontend\\entry\\src\\main\\ets\\entryability\\EntryAbility.ets": [
+    "If"
+  ],
+  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Index.ets": [
+    "Navigation"
+  ]
+}
