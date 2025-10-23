@@ -37,9 +37,15 @@
     "Column",
     "Row",
     "Image",
+    "TextInput",
+    "Button",
     "Text",
     "Blank",
-    "Scroll"
+    "Scroll",
+    "List",
+    "ForEach",
+    "ListItem",
+    "If"
   ],
   "ArktsFrontend\\entry\\src\\main\\ets\\entryability\\EntryAbility.ets": [
     "If"

@@ -37,8 +37,12 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets": {
-      "mtimeMs": 1760599336762.3145,
-      "children": [],
+      "mtimeMs": 1761233250856.7615,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\Colors.ets"
+      ],
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets"
       ],
@@ -219,7 +223,8 @@
       ],
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\entryability\\EntryAbility.ets",
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Index.ets"
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Index.ets",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets"
       ],
       "error": false
     },
@@ -1530,7 +1535,8 @@
       ],
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.UIContext.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets"
       ],
       "error": false
     },
@@ -2813,82 +2819,7 @@
     },
     "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.modifier.d.ts": {
       "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CommonModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\AlphabetIndexerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\BlankModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ButtonModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CalendarPickerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CheckboxModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CheckboxGroupModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ColumnModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ColumnSplitModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CounterModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\DataPanelModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\DatePickerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\DividerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GaugeModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GridModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GridColModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GridItemModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GridRowModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\HyperlinkModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ImageAnimatorModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ImageModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SymbolGlyphModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ImageSpanModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\LineModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ListModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ListItemModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ListItemGroupModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\LoadingProgressModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\MarqueeModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\MenuModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\MenuItemModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\NavDestinationModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\NavigationModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\NavigatorModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\NavRouterModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PanelModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PathModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PatternLockModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PolygonModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PolylineModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ProgressModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\QRCodeModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RadioModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RatingModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RectModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RefreshModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RichEditorModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RowModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RowSplitModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ScrollModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SearchModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SelectModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ShapeModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SideBarContainerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SliderModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SpanModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\StackModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\StepperItemModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SwiperModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TabsModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextAreaModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextClockModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextInputModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextPickerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextTimerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TimePickerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ToggleModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\VideoModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\WaterFlowModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\AttributeUpdater.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ContainerSpanModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SymbolSpanModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ParticleModifier.d.ts"
-      ],
+      "children": [],
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.advanced.Chip.d.ets",
@@ -4205,6 +4136,14 @@
       ],
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts"
+      ],
+      "error": false
+    },
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\Colors.ets": {
+      "mtimeMs": 1761232971705.6235,
+      "children": [],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets"
       ],
       "error": false
     }

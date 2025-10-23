@@ -1,16 +1,6 @@
 {
-  "ArktsFrontend\\entry\\src\\main\\ets\\entrybackupability\\EntryBackupAbility.ets": [
-    "ohos.hilog",
-    "ohos.application.BackupExtensionAbility"
-  ],
-  "ArktsFrontend\\entry\\src\\main\\ets\\entryability\\EntryAbility.ets": [
-    "ohos.app.ability.ConfigurationConstant",
-    "ohos.app.ability.UIAbility",
-    "ohos.app.ability.AbilityConstant",
-    "ohos.app.ability.Want",
-    "ohos.hilog"
-  ],
-  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Index.ets": [
-    "ohos.arkui.StateManagement"
+  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets": [
+    "ohos.router",
+    "ohos.promptAction"
   ]
 }
