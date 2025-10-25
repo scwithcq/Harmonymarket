@@ -1,6 +1,6 @@
 {
-  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets": [
+  "entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": [
     "ohos.router",
-    "ohos.promptAction"
+    "ohos.net.http"
   ]
 }

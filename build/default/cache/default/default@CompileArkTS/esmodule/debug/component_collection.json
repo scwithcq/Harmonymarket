@@ -1,9 +1,9 @@
 {
-  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Start.ets": [
+  "entry\\src\\main\\ets\\pages\\Start.ets": [
     "NavDestination",
     "Button"
   ],
-  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets": [
+  "entry\\src\\main\\ets\\pages\\Layout.ets": [
     "Column",
     "Image",
     "Text",
@@ -13,15 +13,15 @@
     "TabContent",
     "If"
   ],
-  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": [
+  "entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": [
     "Column",
     "Text"
   ],
-  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets": [
+  "entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets": [
     "Column",
     "Text"
   ],
-  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Market\\MarketPage.ets": [
+  "entry\\src\\main\\ets\\pages\\Users\\Market\\MarketPage.ets": [
     "Column",
     "Row",
     "Text",
@@ -30,10 +30,12 @@
     "Divider",
     "Scroll",
     "ForEach",
+    "List",
+    "ListItem",
     "Flex",
     "Button"
   ],
-  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets": [
+  "entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets": [
     "Column",
     "Row",
     "Image",
@@ -47,10 +49,21 @@
     "ListItem",
     "If"
   ],
-  "ArktsFrontend\\entry\\src\\main\\ets\\entryability\\EntryAbility.ets": [
+  "entry\\src\\main\\ets\\entryability\\EntryAbility.ets": [
     "If"
   ],
-  "ArktsFrontend\\entry\\src\\main\\ets\\pages\\Index.ets": [
+  "entry\\src\\main\\ets\\pages\\Index.ets": [
     "Navigation"
+  ],
+  "entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": [
+    "Column",
+    "Row",
+    "Button",
+    "Text",
+    "Image",
+    "Scroll",
+    "ForEach",
+    "ListItem",
+    "If"
   ]
 }

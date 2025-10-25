@@ -16,6 +16,7 @@ media 8 0x0100000f
 media 9 0x01000010
 media Market_logo 0x01000011
 media MediaCreationTool 0x01000012
+media Shopping 0x01000052
 media ad 0x01000013
 media app_icon 0x01000001
 media background 0x01000014
@@ -37,6 +38,7 @@ media ic_comment 0x01000023
 media ic_comment_o 0x01000024
 media ic_download 0x01000025
 media ic_download_o 0x01000026
+media ic_empty 0x01000051
 media ic_favorite 0x01000027
 media ic_find 0x01000028
 media ic_girl 0x01000029

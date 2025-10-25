@@ -3,7 +3,7 @@ import router from '@ohos.router';
 import { promptAction } from '@kit.ArkUI';
 // 后期在这里设置统一颜色
 import { app_color } from '../../../utils/Colors'
-
+import { SearchParams } from '../../../common/Params/SearchParams/SearchParams';
 
 // 文章数据定义
 export interface Article {
@@ -30,29 +30,29 @@ export const ArticleList: Article[] = [
     test: '川味代表，香麻下饭'
   },
   {
-    "image": "https://picsum.photos/200/120?random=11",
-    "title": "糖醋里脊",
-    "test": "酸甜酥脆，老少皆宜"
+    image: "https://picsum.photos/200/120?random=11",
+    title: "糖醋里脊",
+    test: "酸甜酥脆，老少皆宜"
   },
   {
-    "image": "https://picsum.photos/200/120?random=22",
-    "title": "清蒸鲈鱼",
-    "test": "鲜嫩无腥味，广式经典"
+    image: "https://picsum.photos/200/120?random=22",
+    title: "清蒸鲈鱼",
+    test: "鲜嫩无腥味，广式经典"
   },
   {
-    "image": "https://picsum.photos/200/120?random=33",
-    "title": "宫保鸡丁",
-    "test": "麻辣微甜，花生脆香"
+    image: "https://picsum.photos/200/120?random=33",
+    title: "宫保鸡丁",
+    test: "麻辣微甜，花生脆香"
   },
   {
-    "image": "https://picsum.photos/200/120?random=44",
-    "title": "红烧肉",
-    "test": "肥而不腻，入口即化"
+    image: "https://picsum.photos/200/120?random=44",
+    title: "红烧肉",
+    test: "肥而不腻，入口即化"
   },
   {
-    "image": "https://picsum.photos/200/120?random=55",
-    "title": "西红柿鸡蛋",
-    "test": "家常快手菜，百吃不厌"
+    image: "https://picsum.photos/200/120?random=55",
+    title: "西红柿鸡蛋",
+    test: "家常快手菜，百吃不厌"
   }
 ]
 
@@ -63,6 +63,15 @@ export struct HomePage {
   readonly TABBAR_HEIGHT: number = 350
   @State articles: Article[] = ArticleList
   @State productName: string = '';
+  @State cartVisible: Visibility = Visibility.Visible
+
+  // 声明 pathStack
+  pathStack: NavPathStack = new NavPathStack();
+
+  // 在页面 ready 时获取上层 NavDestination 的 pathStack
+  onReady(context: NavDestinationContext) {
+    this.pathStack = context.pathStack;
+  }
 
   build() {
     Column() {
@@ -97,10 +106,19 @@ export struct HomePage {
             .height(40)
             .margin({ left: 10 })
             .backgroundColor('#4CAF50')
-            .fontColor('#ffffff')
+            .fontColor('#FFFFFF')
             .onClick(() => {
-              this.goToSearchPage();
-            })
+              if (!this.productName?.trim()) {
+                promptAction.showToast({ message: '请输入商品名称' });
+                return;
+              }
+
+              // const params = new SearchParams(this.productName);
+              router.pushUrl({
+                url: 'pages/Users/Home/SearchProductPage',
+                params: { keyword: this.productName ,animateCart:true}
+              });
+            });
 
 
         }
@@ -260,14 +278,14 @@ export struct HomePage {
 
   // 设置一个搜索框点击搜索跳转到新页面的方法
   goToSearchPage() {
-    if (!this.productName.trim()) {
-      promptAction.showToast({ message: '请输入关键词' });
+    if (!this.productName || this.productName.trim() === '') {
+      promptAction.showToast({ message: '请输入商品名称' });
       return
     }
 
     // 使用 router.push 跳转到结果页，并传递参数
     router.pushUrl({
-      url: 'pages/User/Home/SearchResultPage',
+      url: 'pages/Users/Home/SearchProductPage',
       params: {
         productName: this.productName
       }

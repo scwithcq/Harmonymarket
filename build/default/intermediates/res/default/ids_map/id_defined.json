@@ -323,5 +323,13 @@
 			"type":	"profile",
 			"name":	"route_map",
 			"id":	"0x01000050"
+		}, {
+			"type":	"media",
+			"name":	"ic_empty",
+			"id":	"0x01000051"
+		}, {
+			"type":	"media",
+			"name":	"Shopping",
+			"id":	"0x01000052"
 		}]
 }

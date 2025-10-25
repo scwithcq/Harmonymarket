@@ -3,7 +3,7 @@
     "entry": "Q:\\MarketApp\\ArktsFrontend\\entry"
   },
   "compileMode": "esmodule",
-  "projectRootPath": "Q:\\MarketApp",
+  "projectRootPath": "Q:\\MarketApp\\ArktsFrontend",
   "nodeModulesPath": "Q:\\MarketApp\\ArktsFrontend\\entry\\build\\default\\intermediates\\loader_out\\default\\node_modules",
   "byteCodeHarInfo": {},
   "declarationEntry": [],
