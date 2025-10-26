@@ -138,6 +138,9 @@ export class HomePage extends ViewPU {
     }
     initialRender() {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Scroll.create();
+        }, Scroll);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
             Column.create();
             Column.width('100%');
             Column.height('100%');
@@ -505,6 +508,7 @@ export class HomePage extends ViewPU {
         // 菜谱列表
         List.pop();
         Column.pop();
+        Scroll.pop();
     }
     // 设置一个搜索框点击搜索跳转到新页面的方法
     goToSearchPage() {

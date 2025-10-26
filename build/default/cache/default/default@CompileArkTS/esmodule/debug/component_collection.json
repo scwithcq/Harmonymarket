@@ -18,8 +18,15 @@
     "Text"
   ],
   "entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets": [
+    "Scroll",
     "Column",
-    "Text"
+    "Row",
+    "Text",
+    "Image",
+    "Blank",
+    "Button",
+    "TextInput",
+    "If"
   ],
   "entry\\src\\main\\ets\\pages\\Users\\Market\\MarketPage.ets": [
     "Column",
@@ -36,6 +43,7 @@
     "Button"
   ],
   "entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets": [
+    "Scroll",
     "Column",
     "Row",
     "Image",
@@ -43,7 +51,6 @@
     "Button",
     "Text",
     "Blank",
-    "Scroll",
     "List",
     "ForEach",
     "ListItem",

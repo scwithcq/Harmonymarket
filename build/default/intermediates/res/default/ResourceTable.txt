@@ -19,6 +19,7 @@ media MediaCreationTool 0x01000012
 media Shopping 0x01000052
 media ad 0x01000013
 media app_icon 0x01000001
+media arrow_right 0x01000053
 media background 0x01000014
 media banner1 0x01000015
 media banner2 0x01000016

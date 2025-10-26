@@ -331,5 +331,9 @@
 			"type":	"media",
 			"name":	"Shopping",
 			"id":	"0x01000052"
+		}, {
+			"type":	"media",
+			"name":	"arrow_right",
+			"id":	"0x01000053"
 		}]
 }
