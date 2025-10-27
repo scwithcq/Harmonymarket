@@ -210,7 +210,7 @@ export class HomePage extends ViewPU {
             //   .borderRadius(22)
             //   .shadow({radius: 4, color: 'rgba(0,0,0,0.08)', offsetX: 0, offsetY: 2})
             // 搜索框
-            Row.justifyContent(FlexAlign.Start);
+            Row.justifyContent(FlexAlign.SpaceBetween);
             // 用户头像
             // Image('https://picsum.photos/40/40')
             //   .width(44)
@@ -229,7 +229,7 @@ export class HomePage extends ViewPU {
             Row.border({ width: 1, color: '#E9ECEF' });
         }, Row);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Image.create({ "id": 16777274, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
+            Image.create({ "id": 16777277, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
             Image.width(16);
             Image.height(16);
             Image.margin({ right: 8 });
@@ -369,6 +369,81 @@ export class HomePage extends ViewPU {
         Text.pop();
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Text.create('家常必备，简单美味');
+            Text.fontSize(12);
+            Text.fontColor('#888');
+            Text.margin({ top: 4 });
+        }, Text);
+        Text.pop();
+        Column.pop();
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Column.create();
+            Column.margin({ right: 12 });
+        }, Column);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Image.create('https://picsum.photos/200/120?random=9');
+            Image.width(150);
+            Image.height(110);
+            Image.borderRadius(12);
+        }, Image);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Text.create('麻婆豆腐');
+            Text.fontSize(16);
+            Text.fontWeight(FontWeight.Bold);
+            Text.margin({ top: 8 });
+        }, Text);
+        Text.pop();
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Text.create('麻辣鲜香，下饭神器');
+            Text.fontSize(12);
+            Text.fontColor('#888');
+            Text.margin({ top: 4 });
+        }, Text);
+        Text.pop();
+        Column.pop();
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Column.create();
+            Column.margin({ right: 12 });
+        }, Column);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Image.create('https://picsum.photos/200/120?random=7');
+            Image.width(150);
+            Image.height(110);
+            Image.borderRadius(12);
+        }, Image);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Text.create('糖醋里脊');
+            Text.fontSize(16);
+            Text.fontWeight(FontWeight.Bold);
+            Text.margin({ top: 8 });
+        }, Text);
+        Text.pop();
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Text.create('酸甜开胃，老少皆宜');
+            Text.fontSize(12);
+            Text.fontColor('#888');
+            Text.margin({ top: 4 });
+        }, Text);
+        Text.pop();
+        Column.pop();
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Column.create();
+            Column.margin({ right: 12 });
+        }, Column);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Image.create('https://picsum.photos/200/120?random=5');
+            Image.width(150);
+            Image.height(110);
+            Image.borderRadius(12);
+        }, Image);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Text.create('蒜蓉西兰花');
+            Text.fontSize(16);
+            Text.fontWeight(FontWeight.Bold);
+            Text.margin({ top: 8 });
+        }, Text);
+        Text.pop();
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Text.create('清爽低脂，十分钟上桌');
             Text.fontSize(12);
             Text.fontColor('#888');
             Text.margin({ top: 4 });

@@ -65,10 +65,13 @@
   "entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": [
     "Column",
     "Row",
+    "Image",
+    "TextInput",
     "Button",
     "Text",
-    "Image",
     "Scroll",
+    "Stack",
+    "List",
     "ForEach",
     "ListItem",
     "If"

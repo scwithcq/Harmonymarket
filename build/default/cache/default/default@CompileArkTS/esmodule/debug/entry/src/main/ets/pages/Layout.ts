@@ -35,13 +35,13 @@ class Layout extends ViewV2 {
         this.tabData = [
             // HomePage 首页 含今日推荐菜谱  AI推荐卡片  跳转-》菜谱详情
             //
-            { text: '首页', icon: { "id": 16777272, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
+            { text: '首页', icon: { "id": 16777275, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
             // RecipePage 菜谱 含分类筛选  搜索栏  跳转 -》 菜谱详情
-            { text: '菜谱', icon: { "id": 16777256, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
+            { text: '菜谱', icon: { "id": 16777259, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
             // MarketPage 市场 含商户分类列表  地图定位  跳转-》商户详情-》商品购买
-            { text: '市场', icon: { "id": 16777263, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
+            { text: '市场', icon: { "id": 16777266, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
             // UserPage 我的 含用户资料  收藏菜谱 订单列表 设置 跳转->修改基本信息 修改密码
-            { text: '我的', icon: { "id": 16777262, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } }
+            { text: '我的', icon: { "id": 16777265, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } }
         ];
         this.finalizeConstruction();
     }

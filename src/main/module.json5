@@ -1,6 +1,5 @@
 {
   "module": {
-
     "routerMap": "$profile:route_map",
     "name": "entry",
     "type": "entry",
@@ -33,7 +32,7 @@
               "action.system.home"
             ]
           }
-        ]
+        ],
       }
     ],
     "extensionAbilities": [
@@ -50,9 +49,10 @@
         ],
       }
     ],
-    "requestPermissions":[
+    "requestPermissions": [
       {
-        "name": "ohos.permission.INTERNET" // 配置网络
+        "name": "ohos.permission.INTERNET"
+        // 配置网络
       },
       {
         "name": "ohos.permission.GET_NETWORK_INFO"

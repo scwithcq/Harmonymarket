@@ -37,13 +37,13 @@ class Layout extends ViewV2 {
         this.tabData = [
             // HomePage é¦–é¡µ å«ä»Šæ—¥æŽ¨èèœè°±  AIæŽ¨èå¡ç‰‡  è·³è½¬-ã€‹èœè°±è¯¦æƒ…
             //
-            { text: 'é¦–é¡µ', icon: { "id": 16777272, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
+            { text: 'é¦–é¡µ', icon: { "id": 16777275, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
             // RecipePage èœè°± å«åˆ†ç±»ç­›é€‰  æœç´¢æ   è·³è½¬ -ã€‹ èœè°±è¯¦æƒ…
-            { text: 'èœè°±', icon: { "id": 16777256, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
+            { text: 'èœè°±', icon: { "id": 16777259, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
             // MarketPage å¸‚åœº å«å•†æˆ·åˆ†ç±»åˆ—è¡¨  åœ°å›¾å®šä½  è·³è½¬-ã€‹å•†æˆ·è¯¦æƒ…-ã€‹å•†å“è´­ä¹°
-            { text: 'å¸‚åœº', icon: { "id": 16777263, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
+            { text: 'å¸‚åœº', icon: { "id": 16777266, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } },
             // UserPage æˆ‘çš„ å«ç”¨æˆ·èµ„æ–™  æ”¶è—èœè°± è®¢å•åˆ—è¡¨ è®¾ç½® è·³è½¬->ä¿®æ”¹åŸºæœ¬ä¿¡æ¯ ä¿®æ”¹å¯†ç 
-            { text: 'æˆ‘çš„', icon: { "id": 16777262, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } }
+            { text: 'æˆ‘çš„', icon: { "id": 16777265, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" } }
         ];
         this.finalizeConstruction();
     }
@@ -280,7 +280,7 @@ struct Layout {
 
 
 }
-ÀÔrC”µ./Users/User/UserPage¹./Users/Recipe/RecipePage¹./Users/Market/MarketPageµ./Users/Home/HomePageÔrD—ªassertions¨external¢id¤meta±moduleSideEffectsªresolvedByµsyntheticNamedExportsAÂÙKQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\User\UserPage.etsAÃªoh-resolveÂDAÂÙOQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Recipe\RecipePage.etsAÃªoh-resolveÂDAÂÙOQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Market\MarketPage.etsAÃªoh-resolveÂDAÂÙKQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Home\HomePage.etsAÃªoh-resolveÂ’ÔrE–§version¤fileªsourceRoot§sources¥names¨mappings©Layout.js ‘ªLayout.etsÜ Â˜”   ” ”	 	” ” ” ”6 6”7 6˜”   ” ”	 	” ” ” ”0 0”1 0˜”   ” ”	 	” ” ” ”6 6”7 6˜”   ” ”	 	” ” ” ”0 0”1 0’”   ” ””   ” ” ” ’”( ”. ‘” ’” ” ‘”  ’”  ” !”” ”  ”) ,”+ .‘” ’” ”4 ,’” ” ™” ” ” 
+ÀÔrC”µ./Users/User/UserPage¹./Users/Market/MarketPage¹./Users/Recipe/RecipePageµ./Users/Home/HomePageÔrD—ªassertions¨external¢id¤meta±moduleSideEffectsªresolvedByµsyntheticNamedExportsAÂÙKQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\User\UserPage.etsAÃªoh-resolveÂDAÂÙOQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Market\MarketPage.etsAÃªoh-resolveÂDAÂÙOQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Recipe\RecipePage.etsAÃªoh-resolveÂDAÂÙKQ:\MarketApp\ArktsFrontend\entry\src\main\ets\pages\Users\Home\HomePage.etsAÃªoh-resolveÂ’ÔrE–§version¤fileªsourceRoot§sources¥names¨mappings©Layout.js ‘ªLayout.etsÜ Â˜”   ” ”	 	” ” ” ”6 6”7 6˜”   ” ”	 	” ” ” ”0 0”1 0˜”   ” ”	 	” ” ” ”6 6”7 6˜”   ” ”	 	” ” ” ”0 0”1 0’”   ” ””   ” ” ” ’”( ”. ‘” ’” ” ‘”  ’”  ” !”” ”  ”) ,”+ .‘” ’” ”4 ,’” ” ™” ” ” 
 ” ” ” ” ”Ì‹ 4”Ì 6’” ”3 +™” ” ” 
 ” ” ” ” ”Ì‹ /”Ì 1’” ”: 2™” ” ” 
 ” ” ” ” ”Ì‹ 1”Ì 3’” ”> 6™” ” ” 

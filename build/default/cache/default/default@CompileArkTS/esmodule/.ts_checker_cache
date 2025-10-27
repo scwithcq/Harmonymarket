@@ -21,7 +21,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets": {
-      "mtimeMs": 1761490399665.6985,
+      "mtimeMs": 1761491333994.0898,
       "children": [],
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets"
@@ -37,7 +37,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets": {
-      "mtimeMs": 1761490431238.8064,
+      "mtimeMs": 1761577109448.193,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
@@ -58,7 +58,9 @@
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Market\\MarketPage.ets",
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets"
       ],
-      "parent": [],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets"
+      ],
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+hypium@1.0.19\\oh_modules\\@ohos\\hypium\\index.ts": {
@@ -152,7 +154,8 @@
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets",
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\entryability\\EntryAbility.ets",
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Index.ets"
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Index.ets",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets"
       ],
       "error": false
     },
@@ -162,6 +165,14 @@
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets",
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets"
+      ],
+      "error": false
+    },
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\Params\\SearchParams\\SearchParams.ets": {
+      "mtimeMs": 1761385032273.7585,
+      "children": [],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets"
       ],
       "error": false
     },
@@ -233,37 +244,18 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.securityLabel.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.statvfs.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.storageStatistics.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\graphics3d\\SceneResources.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\embedded_component.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\nav_destination.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\navigation.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\pattern_lock.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.print.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\hms\\ets\\api\\@hms.collaboration.rcp.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.appAccount.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.distributedAccount.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.osAccount.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.pasteboard.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.power.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.request.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.runningLock.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.screenLock.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.settings.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.systemDateTime.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.systemTime.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.thermal.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.wallpaper.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.zlib.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.commonEventManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventSubscriber.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.resourceschedule.systemload.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.print.d.ts"
       ],
       "error": false
     },
@@ -877,82 +869,7 @@
     },
     "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.modifier.d.ts": {
       "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CommonModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\AlphabetIndexerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\BlankModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ButtonModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CalendarPickerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CheckboxModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CheckboxGroupModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ColumnModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ColumnSplitModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\CounterModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\DataPanelModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\DatePickerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\DividerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GaugeModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GridModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GridColModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GridItemModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\GridRowModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\HyperlinkModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ImageAnimatorModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ImageModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SymbolGlyphModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ImageSpanModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\LineModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ListModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ListItemModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ListItemGroupModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\LoadingProgressModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\MarqueeModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\MenuModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\MenuItemModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\NavDestinationModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\NavigationModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\NavigatorModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\NavRouterModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PanelModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PathModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PatternLockModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PolygonModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\PolylineModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ProgressModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\QRCodeModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RadioModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RatingModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RectModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RefreshModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RichEditorModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RowModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\RowSplitModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ScrollModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SearchModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SelectModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ShapeModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SideBarContainerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SliderModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SpanModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\StackModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\StepperItemModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SwiperModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TabsModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextAreaModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextClockModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextInputModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextPickerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TextTimerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\TimePickerModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ToggleModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\VideoModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\WaterFlowModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\AttributeUpdater.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ContainerSpanModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\SymbolSpanModifier.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\arkui\\ParticleModifier.d.ts"
-      ],
+      "children": [],
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.advanced.Chip.d.ets",
@@ -1606,9 +1523,7 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.appRecovery.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.InsightIntentContext.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.PhotoEditorExtensionAbility.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\embedded_component.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.appAccount.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.pasteboard.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\embedded_component.d.ts"
       ],
       "error": false
     },
@@ -1637,9 +1552,7 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.media.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.photoAccessHelper.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\common.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.pasteboard.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.wallpaper.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts"
       ],
       "error": false
     },
@@ -1799,8 +1712,7 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.photoAccessHelper.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.picker.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\common.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.print.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.settings.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.print.d.ts"
       ],
       "error": false
     },
@@ -2029,8 +1941,7 @@
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\ability\\connectOptions.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.image.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.UIAbility.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.appAccount.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.UIAbility.d.ts"
       ],
       "error": false
     },
@@ -2058,8 +1969,7 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\app\\context.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.data.rdb.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.PiPWindow.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.avsession.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.request.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.avsession.d.ts"
       ],
       "error": false
     },
@@ -2353,8 +2263,7 @@
       ],
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.dragController.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\common.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.pasteboard.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\common.d.ts"
       ],
       "error": false
     },
@@ -2432,8 +2341,7 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.common.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.ability.featureAbility.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.ability.ability.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.ability.particleAbility.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.settings.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.ability.particleAbility.d.ts"
       ],
       "error": false
     },
@@ -3815,8 +3723,7 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.util.stream.d.ts"
       ],
       "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.CoreFileKit.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\hms\\ets\\api\\@hms.collaboration.rcp.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.CoreFileKit.d.ts"
       ],
       "error": false
     },
@@ -3906,8 +3813,7 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
       ],
       "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.util.stream.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.util.stream.d.ts"
       ],
       "error": false
     },
@@ -3917,6 +3823,77 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts"
       ],
       "parent": [],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
+      ],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
+      ],
+      "error": false
+    },
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": {
+      "mtimeMs": 1761578312495.9648,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\Colors.ets",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
+      ],
+      "parent": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts"
+      ],
+      "parent": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts"
+      ],
+      "parent": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
+      ],
+      "parent": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts"
+      ],
       "error": false
     },
     "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\canvas.d.ts": {
@@ -4218,19 +4195,6 @@
       "parent": [],
       "error": false
     },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\hms\\ets\\api\\@hms.collaboration.rcp.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
-      ],
-      "error": false
-    },
     "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.print.d.ts": {
       "mtimeMs": 1730423643000,
       "children": [
@@ -4238,8 +4202,7 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\Context.d.ts"
       ],
       "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts"
       ],
       "error": false
     },
@@ -4248,470 +4211,6 @@
       "children": [],
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\bean\\Product\\ProductDataItem.ets": {
-      "mtimeMs": 1761228662358.7803,
-      "children": [],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets",
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\bean\\Product\\ProductData.ets"
-      ],
-      "error": false
-    },
-    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\bean\\Product\\ProductResultData.ets": {
-      "mtimeMs": 1761377653617.9458,
-      "children": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\bean\\Product\\ProductData.ets"
-      ],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\hms\\ets\\kits\\@kit.RemoteCommunicationKit.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\hms\\ets\\api\\@hms.collaboration.rcp.d.ts"
-      ],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.appAccount.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.customization.customConfig.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.distributedAccount.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.osAccount.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.batteryInfo.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.deviceAttest.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.deviceInfo.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.pasteboard.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.power.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.print.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.request.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.runningLock.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.screenLock.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.settings.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.systemDateTime.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.systemTime.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.thermal.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.usb.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.usbManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.wallpaper.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.zlib.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.commonEventManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.events.emitter.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@system.battery.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@system.brightness.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@system.device.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@system.request.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.resourceschedule.systemload.d.ts"
-      ],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.buffer.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets"
-      ],
-      "error": false
-    },
-    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": {
-      "mtimeMs": 1761405217069.6072,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\Colors.ets"
-      ],
-      "parent": [],
-      "error": false
-    },
-    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\bean\\Product\\ProductData.ets": {
-      "mtimeMs": 1761377752355.506,
-      "children": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\bean\\Product\\ProductDataItem.ets"
-      ],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\bean\\Product\\ProductResultData.ets"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\hms\\ets\\api\\@hms.collaboration.rcp.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.url.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.fs.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\hms\\ets\\kits\\@kit.RemoteCommunicationKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.url.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\hms\\ets\\api\\@hms.collaboration.rcp.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.appAccount.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.Want.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.rpc.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.customization.customConfig.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.distributedAccount.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.osAccount.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.osAccount.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.account.distributedAccount.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.batteryInfo.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.deviceAttest.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.deviceInfo.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.pasteboard.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.Want.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.image.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.data.unifiedDataChannel.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.power.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.request.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\BaseContext.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.runningLock.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.screenLock.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.settings.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\ability\\dataAbilityHelper.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\Context.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.systemDateTime.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.systemTime.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.thermal.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.usb.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.usbManager.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.wallpaper.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.image.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.zlib.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.commonEventManager.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventData.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventSubscriber.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventSubscribeInfo.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventPublishData.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@system.battery.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@system.brightness.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@system.device.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@system.request.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.resourceschedule.systemload.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.BasicServicesKit.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventData.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.commonEventManager.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventSubscriber.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventSubscribeInfo.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.commonEventManager.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventSubscribeInfo.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.commonEventManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventSubscriber.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\commonEvent\\commonEventPublishData.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.commonEventManager.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\Params\\SearchParams\\SearchParams.ets": {
-      "mtimeMs": 1761385032273.7585,
-      "children": [],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets",
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
-      ],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
       ],
       "error": false
     }

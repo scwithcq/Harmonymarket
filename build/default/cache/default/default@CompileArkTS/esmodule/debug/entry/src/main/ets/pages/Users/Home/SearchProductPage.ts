@@ -9,10 +9,14 @@ interface SearchProductPage_Params {
     cartVisible?: Visibility;
     offsetX?: number;
     offsetY?: number;
+    showBig?: boolean;
+    bigUrl?: string;
+    productName?: string;
 }
 import router from "@ohos:router";
 import http from "@ohos:net.http";
 import { app_color } from "@normalized:N&&&entry/src/main/ets/utils/Colors&";
+import promptAction from "@ohos:promptAction";
 // 商品数据类型
 export interface ProductDataItem {
     id: number;
@@ -33,7 +37,8 @@ export interface ProductResultData {
     message: string;
 }
 // 模拟器访问宿主机地址
-const BASE_URL = 'http://10.0.2.2:8080/api';
+// const BASE_URL = 'http://10.0.2.2:8080/api';  //这个用来模拟机测试
+const BASE_URL = 'http://192.168.85.10:8080/api'; //这个在连接我的热点70测试
 export class SearchProductPage extends ViewPU {
     constructor(parent, params, __localStorage, elmtId = -1, paramsLambda = undefined, extraInfo) {
         super(parent, __localStorage, elmtId, extraInfo);
@@ -47,8 +52,13 @@ export class SearchProductPage extends ViewPU {
         this.__cartVisible = new ObservedPropertySimplePU(Visibility.Visible, this, "cartVisible");
         this.__offsetX = new ObservedPropertySimplePU(0, this, "offsetX");
         this.__offsetY = new ObservedPropertySimplePU(0
-        // 页面显示前获取路由参数
+        //这里用来渲染商品图片的放大
         , this, "offsetY");
+        this.__showBig = new ObservedPropertySimplePU(false // 是否处于放大态
+        , this, "showBig");
+        this.__bigUrl = new ObservedPropertySimplePU('' // 要放大哪张图
+        , this, "bigUrl");
+        this.__productName = new ObservedPropertySimplePU('', this, "productName");
         this.setInitiallyProvidedValue(params);
         this.finalizeConstruction();
     }
@@ -74,6 +84,15 @@ export class SearchProductPage extends ViewPU {
         if (params.offsetY !== undefined) {
             this.offsetY = params.offsetY;
         }
+        if (params.showBig !== undefined) {
+            this.showBig = params.showBig;
+        }
+        if (params.bigUrl !== undefined) {
+            this.bigUrl = params.bigUrl;
+        }
+        if (params.productName !== undefined) {
+            this.productName = params.productName;
+        }
     }
     updateStateVars(params: SearchProductPage_Params) {
     }
@@ -84,6 +103,9 @@ export class SearchProductPage extends ViewPU {
         this.__cartVisible.purgeDependencyOnElmtId(rmElmtId);
         this.__offsetX.purgeDependencyOnElmtId(rmElmtId);
         this.__offsetY.purgeDependencyOnElmtId(rmElmtId);
+        this.__showBig.purgeDependencyOnElmtId(rmElmtId);
+        this.__bigUrl.purgeDependencyOnElmtId(rmElmtId);
+        this.__productName.purgeDependencyOnElmtId(rmElmtId);
     }
     aboutToBeDeleted() {
         this.__keyword.aboutToBeDeleted();
@@ -92,6 +114,9 @@ export class SearchProductPage extends ViewPU {
         this.__cartVisible.aboutToBeDeleted();
         this.__offsetX.aboutToBeDeleted();
         this.__offsetY.aboutToBeDeleted();
+        this.__showBig.aboutToBeDeleted();
+        this.__bigUrl.aboutToBeDeleted();
+        this.__productName.aboutToBeDeleted();
         SubscriberManager.Get().delete(this.id__());
         this.aboutToBeDeletedInternal();
     }
@@ -137,6 +162,28 @@ export class SearchProductPage extends ViewPU {
     }
     set offsetY(newValue: number) {
         this.__offsetY.set(newValue);
+    }
+    //这里用来渲染商品图片的放大
+    private __showBig: ObservedPropertySimplePU<boolean>; // 是否处于放大态
+    get showBig() {
+        return this.__showBig.get();
+    }
+    set showBig(newValue: boolean) {
+        this.__showBig.set(newValue);
+    }
+    private __bigUrl: ObservedPropertySimplePU<string>; // 要放大哪张图
+    get bigUrl() {
+        return this.__bigUrl.get();
+    }
+    set bigUrl(newValue: string) {
+        this.__bigUrl.set(newValue);
+    }
+    private __productName: ObservedPropertySimplePU<string>;
+    get productName() {
+        return this.__productName.get();
+    }
+    set productName(newValue: string) {
+        this.__productName.set(newValue);
     }
     // 页面显示前获取路由参数
     aboutToAppear() {
@@ -193,39 +240,159 @@ export class SearchProductPage extends ViewPU {
     initialRender() {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Column.create({ space: 12 });
-            Column.width('100%');
-            Column.height('100%');
-            Column.backgroundColor(app_color.bg);
         }, Column);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
-            // 1. 顶部标题栏
+            // 1. 顶部搜索栏（通栏卡片版）
             Row.create();
-            // 1. 顶部标题栏
-            Row.padding({ top: 20, left: 16 });
-            // 1. 顶部标题栏
-            Row.backgroundColor(app_color.card);
+            // 1. 顶部搜索栏（通栏卡片版）
+            Row.width('100%');
+            // 1. 顶部搜索栏（通栏卡片版）
+            Row.justifyContent(FlexAlign.SpaceBetween);
+            // 1. 顶部搜索栏（通栏卡片版）
+            Row.border({ width: 3, radius: 4, color: Color.Green });
+            // 1. 顶部搜索栏（通栏卡片版）
+            Row.height(56);
+            // 1. 顶部搜索栏（通栏卡片版）
+            Row.padding({ left: 16, right: 16 });
+            // 1. 顶部搜索栏（通栏卡片版）
+            Row.borderRadius(24);
+            // 1. 顶部搜索栏（通栏卡片版）
+            Row.margin({ top: 24, left: 16, right: 16 });
         }, Row);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Button.createWithLabel('返回');
-            Button.width(60);
-            Button.height(36);
-            Button.backgroundColor(app_color.primary);
-            Button.fontColor(Color.White);
-            Button.borderRadius(18);
-            Button.onClick(() => router.back());
+            // 1.1 图标式返回（轻量、不占文字空间）
+            Image.create({ "id": 16777246, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
+            // 1.1 图标式返回（轻量、不占文字空间）
+            Image.fillColor(Color.White);
+            // 1.1 图标式返回（轻量、不占文字空间）
+            Image.width('5%');
+            // 1.1 图标式返回（轻量、不占文字空间）
+            Image.height(30);
+            // 1.1 图标式返回（轻量、不占文字空间）
+            Image.onClick(() => router.back());
+        }, Image);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            /*          Text('搜索结果')
+                        .fontSize(12)
+                        .fontColor(app_color.text2)
+                        .lineHeight(14)
+                      Text(this.keyword)
+                        .fontSize(16)
+                        .fontWeight(FontWeight.Medium)
+                        .fontColor(app_color.primary)
+                        .maxLines(1)
+                        .textOverflow({ overflow: TextOverflow.Ellipsis })*/
+            //当我点击搜索的结果的时候，可以进行修改
+            TextInput.create({
+                placeholder: this.keyword
+            });
+            /*          Text('搜索结果')
+                        .fontSize(12)
+                        .fontColor(app_color.text2)
+                        .lineHeight(14)
+                      Text(this.keyword)
+                        .fontSize(16)
+                        .fontWeight(FontWeight.Medium)
+                        .fontColor(app_color.primary)
+                        .maxLines(1)
+                        .textOverflow({ overflow: TextOverflow.Ellipsis })*/
+            //当我点击搜索的结果的时候，可以进行修改
+            TextInput.layoutWeight(1);
+            /*          Text('搜索结果')
+                        .fontSize(12)
+                        .fontColor(app_color.text2)
+                        .lineHeight(14)
+                      Text(this.keyword)
+                        .fontSize(16)
+                        .fontWeight(FontWeight.Medium)
+                        .fontColor(app_color.primary)
+                        .maxLines(1)
+                        .textOverflow({ overflow: TextOverflow.Ellipsis })*/
+            //当我点击搜索的结果的时候，可以进行修改
+            TextInput.textAlign(TextAlign.Center);
+            /*          Text('搜索结果')
+                        .fontSize(12)
+                        .fontColor(app_color.text2)
+                        .lineHeight(14)
+                      Text(this.keyword)
+                        .fontSize(16)
+                        .fontWeight(FontWeight.Medium)
+                        .fontColor(app_color.primary)
+                        .maxLines(1)
+                        .textOverflow({ overflow: TextOverflow.Ellipsis })*/
+            //当我点击搜索的结果的时候，可以进行修改
+            TextInput.onChange((value: string) => {
+                this.productName = value;
+            });
+            /*          Text('搜索结果')
+                        .fontSize(12)
+                        .fontColor(app_color.text2)
+                        .lineHeight(14)
+                      Text(this.keyword)
+                        .fontSize(16)
+                        .fontWeight(FontWeight.Medium)
+                        .fontColor(app_color.primary)
+                        .maxLines(1)
+                        .textOverflow({ overflow: TextOverflow.Ellipsis })*/
+            //当我点击搜索的结果的时候，可以进行修改
+            TextInput.fontSize(14);
+            /*          Text('搜索结果')
+                        .fontSize(12)
+                        .fontColor(app_color.text2)
+                        .lineHeight(14)
+                      Text(this.keyword)
+                        .fontSize(16)
+                        .fontWeight(FontWeight.Medium)
+                        .fontColor(app_color.primary)
+                        .maxLines(1)
+                        .textOverflow({ overflow: TextOverflow.Ellipsis })*/
+            //当我点击搜索的结果的时候，可以进行修改
+            TextInput.fontColor('#9E9E9E');
+        }, TextInput);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Button.createWithLabel('搜索');
+            Button.width('20%');
+            Button.height(40);
+            Button.margin({ left: 10 });
+            Button.backgroundColor('#4CAF50');
+            Button.fontColor('#FFFFFF');
+            Button.onClick(() => {
+                if (!this.productName?.trim()) {
+                    promptAction.showToast({ message: '请输入商品名称' });
+                    return;
+                }
+                // const params = new SearchParams(this.productName);
+                router.pushUrl({
+                    url: 'pages/Users/Home/SearchProductPage',
+                    params: { keyword: this.productName, animateCart: true }
+                });
+            });
         }, Button);
         Button.pop();
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Text.create(`搜索结果：${this.keyword}`);
-            Text.fontSize(20);
-            Text.fontWeight(FontWeight.Bold);
-            Text.fontColor(app_color.text1);
-        }, Text);
-        Text.pop();
-        // 1. 顶部标题栏
+        // 1. 顶部搜索栏（通栏卡片版）
         Row.pop();
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             If.create();
+            /*      // 1. 顶部标题栏
+                  Row() {
+                    Button('返回')
+                      .width(60)
+                      .height(36)
+                      .backgroundColor(app_color.primary)
+                      .fontColor(Color.White)
+                      .borderRadius(18)
+                      .onClick(() => router.back())
+      
+                    Text(`搜索结果：${this.keyword}`)
+                      .fontSize(20)
+                      .fontWeight(FontWeight.Bold)
+                      .fontColor(app_color.text1)
+                  }
+                  .width('100%')
+                  .border({width:3,color:Color.Black,radius:3})
+                  .justifyContent(FlexAlign.SpaceBetween)
+                  .padding({ top: 20, left: 16 })
+                  .backgroundColor(app_color.card)*/
             // 加载状态
             if (this.isLoading) {
                 this.ifElseBranchUpdateFunction(0, () => {
@@ -246,7 +413,7 @@ export class SearchProductPage extends ViewPU {
                         Column.margin({ top: 60 });
                     }, Column);
                     this.observeComponentCreation2((elmtId, isInitialRender) => {
-                        Image.create({ "id": 16777297, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
+                        Image.create({ "id": 16777257, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
                         Image.width(120);
                         Image.height(120);
                         Image.opacity(0.6);
@@ -266,10 +433,15 @@ export class SearchProductPage extends ViewPU {
                 this.ifElseBranchUpdateFunction(2, () => {
                     this.observeComponentCreation2((elmtId, isInitialRender) => {
                         Scroll.create();
+                        Scroll.padding({ bottom: 100 });
                     }, Scroll);
                     this.observeComponentCreation2((elmtId, isInitialRender) => {
-                        Column.create({ space: 12 });
-                    }, Column);
+                        Stack.create();
+                    }, Stack);
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        List.create({ space: 12 });
+                        List.width('100%');
+                    }, List);
                     this.observeComponentCreation2((elmtId, isInitialRender) => {
                         ForEach.create();
                         const forEachItemGenFunction = _item => {
@@ -285,30 +457,15 @@ export class SearchProductPage extends ViewPU {
                                 };
                                 const itemCreation2 = (elmtId, isInitialRender) => {
                                     ListItem.create(deepRenderFunction, true);
-                                    Context.animation(null);
+                                    ListItem.border({ radius: 10 });
+                                    ListItem.backgroundColor('#FFEFD5');
                                 };
                                 const deepRenderFunction = (elmtId, isInitialRender) => {
                                     itemCreation(elmtId, isInitialRender);
                                     this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                        Column.create();
-                                        Column.backgroundColor(app_color.card);
-                                        Column.borderRadius(16);
-                                        Column.shadow({
-                                            radius: 8,
-                                            color: app_color.shadow,
-                                            offsetX: 0,
-                                            offsetY: 4
-                                        });
-                                        Column.padding(16);
-                                        Column.margin({
-                                            left: 16,
-                                            right: 16,
-                                            top: 6,
-                                            bottom: 6
-                                        });
-                                    }, Column);
-                                    this.observeComponentCreation2((elmtId, isInitialRender) => {
                                         Row.create();
+                                        Row.width('100%');
+                                        Row.padding(12);
                                     }, Row);
                                     this.observeComponentCreation2((elmtId, isInitialRender) => {
                                         Image.create(item.imageUrl);
@@ -321,6 +478,10 @@ export class SearchProductPage extends ViewPU {
                                             offsetX: 0,
                                             offsetY: 2
                                         });
+                                        Image.onClick(() => {
+                                            this.bigUrl = item.imageUrl;
+                                            this.showBig = true;
+                                        });
                                     }, Image);
                                     this.observeComponentCreation2((elmtId, isInitialRender) => {
                                         Column.create({ space: 6 });
@@ -331,7 +492,7 @@ export class SearchProductPage extends ViewPU {
                                         Text.create(item.name);
                                         Text.fontSize(17);
                                         Text.fontWeight(FontWeight.Medium);
-                                        Text.fontColor(app_color.text1);
+                                        Text.fontColor(Color.Black);
                                     }, Text);
                                     Text.pop();
                                     this.observeComponentCreation2((elmtId, isInitialRender) => {
@@ -402,24 +563,19 @@ export class SearchProductPage extends ViewPU {
                                         // 后续开发加入购物车选项
                                         Row.create();
                                         // 后续开发加入购物车选项
-                                        Row.layoutWeight(1);
+                                        Row.justifyContent(FlexAlign.End);
                                     }, Row);
                                     this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                        Image.create({ "id": 16777298, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
+                                        Image.create({ "id": 16777235, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
                                         Context.animation({ duration: 600, curve: Curve.EaseInOut });
                                         Image.width(50);
                                         Image.height(50);
                                         Image.translate({ x: this.offsetX, y: this.offsetY });
                                         Context.animation(null);
-                                        Image.onClick(() => {
-                                            this.offsetX = this.offsetX === 0 ? 70 : 0;
-                                            this.offsetY === 0;
-                                        });
                                     }, Image);
                                     // 后续开发加入购物车选项
                                     Row.pop();
                                     Row.pop();
-                                    Column.pop();
                                     ListItem.pop();
                                 };
                                 this.observeComponentCreation2(itemCreation2, ListItem);
@@ -429,7 +585,92 @@ export class SearchProductPage extends ViewPU {
                         this.forEachUpdateFunction(elmtId, this.productList, forEachItemGenFunction);
                     }, ForEach);
                     ForEach.pop();
-                    Column.pop();
+                    List.pop();
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        If.create();
+                        //  放大方法
+                        // if (this.showBig) {
+                        //   Column()
+                        //     .width('100%').height('100%')
+                        //     .backgroundColor('#80000000')
+                        //     .onClick(() => this.showBig = false)
+                        //
+                        //   Image(this.bigUrl)
+                        //     .width(300)
+                        //     .height(300)
+                        //     .borderRadius(16)
+                        //     .shadow({ radius: 20, color: '#80000000' })
+                        //     .onClick(() => this.showBig = false)
+                        //     .transition({
+                        //       type: TransitionType.Insert,
+                        //       scale: {
+                        //         x: 0,
+                        //         y: 0,
+                        //         centerX: 0.5,
+                        //         centerY: 0.5
+                        //       }
+                        //     })
+                        //     .transition({
+                        //       type: TransitionType.Delete,
+                        //       scale: {
+                        //         x: 0,
+                        //         y: 0,
+                        //         centerX: 0.5,
+                        //         centerY: 0.5
+                        //       }
+                        //     })
+                        //     .zIndex(9999)
+                        // }
+                        /* ---------------- 放大态 ---------------- */
+                        if (this.showBig) {
+                            this.ifElseBranchUpdateFunction(0, () => {
+                                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                    Column.create();
+                                    Column.width('100%');
+                                    Column.height('100%');
+                                    Column.backgroundColor('#80000000');
+                                    Column.justifyContent(FlexAlign.Center);
+                                    Column.position({ x: 0, y: 0 });
+                                    Column.zIndex(999);
+                                    Column.transition({
+                                        type: TransitionType.Insert,
+                                        scale: {
+                                            x: 0,
+                                            y: 0,
+                                            centerX: 0.5,
+                                            centerY: 0.5
+                                        } // 从 0 → 1
+                                    });
+                                    Column.transition({
+                                        type: TransitionType.Delete,
+                                        scale: {
+                                            x: 0,
+                                            y: 0,
+                                            centerX: 0.5,
+                                            centerY: 0.5
+                                        } // 从 1 → 0
+                                    });
+                                }, Column);
+                                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                    Image.create(this.bigUrl);
+                                    Image.width(500);
+                                    Image.height(500);
+                                    Image.borderRadius(16);
+                                    Image.shadow({ radius: 20, color: '#80000000' });
+                                    Image.onClick(() => {
+                                        this.showBig = false;
+                                    });
+                                }, Image);
+                                Column.pop();
+                            });
+                        }
+                        else {
+                            this.ifElseBranchUpdateFunction(1, () => {
+                            });
+                        }
+                    }, If);
+                    If.pop();
+                    Stack.pop();
                     Scroll.pop();
                 });
             }

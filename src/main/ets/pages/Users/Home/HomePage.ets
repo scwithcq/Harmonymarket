@@ -64,7 +64,6 @@ export struct HomePage {
   @State articles: Article[] = ArticleList
   @State productName: string = '';
   @State cartVisible: Visibility = Visibility.Visible
-
   // 声明 pathStack
   pathStack: NavPathStack = new NavPathStack();
 
@@ -74,7 +73,7 @@ export struct HomePage {
   }
 
   build() {
-    Scroll(){
+    Scroll() {
       Column() {
         // 顶部搜索栏
         Row() {
@@ -98,8 +97,7 @@ export struct HomePage {
               .width('70%')
               .onChange((value: string) => {
                 this.productName = value;
-              })
-                // Text('搜索菜谱 / 食材 / 商户...')
+              })// Text('搜索菜谱 / 食材 / 商户...')
               .fontSize(14)
               .fontColor('#9E9E9E')
             Button('搜索')
@@ -117,7 +115,7 @@ export struct HomePage {
                 // const params = new SearchParams(this.productName);
                 router.pushUrl({
                   url: 'pages/Users/Home/SearchProductPage',
-                  params: { keyword: this.productName ,animateCart:true}
+                  params: { keyword: this.productName, animateCart: true }
                 });
               });
 
@@ -128,7 +126,7 @@ export struct HomePage {
           // .backgroundColor('#F8F9FA')
           .borderRadius(20)
           .margin({ left: 12 })
-          .justifyContent(FlexAlign.Start)
+          .justifyContent(FlexAlign.SpaceBetween)
           .padding({ left: 16 })
           .border({ width: 1, color: '#E9ECEF' })
         }
@@ -189,6 +187,60 @@ export struct HomePage {
                 .fontWeight(FontWeight.Bold)
                 .margin({ top: 8 })
               Text('家常必备，简单美味')
+                .fontSize(12)
+                .fontColor('#888')
+                .margin({ top: 4 })
+            }
+            .margin({ right: 12 })
+
+            Column() {
+              Image('https://picsum.photos/200/120?random=9')
+                .width(150)
+                .height(110)
+                .borderRadius(12)
+
+              Text('麻婆豆腐')
+                .fontSize(16)
+                .fontWeight(FontWeight.Bold)
+                .margin({ top: 8 })
+
+              Text('麻辣鲜香，下饭神器')
+                .fontSize(12)
+                .fontColor('#888')
+                .margin({ top: 4 })
+            }
+            .margin({ right: 12 })
+
+            Column() {
+              Image('https://picsum.photos/200/120?random=7')
+                .width(150)
+                .height(110)
+                .borderRadius(12)
+
+              Text('糖醋里脊')
+                .fontSize(16)
+                .fontWeight(FontWeight.Bold)
+                .margin({ top: 8 })
+
+              Text('酸甜开胃，老少皆宜')
+                .fontSize(12)
+                .fontColor('#888')
+                .margin({ top: 4 })
+            }
+            .margin({ right: 12 })
+
+            Column() {
+              Image('https://picsum.photos/200/120?random=5')
+                .width(150)
+                .height(110)
+                .borderRadius(12)
+
+              Text('蒜蓉西兰花')
+                .fontSize(16)
+                .fontWeight(FontWeight.Bold)
+                .margin({ top: 8 })
+
+              Text('清爽低脂，十分钟上桌')
                 .fontSize(12)
                 .fontColor('#888')
                 .margin({ top: 4 })

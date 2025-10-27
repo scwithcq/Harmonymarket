@@ -315,7 +315,7 @@ export class UserPage extends ViewPU {
         }, Blank);
         Blank.pop();
         this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Image.create({ "id": 16777299, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
+            Image.create({ "id": 16777237, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
             Image.width(20);
             Image.height(20);
             Image.objectFit(ImageFit.Contain);

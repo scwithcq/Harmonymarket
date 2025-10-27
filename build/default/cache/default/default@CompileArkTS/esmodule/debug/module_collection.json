@@ -1,1 +1,7 @@
-{}
+{
+  "entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": [
+    "ohos.router",
+    "ohos.net.http",
+    "ohos.promptAction"
+  ]
+}

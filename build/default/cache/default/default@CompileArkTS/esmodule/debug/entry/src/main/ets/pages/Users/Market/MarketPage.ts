@@ -215,7 +215,7 @@ export class MarketPage extends ViewPU {
             Row.create();
         }, Row);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Image.create({ "id": 16777261, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
+            Image.create({ "id": 16777264, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
             Image.width(24);
             Image.height(24);
             Image.fillColor('#666');
