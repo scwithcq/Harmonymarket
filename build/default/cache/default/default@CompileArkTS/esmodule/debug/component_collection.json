@@ -11,7 +11,14 @@
   ],
   "entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": [
     "Column",
-    "Text"
+    "Text",
+    "Scroll",
+    "ForEach",
+    "Row",
+    "Blank",
+    "TextInput",
+    "Button",
+    "If"
   ],
   "entry\\src\\main\\ets\\pages\\Users\\Market\\MarketPage.ets": [
     "Column",

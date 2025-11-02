@@ -13,12 +13,18 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": {
-      "mtimeMs": 1760196426079.5938,
-      "children": [],
+      "mtimeMs": 1762068520359.2424,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.prompt.d.ts"
+      ],
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets"
       ],
-      "error": false
+      "error": true,
+      "errorCodes": [
+        28007
+      ]
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Market\\MarketPage.ets": {
       "mtimeMs": 1761490585580.8645,
@@ -733,7 +739,8 @@
       ],
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets"
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets"
       ],
       "error": false
     },
@@ -2732,7 +2739,8 @@
       ],
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets"
       ],
       "error": false
     },

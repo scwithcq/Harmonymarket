@@ -1,9 +1,6 @@
 {
-  "entry\\src\\main\\ets\\pages\\Merchant\\Home\\MerchantHomePage.ets": [
+  "entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": [
+    "ohos.net.http",
     "ohos.prompt"
-  ],
-  "entry\\src\\main\\ets\\utils\\MqttClientPanel.ets": [
-    "ohos.prompt",
-    "ohos.buffer"
   ]
 }
