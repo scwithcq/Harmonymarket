@@ -61,6 +61,10 @@
 					{
 						"name": "ohos.extension.backup",
 						"resource": "$profile:backup_config"
+					},
+					{
+						"name": "hwscr:dynamicRouter",
+						"value": "true"
 					}
 				]
 			}

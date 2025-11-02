@@ -12,26 +12,57 @@
   "harNameOhmMap": {},
   "packageManagerType": "ohpm",
   "compileEntry": [
-    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Start.ets",
-    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets"
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets",
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\RoleSelectPage.ets",
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\UserHomePage.ets",
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Merchant\\Home\\MerchantHomePage.ets",
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets",
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets"
   ],
   "otherCompileFiles": [],
   "dynamicImportLibInfo": {},
   "routerMap": [
     {
-      "ohmurl": "@normalized:N&&&entry/src/main/ets/pages/Start&",
-      "name": "Start",
-      "pageSourceFile": "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Start.ets",
-      "buildFunction": "StartBuilder"
-    },
-    {
       "ohmurl": "@normalized:N&&&entry/src/main/ets/pages/Layout&",
       "name": "Layout",
       "pageSourceFile": "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets",
       "buildFunction": "LayoutBuilder"
+    },
+    {
+      "ohmurl": "@normalized:N&&&entry/src/main/ets/pages/RoleSelectPage&",
+      "name": "RoleSelectPage",
+      "pageSourceFile": "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\RoleSelectPage.ets",
+      "buildFunction": "RoleSelectPageBuilder"
+    },
+    {
+      "ohmurl": "@normalized:N&&&entry/src/main/ets/pages/Users/Home/UserHomePage&",
+      "name": "UserHomePage",
+      "pageSourceFile": "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\UserHomePage.ets",
+      "buildFunction": "UserHomePageBuilder"
+    },
+    {
+      "ohmurl": "@normalized:N&&&entry/src/main/ets/pages/Merchant/Home/MerchantHomePage&",
+      "name": "MerchantHomePage",
+      "pageSourceFile": "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Merchant\\Home\\MerchantHomePage.ets",
+      "buildFunction": "MerchantHomePageBuilder"
+    },
+    {
+      "ohmurl": "@normalized:N&&&entry/src/main/ets/pages/Users/Home/SearchProductPage&",
+      "name": "SearchProductPage",
+      "pageSourceFile": "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets",
+      "buildFunction": "SearchProductPageBuilder"
+    },
+    {
+      "ohmurl": "@normalized:N&&&entry/src/main/ets/pages/Users/User/UserPage&",
+      "name": "UserPage",
+      "pageSourceFile": "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets",
+      "buildFunction": "UserPageBuilder"
     }
   ],
   "hspResourcesMap": {},
   "anBuildOutPut": "Q:\\MarketApp\\ArktsFrontend\\entry\\build\\default\\intermediates\\loader_out\\default\\an\\arm64-v8a",
-  "anBuildMode": "type"
+  "anBuildMode": "type",
+  "patchConfig": {
+    "changedFileList": "Q:\\MarketApp\\ArktsFrontend\\entry\\build\\default\\intermediates\\patch\\default\\changedFileList.json"
+  }
 }

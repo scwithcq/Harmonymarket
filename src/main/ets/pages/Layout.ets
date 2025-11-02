@@ -1,8 +1,8 @@
 import { it } from "@ohos/hypium"
 import { RecipePage } from "./Users/Recipe/RecipePage"
-import { UserPage } from "./Users/User/UserPage"
 import { MarketPage } from "./Users/Market/MarketPage"
-import { HomePage } from "./Users/Home/HomePage"
+import { UserHomePage } from "./Users/Home/UserHomePage"
+import {UserPage} from "./Users/User/UserPage"
 
 interface TabClass {
   text: string
@@ -19,7 +19,9 @@ export function LayoutBuilder() {
 @ComponentV2
 struct Layout {
   @Local currentIndex: number = 0
-  pathStack: NavPathStack = new NavPathStack()
+  // 导航栏实例
+  pageStack: NavPathStack = new NavPathStack()
+  // pathStack: NavPathStack = new NavPathStack()
   tabData: TabClass[] = [
     // HomePage 首页 含今日推荐菜谱  AI推荐卡片  跳转-》菜谱详情
     //
@@ -49,7 +51,7 @@ struct Layout {
         ForEach(this.tabData, (item: TabClass, index: number) => {
           TabContent() {
             if (this.currentIndex === 0) {
-              HomePage()
+              UserHomePage()
             } else if (this.currentIndex === 1) {
               RecipePage()
             }else if (this.currentIndex === 2){
@@ -73,7 +75,7 @@ struct Layout {
 
     // .title('布局页面')
     .onReady((context: NavDestinationContext) => {
-      this.pathStack = context.pathStack
+      this.pageStack = context.pathStack
     })
 
   }

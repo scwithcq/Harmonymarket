@@ -2,9 +2,9 @@ if (!("finalizeConstruction" in ViewPU.prototype)) {
     Reflect.set(ViewPU.prototype, "finalizeConstruction", () => { });
 }
 import { RecipePage } from "@normalized:N&&&entry/src/main/ets/pages/Users/Recipe/RecipePage&";
-import { UserPage } from "@normalized:N&&&entry/src/main/ets/pages/Users/User/UserPage&";
 import { MarketPage } from "@normalized:N&&&entry/src/main/ets/pages/Users/Market/MarketPage&";
-import { HomePage } from "@normalized:N&&&entry/src/main/ets/pages/Users/Home/HomePage&";
+import { UserHomePage } from "@normalized:N&&&entry/src/main/ets/pages/Users/Home/UserHomePage&";
+import { UserPage } from "@normalized:N&&&entry/src/main/ets/pages/Users/User/UserPage&";
 interface TabClass {
     text: string;
     icon: ResourceStr;
@@ -31,7 +31,7 @@ class Layout extends ViewV2 {
     constructor(parent, params, __localStorage, elmtId = -1, paramsLambda, extraInfo) {
         super(parent, elmtId, extraInfo);
         this.currentIndex = 0;
-        this.pathStack = new NavPathStack();
+        this.pageStack = new NavPathStack();
         this.tabData = [
             // HomePage 首页 含今日推荐菜谱  AI推荐卡片  跳转-》菜谱详情
             //
@@ -47,7 +47,9 @@ class Layout extends ViewV2 {
     }
     @Local
     currentIndex: number;
-    pathStack: NavPathStack;
+    // 导航栏实例
+    pageStack: NavPathStack;
+    // pathStack: NavPathStack = new NavPathStack()
     tabData: TabClass[];
     tabBuilder(item: TabClass, index: number, parent = null) {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
@@ -90,7 +92,7 @@ class Layout extends ViewV2 {
                                             {
                                                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                                                     if (isInitialRender) {
-                                                        let componentCall = new HomePage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 52, col: 15 });
+                                                        let componentCall = new UserHomePage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 54, col: 15 });
                                                         ViewPU.create(componentCall);
                                                         let paramsLambda = () => {
                                                             return {};
@@ -100,7 +102,7 @@ class Layout extends ViewV2 {
                                                     else {
                                                         this.updateStateVarsOfChildByElmtId(elmtId, {});
                                                     }
-                                                }, { name: "HomePage" });
+                                                }, { name: "UserHomePage" });
                                             }
                                         });
                                     }
@@ -109,7 +111,7 @@ class Layout extends ViewV2 {
                                             {
                                                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                                                     if (isInitialRender) {
-                                                        let componentCall = new RecipePage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 54, col: 15 });
+                                                        let componentCall = new RecipePage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 56, col: 15 });
                                                         ViewPU.create(componentCall);
                                                         let paramsLambda = () => {
                                                             return {};
@@ -128,7 +130,7 @@ class Layout extends ViewV2 {
                                             {
                                                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                                                     if (isInitialRender) {
-                                                        let componentCall = new MarketPage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 56, col: 15 });
+                                                        let componentCall = new MarketPage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 58, col: 15 });
                                                         ViewPU.create(componentCall);
                                                         let paramsLambda = () => {
                                                             return {};
@@ -147,7 +149,7 @@ class Layout extends ViewV2 {
                                             {
                                                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                                                     if (isInitialRender) {
-                                                        let componentCall = new UserPage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 58, col: 15 });
+                                                        let componentCall = new UserPage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 60, col: 15 });
                                                         ViewPU.create(componentCall);
                                                         let paramsLambda = () => {
                                                             return {};
@@ -182,7 +184,7 @@ class Layout extends ViewV2 {
                 Tabs.pop();
             }, { moduleName: "entry", pagePath: "entry/src/main/ets/pages/Layout" });
             NavDestination.onReady((context: NavDestinationContext) => {
-                this.pathStack = context.pathStack;
+                this.pageStack = context.pathStack;
             });
         }, NavDestination);
         NavDestination.pop();

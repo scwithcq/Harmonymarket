@@ -335,5 +335,9 @@
 			"type":	"profile",
 			"name":	"route_map",
 			"id":	"0x01000053"
+		}, {
+			"type":	"string",
+			"name":	"page_show",
+			"id":	"0x01000054"
 		}]
 }

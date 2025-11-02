@@ -1,3 +1,4 @@
+/*
 // 跳转页面入口函数
 // 广告页面
 @Builder
@@ -9,6 +10,7 @@ export function StartBuilder() {
 struct Start {
   //控制跳转到对象
   pathStack: NavPathStack = new NavPathStack()
+*/
 /*  // 定义定时器（用于自动跳转）
   private timer: number | undefined = undefined
   // 定义标志位，防止重复跳转
@@ -35,7 +37,8 @@ struct Start {
       clearTimeout(this.timer)
       this.timer = undefined
     }
-  }*/
+  }*//*
+
 
   build() {
     NavDestination() {
@@ -50,7 +53,8 @@ struct Start {
           [SafeAreaType.SYSTEM],
           [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
 
-      /*Stack({ alignContent: Alignment.TopEnd }) {
+      */
+/*Stack({ alignContent: Alignment.TopEnd }) {
         Image($r('app.media.ad'))
           .width('100%')
           .height('100%')
@@ -75,7 +79,8 @@ struct Start {
             }
             this.pathStack.replacePathByName("Layout", null, false)
           })
-      }*/
+      }*//*
+
 
     }
     // .title('广告页面')
@@ -84,3 +89,4 @@ struct Start {
     })
   }
 }
+*/

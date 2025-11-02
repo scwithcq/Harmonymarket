@@ -1,8 +1,4 @@
 {
-  "entry\\src\\main\\ets\\pages\\Start.ets": [
-    "NavDestination",
-    "Button"
-  ],
   "entry\\src\\main\\ets\\pages\\Layout.ets": [
     "Column",
     "Image",
@@ -16,17 +12,6 @@
   "entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": [
     "Column",
     "Text"
-  ],
-  "entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets": [
-    "Scroll",
-    "Column",
-    "Row",
-    "Text",
-    "Image",
-    "Blank",
-    "Button",
-    "TextInput",
-    "If"
   ],
   "entry\\src\\main\\ets\\pages\\Users\\Market\\MarketPage.ets": [
     "Column",
@@ -42,7 +27,8 @@
     "Flex",
     "Button"
   ],
-  "entry\\src\\main\\ets\\pages\\Users\\Home\\HomePage.ets": [
+  "entry\\src\\main\\ets\\pages\\Users\\Home\\UserHomePage.ets": [
+    "Navigation",
     "Scroll",
     "Column",
     "Row",
@@ -56,13 +42,46 @@
     "ListItem",
     "If"
   ],
-  "entry\\src\\main\\ets\\entryability\\EntryAbility.ets": [
+  "entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets": [
+    "NavDestination",
+    "Scroll",
+    "Column",
+    "Row",
+    "Text",
+    "Image",
+    "Blank",
+    "Button",
+    "TextInput",
     "If"
   ],
-  "entry\\src\\main\\ets\\pages\\Index.ets": [
-    "Navigation"
+  "entry\\src\\main\\ets\\pages\\RoleSelectPage.ets": [
+    "NavDestination",
+    "Column",
+    "Text",
+    "Button"
+  ],
+  "entry\\src\\main\\ets\\pages\\Merchant\\Home\\MerchantHomePage.ets": [
+    "NavDestination",
+    "Column",
+    "Row",
+    "Button",
+    "Blank",
+    "Text",
+    "If"
+  ],
+  "entry\\src\\main\\ets\\utils\\MqttClientPanel.ets": [
+    "Column",
+    "Text",
+    "TextInput",
+    "Row",
+    "Button",
+    "Scroll",
+    "ForEach",
+    "Image",
+    "If"
   ],
   "entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": [
+    "NavDestination",
     "Column",
     "Row",
     "Image",
@@ -75,5 +94,12 @@
     "ForEach",
     "ListItem",
     "If"
+  ],
+  "entry\\src\\main\\ets\\entryability\\EntryAbility.ets": [
+    "If"
+  ],
+  "entry\\src\\main\\ets\\pages\\Index.ets": [
+    "Navigation",
+    "Stack"
   ]
 }
