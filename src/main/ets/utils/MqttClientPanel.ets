@@ -45,7 +45,7 @@ interface ItemData {
 @Component
 struct MqttClientPanel {
   @State brokerUrl: string = 'tcp://8.130.212.116:1883';
-  @State topic: string = 'Test';
+  @State topic: string = 'mqtt_test';
   @State message: string = 'Hello from HarmonyOS MQTT!';
   @State logText: string = '等待连接...';
   @State isConnected: boolean = false;

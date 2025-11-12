@@ -50,7 +50,8 @@ export struct RecipePage {
 
       const httpRequest = http.createHttp();
       const response = await httpRequest.request(
-        'http://172.17.136.7:8080/api/ask',
+        // 'http://172.17.136.7:8080/api/ask',
+        'http://tf76667a.natappfree.cc/api/ask',
         {
           method: http.RequestMethod.POST,
           extraData: JSON.stringify(reqData),

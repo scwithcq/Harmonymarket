@@ -13,7 +13,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": {
-      "mtimeMs": 1762068520359.2424,
+      "mtimeMs": 1762097301134.1494,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.prompt.d.ts"
@@ -35,7 +35,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\UserHomePage.ets": {
-      "mtimeMs": 1761980309431.6565,
+      "mtimeMs": 1762097062961.1714,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
@@ -77,6 +77,162 @@
       "children": [],
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+hypium@1.0.19\\oh_modules\\@ohos\\hypium\\index.ets"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
+      ],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.prompt.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
+      ],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [],
+      "parent": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.prompt.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.atomicservice.AtomicServiceNavigation.d.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.advanced.FormMenu.d.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.UIContext.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.mediaquery.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.observer.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\UIAbilityContext.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.bundle.bundleManager.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.rpc.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\Context.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.resourceManager.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.image.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\ApplicationContext.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.window.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.appManager.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.promptAction.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.componentSnapshot.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.dragController.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.data.unifiedDataChannel.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\UIExtensionContext.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\ability\\dataAbilityHelper.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.ability.featureAbility.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\app\\context.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.bundle.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.data.rdb.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimodalInput.pointer.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.atomicservice.AtomicServiceWeb.d.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.display.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.PiPWindow.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.pluginComponent.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.advanced.FoldSplitContainer.d.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.uiExtension.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.advanced.FullScreenLaunchComponent.d.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.data.preferences.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.ability.particleAbility.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.notification.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.notificationManager.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.wantAgent.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.wantAgent.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.abilityAccessCtrl.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.UIExtensionContentSession.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.childProcessManager.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.errorManager.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.InsightIntentContext.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.bundle.defaultAppManager.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.bundle.overlay.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.continuation.continuationManager.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.appstartup.StartupListener.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.faultLogger.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.hiviewdfx.hiAppEvent.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.avsession.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.media.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.audio.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.photoAccessHelper.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\multimedia\\soundPool.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.cloudSync.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.fs.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.util.stream.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.events.emitter.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.hash.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.picker.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.securityLabel.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.statvfs.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.storageStatistics.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\graphics3d\\SceneResources.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\embedded_component.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\nav_destination.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\navigation.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\pattern_lock.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.print.d.ts"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
+      ],
+      "parent": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts"
+      ],
+      "parent": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts"
+      ],
+      "parent": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
+      ],
+      "parent": [
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts"
       ],
       "error": false
     },
@@ -183,90 +339,6 @@
       "children": [],
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\UserHomePage.ets"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.atomicservice.AtomicServiceNavigation.d.ets",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.advanced.FormMenu.d.ets",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.UIContext.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.mediaquery.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.observer.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\UIAbilityContext.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.bundle.bundleManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.rpc.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\Context.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.resourceManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.image.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\ApplicationContext.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.window.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.appManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.promptAction.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.componentSnapshot.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.dragController.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.data.unifiedDataChannel.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\application\\UIExtensionContext.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\ability\\dataAbilityHelper.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.ability.featureAbility.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\app\\context.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.bundle.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.data.rdb.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimodalInput.pointer.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.atomicservice.AtomicServiceWeb.d.ets",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.display.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.PiPWindow.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.pluginComponent.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.prompt.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.advanced.FoldSplitContainer.d.ets",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.uiExtension.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.arkui.advanced.FullScreenLaunchComponent.d.ets",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.data.preferences.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.ability.particleAbility.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.notification.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.notificationManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.wantAgent.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.wantAgent.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.abilityAccessCtrl.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.UIExtensionContentSession.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.childProcessManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.errorManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.ability.InsightIntentContext.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.bundle.defaultAppManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.bundle.overlay.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.continuation.continuationManager.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.app.appstartup.StartupListener.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.faultLogger.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.hiviewdfx.hiAppEvent.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.avsession.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.media.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.multimedia.audio.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.photoAccessHelper.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\multimedia\\soundPool.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.cloudSync.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.fs.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.util.stream.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.events.emitter.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.hash.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.picker.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.securityLabel.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.statvfs.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.file.storageStatistics.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\graphics3d\\SceneResources.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\embedded_component.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\nav_destination.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\navigation.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader\\declarations\\pattern_lock.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.print.d.ts"
       ],
       "error": false
     },
@@ -729,18 +801,6 @@
       ],
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.prompt.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets",
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets"
       ],
       "error": false
     },
@@ -2717,6 +2777,21 @@
       ],
       "error": false
     },
+    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets": {
+      "mtimeMs": 1762156024277.0007,
+      "children": [
+        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\index.ets",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.prompt.d.ts",
+        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.buffer.d.ts"
+      ],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Merchant\\Home\\MerchantHomePage.ets"
+      ],
+      "error": true,
+      "errorCodes": [
+        28007
+      ]
+    },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Merchant\\Home\\MerchantHomePage.ets": {
       "mtimeMs": 1762002652877.338,
       "children": [
@@ -2731,21 +2806,47 @@
         28007
       ]
     },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts": {
-      "mtimeMs": 1730423643000,
+    "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\index.ets": {
+      "mtimeMs": 1756789198000,
       "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
+        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\ets\\components\\MainPage\\MqttAsync.ets",
+        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\cpp\\types\\libmqttasync\\index.d.ts"
       ],
       "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets"
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets"
+      ],
+      "error": false
+    },
+    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.buffer.d.ts": {
+      "mtimeMs": 1730423643000,
+      "children": [],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets"
+      ],
+      "error": false
+    },
+    "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\ets\\components\\MainPage\\MqttAsync.ets": {
+      "mtimeMs": 1762001799095.058,
+      "children": [
+        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\cpp\\types\\libmqttasync\\index.d.ts",
+        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\cpp\\types\\libmqttasync\\index.d.ts"
+      ],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\index.ets"
+      ],
+      "error": false
+    },
+    "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\cpp\\types\\libmqttasync\\index.d.ts": {
+      "mtimeMs": 1762001969109.1326,
+      "children": [],
+      "parent": [
+        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\index.ets",
+        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\ets\\components\\MainPage\\MqttAsync.ets"
       ],
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": {
-      "mtimeMs": 1761979339530.8225,
+      "mtimeMs": 1762094469359.9736,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
@@ -2755,53 +2856,6 @@
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.display.d.ts"
       ],
       "parent": [],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.connection.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.socket.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cryptoFramework.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.base.d.ts"
-      ],
-      "parent": [
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.security.cert.d.ts"
-      ],
       "error": false
     },
     "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.AbilityKit.d.ts": {
@@ -4342,60 +4396,6 @@
       "children": [],
       "parent": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.web.webview.d.ts"
-      ],
-      "error": false
-    },
-    "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets": {
-      "mtimeMs": 1762005122062.0574,
-      "children": [
-        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\index.ets",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.prompt.d.ts",
-        "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.buffer.d.ts"
-      ],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Merchant\\Home\\MerchantHomePage.ets"
-      ],
-      "error": true,
-      "errorCodes": [
-        28007
-      ]
-    },
-    "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\index.ets": {
-      "mtimeMs": 1756789198000,
-      "children": [
-        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\ets\\components\\MainPage\\MqttAsync.ets",
-        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\cpp\\types\\libmqttasync\\index.d.ts"
-      ],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets"
-      ],
-      "error": false
-    },
-    "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\ets\\components\\MainPage\\MqttAsync.ets": {
-      "mtimeMs": 1762001799095.058,
-      "children": [
-        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\cpp\\types\\libmqttasync\\index.d.ts",
-        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\cpp\\types\\libmqttasync\\index.d.ts"
-      ],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\index.ets"
-      ],
-      "error": false
-    },
-    "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\cpp\\types\\libmqttasync\\index.d.ts": {
-      "mtimeMs": 1762001969109.1326,
-      "children": [],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\index.ets",
-        "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+mqtt@2.0.24\\oh_modules\\@ohos\\mqtt\\src\\main\\ets\\components\\MainPage\\MqttAsync.ets"
-      ],
-      "error": false
-    },
-    "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.buffer.d.ts": {
-      "mtimeMs": 1730423643000,
-      "children": [],
-      "parent": [
-        "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets"
       ],
       "error": false
     }

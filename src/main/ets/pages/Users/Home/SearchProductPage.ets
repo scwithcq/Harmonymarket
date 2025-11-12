@@ -30,7 +30,8 @@ export interface ProductResultData {
 
 // 模拟器访问宿主机地址
 // const BASE_URL = 'http://10.0.2.2:8080/api';  //这个用来模拟机测试
-const BASE_URL = 'http://192.168.85.10:8080/api'; //这个在连接我的热点70测试
+// const BASE_URL = 'http://192.168.85.10:8080/api'; //这个在连接我的热点70测试
+const BASE_URL = 'http://s49b7b66.natappfree.cc/api'; //这个为短暂（3天）公网测试 映射到后端的localhost:8080
 
 
 @Builder

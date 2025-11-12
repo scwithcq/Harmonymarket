@@ -100,7 +100,9 @@ export class RecipePage extends ViewPU {
                 use_rag: true
             };
             const httpRequest = http.createHttp();
-            const response = await httpRequest.request('http://172.17.136.7:8080/api/ask', {
+            const response = await httpRequest.request(
+            // 'http://172.17.136.7:8080/api/ask',
+            'http://tf76667a.natappfree.cc/api/ask', {
                 method: http.RequestMethod.POST,
                 extraData: JSON.stringify(reqData),
                 header: { 'Content-Type': 'application/json' },

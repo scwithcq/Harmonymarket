@@ -56,7 +56,7 @@ class MqttClientPanel extends ViewPU {
             this.paramsGenerator_ = paramsLambda;
         }
         this.__brokerUrl = new ObservedPropertySimplePU('tcp://8.130.212.116:1883', this, "brokerUrl");
-        this.__topic = new ObservedPropertySimplePU('Test', this, "topic");
+        this.__topic = new ObservedPropertySimplePU('mqtt_test', this, "topic");
         this.__message = new ObservedPropertySimplePU('Hello from HarmonyOS MQTT!', this, "message");
         this.__logText = new ObservedPropertySimplePU('等待连接...', this, "logText");
         this.__isConnected = new ObservedPropertySimplePU(false, this, "isConnected");

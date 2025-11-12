@@ -61,8 +61,5 @@
   ],
   "hspResourcesMap": {},
   "anBuildOutPut": "Q:\\MarketApp\\ArktsFrontend\\entry\\build\\default\\intermediates\\loader_out\\default\\an\\arm64-v8a",
-  "anBuildMode": "type",
-  "patchConfig": {
-    "changedFileList": "Q:\\MarketApp\\ArktsFrontend\\entry\\build\\default\\intermediates\\patch\\default\\changedFileList.json"
-  }
+  "anBuildMode": "type"
 }
