@@ -13,21 +13,30 @@ interface SearchProductPage_Params {
     bigUrl?: string;
     bigShown?: boolean;
     productName?: string;
+    cartQuantityMap?: Map<number, number>;
+    currentUserId?: number;
     pageStack?: NavPathStack;
+    floatingCartButton?: FloatingCartButton | null;
 }
 import http from "@ohos:net.http";
 import { app_color } from "@normalized:N&&&entry/src/main/ets/utils/Colors&";
 import promptAction from "@ohos:promptAction";
 import display from "@ohos:display";
+import { CartService } from "@normalized:N&&&entry/src/main/ets/services/CartService&";
+import type { AddCartRequest } from '../../../models/CartItem';
+import { FloatingCartButton } from "@normalized:N&&&entry/src/main/ets/components/FloatingCartButton&";
 // 商品数据类型
 export interface ProductDataItem {
-    id: number;
+    id?: number; // 商品ID（可能是 id）
+    productId?: number; // 商品ID（可能是 productId）
+    product_id?: number; // 商品ID（可能是 product_id）
     name: string;
     price: number;
     unit: string;
     imageUrl: string;
     isRecommend?: number;
     isNew?: number;
+    status?: string; // 商品状态：on_sale 在售，off_sale 已售罄
 }
 interface GeneratedTypeLiteralInterface_1 {
     item: ProductDataItem[];
@@ -40,13 +49,13 @@ export interface ProductResultData {
 }
 // 模拟器访问宿主机地址
 // const BASE_URL = 'http://10.0.2.2:8080/api';  //这个用来模拟机测试
-// const BASE_URL = 'http://192.168.85.10:8080/api'; //这个在连接我的热点70测试
-const BASE_URL = 'http://s49b7b66.natappfree.cc/api'; //这个为短暂（3天）公网测试 映射到后端的localhost:8080
+const BASE_URL = 'http://192.168.85.10:8080/api'; //这个在连接我的热点70测试
+// const BASE_URL = 'http://s49b7b66.natappfree.cc/api'; //这个为短暂（3天）公网测试 映射到后端的localhost:8080
 export function SearchProductPageBuilder(parent = null) {
     {
         (parent ? parent : this).observeComponentCreation2((elmtId, isInitialRender) => {
             if (isInitialRender) {
-                let componentCall = new SearchProductPage(parent ? parent : this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/SearchProductPage.ets", line: 39, col: 3 });
+                let componentCall = new SearchProductPage(parent ? parent : this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/SearchProductPage.ets", line: 45, col: 3 });
                 ViewPU.create(componentCall);
                 let paramsLambda = () => {
                     return {};
@@ -71,7 +80,7 @@ class SearchProductPage extends ViewPU {
         this.__isLoading = new ObservedPropertySimplePU(true, this, "isLoading");
         this.__cartVisible = new ObservedPropertySimplePU(Visibility.Visible, this, "cartVisible");
         this.__offsetX = new ObservedPropertySimplePU(0, this, "offsetX");
-        this.__offsetY = new ObservedPropertySimplePU(0
+        this.__offsetY = new ObservedPropertySimplePU(0 // 用于垂直跳跃动画
         //这里用来渲染商品图片的放大
         , this, "offsetY");
         this.__showBig = new ObservedPropertySimplePU(false // 是否处于放大态
@@ -80,7 +89,10 @@ class SearchProductPage extends ViewPU {
         , this, "bigUrl");
         this.__bigShown = new ObservedPropertySimplePU(false, this, "bigShown");
         this.__productName = new ObservedPropertySimplePU('', this, "productName");
+        this.__cartQuantityMap = new ObservedPropertyObjectPU(new Map(), this, "cartQuantityMap");
+        this.currentUserId = 1;
         this.__pageStack = new ObservedPropertyObjectPU(null!, this, "pageStack");
+        this.floatingCartButton = null;
         this.setInitiallyProvidedValue(params);
         this.finalizeConstruction();
     }
@@ -118,8 +130,17 @@ class SearchProductPage extends ViewPU {
         if (params.productName !== undefined) {
             this.productName = params.productName;
         }
+        if (params.cartQuantityMap !== undefined) {
+            this.cartQuantityMap = params.cartQuantityMap;
+        }
+        if (params.currentUserId !== undefined) {
+            this.currentUserId = params.currentUserId;
+        }
         if (params.pageStack !== undefined) {
             this.pageStack = params.pageStack;
+        }
+        if (params.floatingCartButton !== undefined) {
+            this.floatingCartButton = params.floatingCartButton;
         }
     }
     updateStateVars(params: SearchProductPage_Params) {
@@ -135,6 +156,7 @@ class SearchProductPage extends ViewPU {
         this.__bigUrl.purgeDependencyOnElmtId(rmElmtId);
         this.__bigShown.purgeDependencyOnElmtId(rmElmtId);
         this.__productName.purgeDependencyOnElmtId(rmElmtId);
+        this.__cartQuantityMap.purgeDependencyOnElmtId(rmElmtId);
         this.__pageStack.purgeDependencyOnElmtId(rmElmtId);
     }
     aboutToBeDeleted() {
@@ -148,6 +170,7 @@ class SearchProductPage extends ViewPU {
         this.__bigUrl.aboutToBeDeleted();
         this.__bigShown.aboutToBeDeleted();
         this.__productName.aboutToBeDeleted();
+        this.__cartQuantityMap.aboutToBeDeleted();
         this.__pageStack.aboutToBeDeleted();
         SubscriberManager.Get().delete(this.id__());
         this.aboutToBeDeletedInternal();
@@ -188,7 +211,7 @@ class SearchProductPage extends ViewPU {
     set offsetX(newValue: number) {
         this.__offsetX.set(newValue);
     }
-    private __offsetY: ObservedPropertySimplePU<number>;
+    private __offsetY: ObservedPropertySimplePU<number>; // 用于垂直跳跃动画
     get offsetY() {
         return this.__offsetY.get();
     }
@@ -224,7 +247,17 @@ class SearchProductPage extends ViewPU {
     set productName(newValue: string) {
         this.__productName.set(newValue);
     }
-    // null! 表示“外部会马上赋值”
+    // 购物车数量映射：key=productId, value=数量
+    private __cartQuantityMap: ObservedPropertyObjectPU<Map<number, number>>;
+    get cartQuantityMap() {
+        return this.__cartQuantityMap.get();
+    }
+    set cartQuantityMap(newValue: Map<number, number>) {
+        this.__cartQuantityMap.set(newValue);
+    }
+    // 当前用户ID（TODO: 后续从登录状态获取）
+    private currentUserId: number;
+    // null! 表示"外部会马上赋值"
     private __pageStack: ObservedPropertyObjectPU<NavPathStack>; // 先占位，等 onReady 赋值
     get pageStack() {
         return this.__pageStack.get();
@@ -232,6 +265,8 @@ class SearchProductPage extends ViewPU {
     set pageStack(newValue: NavPathStack) {
         this.__pageStack.set(newValue);
     }
+    // 悬浮购物车按钮引用
+    private floatingCartButton: FloatingCartButton | null;
     // 页面显示前获取路由参数
     /*  aboutToAppear() {
         const params = router.getParams() as Record<string, string>;
@@ -249,6 +284,24 @@ class SearchProductPage extends ViewPU {
     // onAppear(event: () => void): CommonAttribute {
     // 	return this.startState();
     // }
+    /**
+     * 加载购物车中的商品数量
+     */
+    async loadCartQuantities() {
+        const cartList = await CartService.getCartList(this.currentUserId);
+        this.cartQuantityMap.clear();
+        cartList.forEach(item => {
+            const existingQty = this.cartQuantityMap.get(item.productId) || 0;
+            this.cartQuantityMap.set(item.productId, existingQty + item.quantity);
+        });
+        console.info('[购物车数量] 已加载:', Array.from(this.cartQuantityMap.entries()));
+    }
+    /**
+     * 获取商品在购物车中的数量
+     */
+    getCartQuantity(productId: number): number {
+        return this.cartQuantityMap.get(productId) || 0;
+    }
     // 调用后端接口获取商品数据
     async fetchProductData() {
         this.isLoading = true;
@@ -258,8 +311,19 @@ class SearchProductPage extends ViewPU {
             const resp = await httpReq.request(url, { method: http.RequestMethod.GET });
             if (resp.responseCode === 200) {
                 const result: ProductResultData = JSON.parse(resp.result.toString());
+                console.info('[搜索结果] 原始数据:', resp.result.toString().substring(0, 500));
                 if (result.success && result.data?.item) {
                     this.productList = result.data.item;
+                    console.info(`[搜索结果] 商品数量: ${this.productList.length}`);
+                    if (this.productList.length > 0) {
+                        console.info('[搜索结果] 第一个商品:', JSON.stringify(this.productList[0]));
+                        // 打印所有商品的status状态
+                        this.productList.forEach((item, index) => {
+                            console.info(`[商品${index}] 名称: ${item.name}, status: ${item.status}`);
+                        });
+                    }
+                    // 加载购物车数量
+                    await this.loadCartQuantities();
                 }
                 else {
                     this.productList = [];
@@ -283,6 +347,254 @@ class SearchProductPage extends ViewPU {
     private startState(): void {
         this.offsetX = this.offsetX === 0 ? 70 : 70;
         this.offsetY === 0;
+    }
+    /**
+     * 显示数量选择对话框
+     */
+    private showQuantityDialog(item: ProductDataItem, productId: number) {
+        promptAction.showDialog({
+            title: '选择数量',
+            message: `请输入要添加到购物车的${item.name}数量`,
+            buttons: [
+                { text: '取消', color: '#999999' },
+                { text: '添加1件', color: '#4CAF50' },
+                { text: '添加5件', color: '#4CAF50' },
+                { text: '自定义', color: '#FF6B35' }
+            ]
+        }).then(async (result) => {
+            let quantity = 0;
+            if (result.index === 1) {
+                quantity = 1;
+            }
+            else if (result.index === 2) {
+                quantity = 5;
+            }
+            else if (result.index === 3) {
+                // 自定义数量：再次弹出输入框
+                promptAction.showDialog({
+                    title: '自定义数量',
+                    message: '请输入数量（1-99）',
+                    buttons: [
+                        { text: '取消', color: '#999999' },
+                        { text: '确定', color: '#4CAF50' }
+                    ]
+                }).then(async (customResult) => {
+                    if (customResult.index === 1) {
+                        // 这里简化处理，默认添加10件
+                        // 实际应该有TextInput输入框，但promptAction.showDialog不支持输入
+                        promptAction.showToast({ message: '请使用快捷数量选项' });
+                    }
+                });
+                return;
+            }
+            else {
+                return; // 取消
+            }
+            // 执行加入购物车
+            if (quantity > 0) {
+                await this.addToCartWithQuantity(productId, item.name, quantity);
+            }
+        });
+    }
+    /**
+     * 添加商品到购物车（指定数量）
+     */
+    private async addToCartWithQuantity(productId: number, productName: string, quantity: number) {
+        console.info('[准备加车] 商品ID:', productId, ', 商品名称:', productName, ', 数量:', quantity);
+        const success = await CartService.addToCart({
+            userId: this.currentUserId,
+            productId: productId,
+            quantity: quantity
+        } as AddCartRequest);
+        if (success) {
+            // 触发向上跳跃动画
+            this.offsetY = -20;
+            promptAction.showToast({ message: `已加入购物车 ${quantity} 件 ✓` });
+            await this.loadCartQuantities();
+            if (this.floatingCartButton) {
+                this.floatingCartButton.refresh();
+            }
+            // 400ms后回落
+            setTimeout(() => { this.offsetY = 0; }, 400);
+        }
+        else {
+            promptAction.showToast({ message: '加入失败，请重试' });
+        }
+    }
+    /**
+     * 购物车控制组件
+     */
+    CartControlBuilder(item: ProductDataItem, parent = null) {
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            Column.create({ space: 4 });
+            Column.width(100);
+        }, Column);
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            If.create();
+            // 检查商品状态
+            if (item.status === 'off_sale') {
+                this.ifElseBranchUpdateFunction(0, () => {
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        // 已售罄状态
+                        Text.create('已售罄');
+                        // 已售罄状态
+                        Text.fontSize(14);
+                        // 已售罄状态
+                        Text.fontColor('#999999');
+                        // 已售罄状态
+                        Text.backgroundColor('#F0F0F0');
+                        // 已售罄状态
+                        Text.padding({ left: 12, right: 12, top: 6, bottom: 6 });
+                        // 已售罄状态
+                        Text.borderRadius(4);
+                    }, Text);
+                    // 已售罄状态
+                    Text.pop();
+                });
+            }
+            else if (this.getCartQuantity(item.id || item.productId || item.product_id || 0) > 0) {
+                this.ifElseBranchUpdateFunction(1, () => {
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        // 已加入购物车：显示数量和增减按钮
+                        Row.create({ space: 8 });
+                    }, Row);
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        // 减少按钮
+                        Button.createWithLabel('-');
+                        // 减少按钮
+                        Button.width(30);
+                        // 减少按钮
+                        Button.height(30);
+                        // 减少按钮
+                        Button.fontSize(18);
+                        // 减少按钮
+                        Button.fontWeight(FontWeight.Bold);
+                        // 减少按钮
+                        Button.backgroundColor('#FF6B35');
+                        // 减少按钮
+                        Button.fontColor(Color.White);
+                        // 减少按钮
+                        Button.onClick(async () => {
+                            const pid = item.id || item.productId || item.product_id;
+                            if (!pid)
+                                return;
+                            // 找到购物车中的该商品项
+                            const cartList = await CartService.getCartList(this.currentUserId);
+                            const cartItem = cartList.find(c => c.productId === pid);
+                            if (cartItem) {
+                                if (cartItem.quantity > 1) {
+                                    await CartService.updateQuantity(cartItem.cartId, cartItem.quantity - 1);
+                                }
+                                else {
+                                    await CartService.deleteCartItem(cartItem.cartId);
+                                }
+                                await this.loadCartQuantities();
+                                if (this.floatingCartButton) {
+                                    this.floatingCartButton.refresh();
+                                }
+                            }
+                        });
+                    }, Button);
+                    // 减少按钮
+                    Button.pop();
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        // 显示数量
+                        Text.create(this.getCartQuantity(item.id || item.productId || item.product_id || 0).toString());
+                        // 显示数量
+                        Text.fontSize(16);
+                        // 显示数量
+                        Text.fontWeight(FontWeight.Bold);
+                        // 显示数量
+                        Text.width(40);
+                        // 显示数量
+                        Text.textAlign(TextAlign.Center);
+                        // 显示数量
+                        Text.backgroundColor('#FFF8DC');
+                        // 显示数量
+                        Text.borderRadius(4);
+                        // 显示数量
+                        Text.padding({ top: 4, bottom: 4 });
+                        // 显示数量
+                        Text.onClick(() => {
+                            promptAction.showToast({
+                                message: `当前数量: ${this.getCartQuantity(item.id || item.productId || item.product_id || 0)}`
+                            });
+                        });
+                    }, Text);
+                    // 显示数量
+                    Text.pop();
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        // 增加按钮
+                        Button.createWithLabel('+');
+                        // 增加按钮
+                        Button.width(30);
+                        // 增加按钮
+                        Button.height(30);
+                        // 增加按钮
+                        Button.fontSize(18);
+                        // 增加按钮
+                        Button.fontWeight(FontWeight.Bold);
+                        // 增加按钮
+                        Button.backgroundColor('#4CAF50');
+                        // 增加按钮
+                        Button.fontColor(Color.White);
+                        // 增加按钮
+                        Button.onClick(async () => {
+                            const pid = item.id || item.productId || item.product_id;
+                            if (!pid)
+                                return;
+                            const cartList = await CartService.getCartList(this.currentUserId);
+                            const cartItem = cartList.find(c => c.productId === pid);
+                            if (cartItem) {
+                                await CartService.updateQuantity(cartItem.cartId, cartItem.quantity + 1);
+                                await this.loadCartQuantities();
+                                if (this.floatingCartButton) {
+                                    this.floatingCartButton.refresh();
+                                }
+                            }
+                        });
+                    }, Button);
+                    // 增加按钮
+                    Button.pop();
+                    // 已加入购物车：显示数量和增减按钮
+                    Row.pop();
+                });
+            }
+            else {
+                this.ifElseBranchUpdateFunction(2, () => {
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        // 未加入购物车：显示加入按钮
+                        Row.create();
+                        // 未加入购物车：显示加入按钮
+                        Row.justifyContent(FlexAlign.End);
+                    }, Row);
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        Image.create({ "id": 16777235, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
+                        Context.animation({ duration: 400, curve: Curve.FastOutSlowIn });
+                        Image.width(50);
+                        Image.height(50);
+                        Image.translate({ x: 0, y: this.offsetY });
+                        Context.animation(null);
+                        Image.onClick(async () => {
+                            const pid = item.id || item.productId || item.product_id;
+                            console.info('[DEBUG] 商品信息:', JSON.stringify(item));
+                            console.info('[DEBUG] 提取的 productId:', pid);
+                            if (!pid) {
+                                console.error('[加车失败] 商品ID为空');
+                                promptAction.showToast({ message: '商品信息异常' });
+                                return;
+                            }
+                            // 弹出数量选择对话框
+                            this.showQuantityDialog(item, pid);
+                        });
+                    }, Image);
+                    // 未加入购物车：显示加入按钮
+                    Row.pop();
+                });
+            }
+        }, If);
+        If.pop();
+        Column.pop();
     }
     initialRender() {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
@@ -624,22 +936,8 @@ class SearchProductPage extends ViewPU {
                                             If.pop();
                                             Row.pop();
                                             Column.pop();
-                                            this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                                // 后续开发加入购物车选项
-                                                Row.create();
-                                                // 后续开发加入购物车选项
-                                                Row.justifyContent(FlexAlign.End);
-                                            }, Row);
-                                            this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                                Image.create({ "id": 16777235, "type": 20000, params: [], "bundleName": "com.example.marketapp", "moduleName": "entry" });
-                                                Context.animation({ duration: 600, curve: Curve.EaseInOut });
-                                                Image.width(50);
-                                                Image.height(50);
-                                                Image.translate({ x: this.offsetX, y: this.offsetY });
-                                                Context.animation(null);
-                                            }, Image);
-                                            // 后续开发加入购物车选项
-                                            Row.pop();
+                                            // 购物车数量控制区域
+                                            this.CartControlBuilder.bind(this)(item);
                                             Row.pop();
                                             ListItem.pop();
                                         };
@@ -658,6 +956,27 @@ class SearchProductPage extends ViewPU {
                 }, If);
                 If.pop();
                 Column.pop();
+                {
+                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                        if (isInitialRender) {
+                            let componentCall = new 
+                            // 悬浮购物车按钮
+                            FloatingCartButton(this, { pageStack: this.pageStack }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/SearchProductPage.ets", line: 591, col: 7 });
+                            ViewPU.create(componentCall);
+                            let paramsLambda = () => {
+                                return {
+                                    pageStack: this.pageStack
+                                };
+                            };
+                            componentCall.paramsGenerator_ = paramsLambda;
+                        }
+                        else {
+                            this.updateStateVarsOfChildByElmtId(elmtId, {
+                                pageStack: this.pageStack
+                            });
+                        }
+                    }, { name: "FloatingCartButton" });
+                }
             }, { moduleName: "entry", pagePath: "entry/src/main/ets/pages/Users/Home/SearchProductPage" });
             NavDestination.hideTitleBar(true);
             NavDestination.onReady((context: NavDestinationContext) => {

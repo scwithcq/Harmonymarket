@@ -4,6 +4,7 @@ import { promptAction } from '@kit.ArkUI';
 // 后期在这里设置统一颜色
 import { app_color } from '../../../utils/Colors'
 import { SearchParams } from '../../../common/Params/SearchParams/SearchParams';
+import { FloatingCartButton } from '../../../components/FloatingCartButton';
 
 // 文章数据定义
 export interface Article {
@@ -69,13 +70,24 @@ export struct UserHomePage {
   @State articles: Article[] = ArticleList
   @State productName: string = '';
   @State cartVisible: Visibility = Visibility.Visible
-  // 导航栏实例
-  pageStack: NavPathStack = new NavPathStack()
+  // 从全局 AppStorage 获取 pageStack
+  @State pageStack: NavPathStack | undefined = undefined;
+  
+  aboutToAppear() {
+    // 手动从 AppStorage 获取 pageStack
+    const stack = AppStorage.get<NavPathStack>('globalPageStack');
+    if (stack) {
+      this.pageStack = stack;
+      console.info('[UserHomePage] 成功获取 pageStack');
+    } else {
+      console.warn('[UserHomePage] AppStorage 中未找到 globalPageStack');
+    }
+  }
 
 
   build() {
-    // 以后每个具体页面都设置为主页面，里面搜索或跳转到页面在设置为子页面
-    Navigation(this.pageStack){
+    // 直接使用 Column，不需要嵌套 Navigation（因为已经在 Layout 的 NavDestination 中）
+    Column() {
       Scroll() {
         Column() {
           // 顶部搜索栏
@@ -114,7 +126,16 @@ export struct UserHomePage {
                     promptAction.showToast({ message: '请输入商品名称' });
                     return;
                   }
-                  this.pageStack.pushPathByName("SearchProductPage",this.productName)
+                  
+                  // 检查 pageStack 是否有效
+                  if (!this.pageStack) {
+                    console.error('[UserHomePage] pageStack 为空，无法跳转');
+                    promptAction.showToast({ message: '页面加载中，请稍后重试' });
+                    return;
+                  }
+                  
+                  console.info('[UserHomePage] 准备跳转搜索页，关键词:', this.productName);
+                  this.pageStack.pushPathByName("SearchProductPage", this.productName);
                 });
 
             }
@@ -325,8 +346,14 @@ export struct UserHomePage {
         .height('100%')
         .backgroundColor('#F8F9FA')
       }
+      .layoutWeight(1)
+      
+      // 悬浮购物车按钮
+      FloatingCartButton({ pageStack: this.pageStack })
 
     }
+    .width('100%')
+    .height('100%')
 
   }
 

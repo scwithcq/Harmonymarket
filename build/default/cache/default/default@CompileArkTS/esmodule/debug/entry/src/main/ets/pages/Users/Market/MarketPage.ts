@@ -6,7 +6,9 @@ interface MarketPage_Params {
     TABBAR_HEIGHT?: number;
     products?: product[];
     merchants?: merchant[];
+    pageStack?: NavPathStack;
 }
+import { FloatingCartButton } from "@normalized:N&&&entry/src/main/ets/components/FloatingCartButton&";
 // 商品数据定义
 export interface product {
     image: string;
@@ -107,10 +109,8 @@ export class MarketPage extends ViewPU {
         this.__selectedCategory = new ObservedPropertySimplePU('全部', this, "selectedCategory");
         this.TABBAR_HEIGHT = 220;
         this.__products = new ObservedPropertyObjectPU(productList, this, "products");
-        this.__merchants = new ObservedPropertyObjectPU(merchantList
-        // 市场
-        // @State selectedTab: number = 1 // 菜市场tab选中
-        , this, "merchants");
+        this.__merchants = new ObservedPropertyObjectPU(merchantList, this, "merchants");
+        this.__pageStack = this.createStorageProp('globalPageStack', new NavPathStack(), "pageStack");
         this.setInitiallyProvidedValue(params);
         this.finalizeConstruction();
     }
@@ -134,11 +134,13 @@ export class MarketPage extends ViewPU {
         this.__selectedCategory.purgeDependencyOnElmtId(rmElmtId);
         this.__products.purgeDependencyOnElmtId(rmElmtId);
         this.__merchants.purgeDependencyOnElmtId(rmElmtId);
+        this.__pageStack.purgeDependencyOnElmtId(rmElmtId);
     }
     aboutToBeDeleted() {
         this.__selectedCategory.aboutToBeDeleted();
         this.__products.aboutToBeDeleted();
         this.__merchants.aboutToBeDeleted();
+        this.__pageStack.aboutToBeDeleted();
         SubscriberManager.Get().delete(this.id__());
         this.aboutToBeDeletedInternal();
     }
@@ -163,6 +165,13 @@ export class MarketPage extends ViewPU {
     }
     set merchants(newValue: merchant[]) {
         this.__merchants.set(newValue);
+    }
+    private __pageStack: ObservedPropertyAbstractPU<NavPathStack>;
+    get pageStack() {
+        return this.__pageStack.get();
+    }
+    set pageStack(newValue: NavPathStack) {
+        this.__pageStack.set(newValue);
     }
     // 市场
     // @State selectedTab: number = 1 // 菜市场tab选中
@@ -505,6 +514,27 @@ export class MarketPage extends ViewPU {
         Scroll.pop();
         // 热门商品推荐区
         Column.pop();
+        {
+            this.observeComponentCreation2((elmtId, isInitialRender) => {
+                if (isInitialRender) {
+                    let componentCall = new 
+                    // 悬浮购物车按钮
+                    FloatingCartButton(this, { pageStack: this.pageStack }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Market/MarketPage.ets", line: 316, col: 7 });
+                    ViewPU.create(componentCall);
+                    let paramsLambda = () => {
+                        return {
+                            pageStack: this.pageStack
+                        };
+                    };
+                    componentCall.paramsGenerator_ = paramsLambda;
+                }
+                else {
+                    this.updateStateVarsOfChildByElmtId(elmtId, {
+                        pageStack: this.pageStack
+                    });
+                }
+            }, { name: "FloatingCartButton" });
+        }
         Column.pop();
     }
     rerender() {

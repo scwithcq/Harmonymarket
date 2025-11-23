@@ -49,7 +49,6 @@ class Layout extends ViewV2 {
     currentIndex: number;
     // 导航栏实例
     pageStack: NavPathStack;
-    // pathStack: NavPathStack = new NavPathStack()
     tabData: TabClass[];
     tabBuilder(item: TabClass, index: number, parent = null) {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
@@ -185,6 +184,8 @@ class Layout extends ViewV2 {
             }, { moduleName: "entry", pagePath: "entry/src/main/ets/pages/Layout" });
             NavDestination.onReady((context: NavDestinationContext) => {
                 this.pageStack = context.pathStack;
+                // 将 pageStack 存储到全局 AppStorage，供子页面使用
+                AppStorage.setOrCreate('globalPageStack', this.pageStack);
             });
         }, NavDestination);
         NavDestination.pop();

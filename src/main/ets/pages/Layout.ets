@@ -21,7 +21,7 @@ struct Layout {
   @Local currentIndex: number = 0
   // 导航栏实例
   pageStack: NavPathStack = new NavPathStack()
-  // pathStack: NavPathStack = new NavPathStack()
+
   tabData: TabClass[] = [
     // HomePage 首页 含今日推荐菜谱  AI推荐卡片  跳转-》菜谱详情
     //
@@ -75,7 +75,9 @@ struct Layout {
 
     // .title('布局页面')
     .onReady((context: NavDestinationContext) => {
-      this.pageStack = context.pathStack
+      this.pageStack = context.pathStack;
+      // 将 pageStack 存储到全局 AppStorage，供子页面使用
+      AppStorage.setOrCreate('globalPageStack', this.pageStack);
     })
 
   }

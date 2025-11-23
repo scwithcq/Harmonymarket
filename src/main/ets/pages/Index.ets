@@ -1,6 +1,8 @@
 import { RoleSelectPageBuilder } from './RoleSelectPage'
 import { UserHomePageBuilder } from './Users/Home/UserHomePage'
 import { MerchantHomePageBuilder } from './Merchant/Home/MerchantHomePage'
+import { CartPageBuilder } from './Users/Cart/CartPage'
+import { SearchProductPageBuilder } from './Users/Home/SearchProductPage'
 import dataPreferences from '@ohos.data.preferences'
 
 const PREF_NAME = 'role_pref'
@@ -50,16 +52,28 @@ struct Index {
   //ui构建
   build() {
     Navigation(this.pageStack) {
-
-
+      // 空内容，NavDestination会通过navDestination动态创建
     }
+    .navDestination(this.PageMap)
     .onAppear(()=>{
-      this.pageStack.replacePathByName("RoleSelectPage", null)
+      // 跳转到角色选择页
+      this.pageStack.pushPathByName("RoleSelectPage", null)
     })
     .hideNavBar(true)
-
     .mode(NavigationMode.Stack)
     .title('MarketApp')
     .width('100%')
+  }
+  
+  // 路由映射表
+  @Builder
+  PageMap(name: string, param: Object) {
+    if (name === 'RoleSelectPage') {
+      RoleSelectPageBuilder()
+    } else if (name === 'CartPage') {
+      CartPageBuilder()
+    } else if (name === 'SearchProductPage') {
+      SearchProductPageBuilder()
+    }
   }
 }

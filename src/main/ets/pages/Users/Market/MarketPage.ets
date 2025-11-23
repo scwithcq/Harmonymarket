@@ -1,3 +1,5 @@
+import { FloatingCartButton } from '../../../components/FloatingCartButton';
+
 // 商品数据定义
 export interface product {
   image: string
@@ -100,6 +102,7 @@ export struct MarketPage {
   readonly TABBAR_HEIGHT: number = 220
   @State products: product[] = productList
   @State merchants: merchant[] = merchantList
+  @StorageProp('globalPageStack') pageStack: NavPathStack = new NavPathStack();
 
   // 市场
   // @State selectedTab: number = 1 // 菜市场tab选中
@@ -308,6 +311,9 @@ export struct MarketPage {
         .scrollable(ScrollDirection.Vertical)
         .scrollBar(BarState.Off)
       }
+      
+      // 悬浮购物车按钮
+      FloatingCartButton({ pageStack: this.pageStack })
     }
     .width('100%')
     .height('100%')

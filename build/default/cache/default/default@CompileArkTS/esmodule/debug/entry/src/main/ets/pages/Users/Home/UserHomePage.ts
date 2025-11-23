@@ -6,10 +6,10 @@ interface UserHomePage_Params {
     articles?: Article[];
     productName?: string;
     cartVisible?: Visibility;
-    // 导航栏实例
-    pageStack?: NavPathStack;
+    pageStack?: NavPathStack | undefined;
 }
 import promptAction from "@ohos:promptAction";
+import { FloatingCartButton } from "@normalized:N&&&entry/src/main/ets/components/FloatingCartButton&";
 // 文章数据定义
 export interface Article {
     image: string;
@@ -63,7 +63,7 @@ export function UserHomePageBuilder(parent = null) {
     {
         (parent ? parent : this).observeComponentCreation2((elmtId, isInitialRender) => {
             if (isInitialRender) {
-                let componentCall = new UserHomePage(parent ? parent : this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/UserHomePage.ets", line: 61, col: 3 });
+                let componentCall = new UserHomePage(parent ? parent : this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/UserHomePage.ets", line: 62, col: 3 });
                 ViewPU.create(componentCall);
                 let paramsLambda = () => {
                     return {};
@@ -86,9 +86,9 @@ export class UserHomePage extends ViewPU {
         this.__articles = new ObservedPropertyObjectPU(ArticleList, this, "articles");
         this.__productName = new ObservedPropertySimplePU('', this, "productName");
         this.__cartVisible = new ObservedPropertySimplePU(Visibility.Visible
-        // 导航栏实例
+        // 从全局 AppStorage 获取 pageStack
         , this, "cartVisible");
-        this.pageStack = new NavPathStack();
+        this.__pageStack = new ObservedPropertyObjectPU(undefined, this, "pageStack");
         this.setInitiallyProvidedValue(params);
         this.finalizeConstruction();
     }
@@ -115,11 +115,13 @@ export class UserHomePage extends ViewPU {
         this.__articles.purgeDependencyOnElmtId(rmElmtId);
         this.__productName.purgeDependencyOnElmtId(rmElmtId);
         this.__cartVisible.purgeDependencyOnElmtId(rmElmtId);
+        this.__pageStack.purgeDependencyOnElmtId(rmElmtId);
     }
     aboutToBeDeleted() {
         this.__articles.aboutToBeDeleted();
         this.__productName.aboutToBeDeleted();
         this.__cartVisible.aboutToBeDeleted();
+        this.__pageStack.aboutToBeDeleted();
         SubscriberManager.Get().delete(this.id__());
         this.aboutToBeDeletedInternal();
     }
@@ -146,15 +148,37 @@ export class UserHomePage extends ViewPU {
     set cartVisible(newValue: Visibility) {
         this.__cartVisible.set(newValue);
     }
-    // 导航栏实例
-    private pageStack: NavPathStack;
+    // 从全局 AppStorage 获取 pageStack
+    private __pageStack: ObservedPropertyObjectPU<NavPathStack | undefined>;
+    get pageStack() {
+        return this.__pageStack.get();
+    }
+    set pageStack(newValue: NavPathStack | undefined) {
+        this.__pageStack.set(newValue);
+    }
+    aboutToAppear() {
+        // 手动从 AppStorage 获取 pageStack
+        const stack = AppStorage.get<NavPathStack>('globalPageStack');
+        if (stack) {
+            this.pageStack = stack;
+            console.info('[UserHomePage] 成功获取 pageStack');
+        }
+        else {
+            console.warn('[UserHomePage] AppStorage 中未找到 globalPageStack');
+        }
+    }
     initialRender() {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
-            // 以后每个具体页面都设置为主页面，里面搜索或跳转到页面在设置为子页面
-            Navigation.create(this.pageStack, { moduleName: "entry", pagePath: "entry/src/main/ets/pages/Users/Home/UserHomePage", isUserCreateStack: true });
-        }, Navigation);
+            // 直接使用 Column，不需要嵌套 Navigation（因为已经在 Layout 的 NavDestination 中）
+            Column.create();
+            // 直接使用 Column，不需要嵌套 Navigation（因为已经在 Layout 的 NavDestination 中）
+            Column.width('100%');
+            // 直接使用 Column，不需要嵌套 Navigation（因为已经在 Layout 的 NavDestination 中）
+            Column.height('100%');
+        }, Column);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Scroll.create();
+            Scroll.layoutWeight(1);
         }, Scroll);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Column.create();
@@ -274,6 +298,13 @@ export class UserHomePage extends ViewPU {
                     promptAction.showToast({ message: '请输入商品名称' });
                     return;
                 }
+                // 检查 pageStack 是否有效
+                if (!this.pageStack) {
+                    console.error('[UserHomePage] pageStack 为空，无法跳转');
+                    promptAction.showToast({ message: '页面加载中，请稍后重试' });
+                    return;
+                }
+                console.info('[UserHomePage] 准备跳转搜索页，关键词:', this.productName);
                 this.pageStack.pushPathByName("SearchProductPage", this.productName);
             });
         }, Button);
@@ -596,8 +627,29 @@ export class UserHomePage extends ViewPU {
         List.pop();
         Column.pop();
         Scroll.pop();
-        // 以后每个具体页面都设置为主页面，里面搜索或跳转到页面在设置为子页面
-        Navigation.pop();
+        {
+            this.observeComponentCreation2((elmtId, isInitialRender) => {
+                if (isInitialRender) {
+                    let componentCall = new 
+                    // 悬浮购物车按钮
+                    FloatingCartButton(this, { pageStack: this.pageStack }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/UserHomePage.ets", line: 352, col: 7 });
+                    ViewPU.create(componentCall);
+                    let paramsLambda = () => {
+                        return {
+                            pageStack: this.pageStack
+                        };
+                    };
+                    componentCall.paramsGenerator_ = paramsLambda;
+                }
+                else {
+                    this.updateStateVarsOfChildByElmtId(elmtId, {
+                        pageStack: this.pageStack
+                    });
+                }
+            }, { name: "FloatingCartButton" });
+        }
+        // 直接使用 Column，不需要嵌套 Navigation（因为已经在 Layout 的 NavDestination 中）
+        Column.pop();
     }
     rerender() {
         this.updateDirtyElements();

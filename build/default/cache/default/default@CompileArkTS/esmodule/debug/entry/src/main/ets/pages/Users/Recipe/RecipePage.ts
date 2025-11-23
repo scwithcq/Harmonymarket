@@ -5,9 +5,12 @@ interface RecipePage_Params {
     messages?: Array<ChatMessage>;
     inputText?: string;
     isLoading?: boolean;
+    pageStack?: NavPathStack;
+    scroller?: Scroller;
 }
 import http from "@ohos:net.http";
-import prompt from "@ohos:prompt";
+import promptAction from "@ohos:promptAction";
+import { FloatingCartButton } from "@normalized:N&&&entry/src/main/ets/components/FloatingCartButton&";
 interface ChatMessage {
     role: 'user' | 'assistant';
     content: string;
@@ -26,7 +29,24 @@ interface AskResponse {
     retrieved_docs: Array<RetrievedDoc>;
     timestamp: string;
 }
-export class RecipePage extends ViewPU {
+export function RecipePageBuilder(parent = null) {
+    {
+        (parent ? parent : this).observeComponentCreation2((elmtId, isInitialRender) => {
+            if (isInitialRender) {
+                let componentCall = new RecipePage(parent ? parent : this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Recipe/RecipePage.ets", line: 29, col: 3 });
+                ViewPU.create(componentCall);
+                let paramsLambda = () => {
+                    return {};
+                };
+                componentCall.paramsGenerator_ = paramsLambda;
+            }
+            else {
+                (parent ? parent : this).updateStateVarsOfChildByElmtId(elmtId, {});
+            }
+        }, { name: "RecipePage" });
+    }
+}
+class RecipePage extends ViewPU {
     constructor(parent, params, __localStorage, elmtId = -1, paramsLambda = undefined, extraInfo) {
         super(parent, __localStorage, elmtId, extraInfo);
         if (typeof paramsLambda === "function") {
@@ -35,7 +55,10 @@ export class RecipePage extends ViewPU {
         this.__messages = new ObservedPropertyObjectPU([], this, "messages");
         this.__inputText = new ObservedPropertySimplePU('', this, "inputText");
         this.__isLoading = new ObservedPropertySimplePU(false, this, "isLoading");
+        this.__pageStack = this.createStorageProp('globalPageStack', new NavPathStack(), "pageStack");
+        this.scroller = new Scroller();
         this.setInitiallyProvidedValue(params);
+        this.declareWatch("pageStack", this.onPageStackChange);
         this.finalizeConstruction();
     }
     setInitiallyProvidedValue(params: RecipePage_Params) {
@@ -48,6 +71,9 @@ export class RecipePage extends ViewPU {
         if (params.isLoading !== undefined) {
             this.isLoading = params.isLoading;
         }
+        if (params.scroller !== undefined) {
+            this.scroller = params.scroller;
+        }
     }
     updateStateVars(params: RecipePage_Params) {
     }
@@ -55,11 +81,13 @@ export class RecipePage extends ViewPU {
         this.__messages.purgeDependencyOnElmtId(rmElmtId);
         this.__inputText.purgeDependencyOnElmtId(rmElmtId);
         this.__isLoading.purgeDependencyOnElmtId(rmElmtId);
+        this.__pageStack.purgeDependencyOnElmtId(rmElmtId);
     }
     aboutToBeDeleted() {
         this.__messages.aboutToBeDeleted();
         this.__inputText.aboutToBeDeleted();
         this.__isLoading.aboutToBeDeleted();
+        this.__pageStack.aboutToBeDeleted();
         SubscriberManager.Get().delete(this.id__());
         this.aboutToBeDeletedInternal();
     }
@@ -84,9 +112,21 @@ export class RecipePage extends ViewPU {
     set isLoading(newValue: boolean) {
         this.__isLoading.set(newValue);
     }
+    private __pageStack: ObservedPropertyAbstractPU<NavPathStack>;
+    get pageStack() {
+        return this.__pageStack.get();
+    }
+    set pageStack(newValue: NavPathStack) {
+        this.__pageStack.set(newValue);
+    }
+    private scroller: Scroller;
+    // 监听 pageStack 变化
+    onPageStackChange() {
+        console.info('[RecipePage] pageStack 已更新');
+    }
     private async sendQuestion() {
         if (this.inputText.trim() === '') {
-            prompt.showToast({ message: '请输入问题' });
+            promptAction.showToast({ message: '请输入问题' });
             return;
         }
         // 添加用户消息
@@ -113,15 +153,17 @@ export class RecipePage extends ViewPU {
             if (response.responseCode === 200 && response.result) {
                 const data: AskResponse = JSON.parse(response.result as string);
                 this.messages.push({ role: 'assistant', content: data.answer });
+                // 滚动到底部
+                this.scroller.scrollEdge(Edge.Bottom);
             }
             else {
-                prompt.showToast({ message: '请求失败，请检查服务器' });
+                promptAction.showToast({ message: '请求失败，请检查服务器' });
             }
             httpRequest.destroy();
         }
         catch (err) {
             console.error('请求出错: ', JSON.stringify(err));
-            prompt.showToast({ message: '网络错误，请稍后重试' });
+            promptAction.showToast({ message: '网络错误，请稍后重试' });
         }
         finally {
             this.isLoading = false;
@@ -129,153 +171,185 @@ export class RecipePage extends ViewPU {
     }
     initialRender() {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Column.create({ space: 12 });
-            Column.backgroundColor('#EFEFEF');
-            Column.height('100%');
-            Column.width('100%');
-        }, Column);
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            // 顶部标题栏
-            Text.create('菜谱助手');
-            // 顶部标题栏
-            Text.fontSize(26);
-            // 顶部标题栏
-            Text.fontWeight(FontWeight.Bold);
-            // 顶部标题栏
-            Text.padding(12);
-            // 顶部标题栏
-            Text.backgroundColor('#4CAF50');
-            // 顶部标题栏
-            Text.fontColor(Color.White);
-            // 顶部标题栏
-            Text.width('100%');
-            // 顶部标题栏
-            Text.textAlign(TextAlign.Center);
-        }, Text);
-        // 顶部标题栏
-        Text.pop();
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            // 聊天内容显示区
-            Scroll.create();
-            // 聊天内容显示区
-            Scroll.height('80%');
-        }, Scroll);
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Column.create({ space: 10 });
-            Column.padding(12);
-        }, Column);
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            ForEach.create();
-            const forEachItemGenFunction = (_item, index: number) => {
-                const msg = _item;
+            NavDestination.create(() => {
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    Column.create({ space: 12 });
+                    Column.backgroundColor('#EFEFEF');
+                    Column.height('100%');
+                    Column.width('100%');
+                }, Column);
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    // 顶部标题栏
+                    Text.create('菜谱助手');
+                    // 顶部标题栏
+                    Text.fontSize(26);
+                    // 顶部标题栏
+                    Text.fontWeight(FontWeight.Bold);
+                    // 顶部标题栏
+                    Text.padding(12);
+                    // 顶部标题栏
+                    Text.backgroundColor('#4CAF50');
+                    // 顶部标题栏
+                    Text.fontColor(Color.White);
+                    // 顶部标题栏
+                    Text.width('100%');
+                    // 顶部标题栏
+                    Text.textAlign(TextAlign.Center);
+                }, Text);
+                // 顶部标题栏
+                Text.pop();
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    // 聊天内容显示区
+                    Scroll.create(this.scroller);
+                    // 聊天内容显示区
+                    Scroll.height('80%');
+                }, Scroll);
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    Column.create({ space: 10 });
+                    Column.padding(12);
+                }, Column);
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    ForEach.create();
+                    const forEachItemGenFunction = (_item, index: number) => {
+                        const msg = _item;
+                        this.observeComponentCreation2((elmtId, isInitialRender) => {
+                            If.create();
+                            if (msg.role === 'user') {
+                                this.ifElseBranchUpdateFunction(0, () => {
+                                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                        Row.create();
+                                        Row.width('100%');
+                                    }, Row);
+                                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                        Blank.create();
+                                    }, Blank);
+                                    Blank.pop();
+                                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                        Text.create(msg.content);
+                                        Text.padding(10);
+                                        Text.backgroundColor('#DCF8C6');
+                                        Text.borderRadius(10);
+                                        Text.width('70%');
+                                    }, Text);
+                                    Text.pop();
+                                    Row.pop();
+                                });
+                            }
+                            else {
+                                this.ifElseBranchUpdateFunction(1, () => {
+                                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                        Row.create();
+                                        Row.width('100%');
+                                    }, Row);
+                                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                        Text.create(msg.content);
+                                        Text.padding(10);
+                                        Text.backgroundColor('#FFFFFF');
+                                        Text.borderRadius(10);
+                                        Text.width('70%');
+                                    }, Text);
+                                    Text.pop();
+                                    this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                        Blank.create();
+                                    }, Blank);
+                                    Blank.pop();
+                                    Row.pop();
+                                });
+                            }
+                        }, If);
+                        If.pop();
+                    };
+                    this.forEachUpdateFunction(elmtId, this.messages, forEachItemGenFunction, (msg: ChatMessage) => msg.content, true, false);
+                }, ForEach);
+                ForEach.pop();
+                Column.pop();
+                // 聊天内容显示区
+                Scroll.pop();
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                     If.create();
-                    if (msg.role === 'user') {
+                    // 加载提示
+                    if (this.isLoading) {
                         this.ifElseBranchUpdateFunction(0, () => {
                             this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                Row.create();
-                                Row.width('100%');
-                            }, Row);
-                            this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                Blank.create();
-                            }, Blank);
-                            Blank.pop();
-                            this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                Text.create(msg.content);
-                                Text.padding(10);
-                                Text.backgroundColor('#DCF8C6');
-                                Text.borderRadius(10);
-                                Text.width('70%');
+                                Text.create('正在生成菜谱...');
+                                Text.fontSize(16);
+                                Text.fontColor('#888888');
                             }, Text);
                             Text.pop();
-                            Row.pop();
                         });
                     }
+                    // 底部输入栏
                     else {
                         this.ifElseBranchUpdateFunction(1, () => {
-                            this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                Row.create();
-                                Row.width('100%');
-                            }, Row);
-                            this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                Text.create(msg.content);
-                                Text.padding(10);
-                                Text.backgroundColor('#FFFFFF');
-                                Text.borderRadius(10);
-                                Text.width('70%');
-                            }, Text);
-                            Text.pop();
-                            this.observeComponentCreation2((elmtId, isInitialRender) => {
-                                Blank.create();
-                            }, Blank);
-                            Blank.pop();
-                            Row.pop();
                         });
                     }
                 }, If);
                 If.pop();
-            };
-            this.forEachUpdateFunction(elmtId, this.messages, forEachItemGenFunction, (msg: ChatMessage) => msg.content, true, false);
-        }, ForEach);
-        ForEach.pop();
-        Column.pop();
-        // 聊天内容显示区
-        Scroll.pop();
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            If.create();
-            // 加载提示
-            if (this.isLoading) {
-                this.ifElseBranchUpdateFunction(0, () => {
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    // 底部输入栏
+                    Row.create({ space: 8 });
+                    // 底部输入栏
+                    Row.padding(10);
+                }, Row);
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    TextInput.create({ placeholder: '请输入食材或问题', text: { value: this.inputText, changeEvent: newValue => { this.inputText = newValue; } } });
+                    TextInput.width('75%');
+                    TextInput.height(40);
+                    TextInput.borderRadius(8);
+                    TextInput.backgroundColor('#F5F5F5');
+                    TextInput.padding({ left: 10 });
+                }, TextInput);
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    Button.createWithLabel('发送');
+                    Button.width('20%');
+                    Button.height(40);
+                    Button.backgroundColor('#4CAF50');
+                    Button.fontColor(Color.White);
+                    Button.borderRadius(8);
+                    Button.enabled(!this.isLoading);
+                    Button.opacity(this.isLoading ? 0.5 : 1);
+                    Button.onClick(() => {
+                        this.sendQuestion();
+                    });
+                }, Button);
+                Button.pop();
+                // 底部输入栏
+                Row.pop();
+                Column.pop();
+                {
                     this.observeComponentCreation2((elmtId, isInitialRender) => {
-                        Text.create('正在生成菜谱...');
-                        Text.fontSize(16);
-                        Text.fontColor('#888888');
-                    }, Text);
-                    Text.pop();
-                });
-            }
-            // 底部输入栏
-            else {
-                this.ifElseBranchUpdateFunction(1, () => {
-                });
-            }
-        }, If);
-        If.pop();
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            // 底部输入栏
-            Row.create({ space: 8 });
-            // 底部输入栏
-            Row.padding(10);
-        }, Row);
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            TextInput.create({ placeholder: '请输入食材或问题' });
-            TextInput.width('75%');
-            TextInput.height(40);
-            TextInput.borderRadius(8);
-            TextInput.backgroundColor('#F5F5F5');
-            TextInput.padding({ left: 10 });
-            TextInput.onChange((value: string) => {
-                this.inputText = value;
+                        if (isInitialRender) {
+                            let componentCall = new 
+                            // 悬浮购物车按钮
+                            FloatingCartButton(this, { pageStack: this.pageStack }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Recipe/RecipePage.ets", line: 172, col: 7 });
+                            ViewPU.create(componentCall);
+                            let paramsLambda = () => {
+                                return {
+                                    pageStack: this.pageStack
+                                };
+                            };
+                            componentCall.paramsGenerator_ = paramsLambda;
+                        }
+                        else {
+                            this.updateStateVarsOfChildByElmtId(elmtId, {
+                                pageStack: this.pageStack
+                            });
+                        }
+                    }, { name: "FloatingCartButton" });
+                }
+            }, { moduleName: "entry", pagePath: "entry/src/main/ets/pages/Users/Recipe/RecipePage" });
+            NavDestination.hideTitleBar(true);
+            NavDestination.onReady((context: NavDestinationContext) => {
+                // 也可以从 context 获取，作为备用
+                if (!this.pageStack) {
+                    this.pageStack = context.pathStack;
+                }
             });
-        }, TextInput);
-        this.observeComponentCreation2((elmtId, isInitialRender) => {
-            Button.createWithLabel('发送');
-            Button.width('20%');
-            Button.height(40);
-            Button.backgroundColor('#4CAF50');
-            Button.fontColor(Color.White);
-            Button.borderRadius(8);
-            Button.onClick(() => {
-                this.sendQuestion();
-                this.inputText = '';
-            });
-        }, Button);
-        Button.pop();
-        // 底部输入栏
-        Row.pop();
-        Column.pop();
+        }, NavDestination);
+        NavDestination.pop();
     }
     rerender() {
         this.updateDirtyElements();
     }
 }
+export { RecipePage };

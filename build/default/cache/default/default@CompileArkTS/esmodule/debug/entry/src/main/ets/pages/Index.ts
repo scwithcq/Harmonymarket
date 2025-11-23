@@ -5,6 +5,9 @@ interface Index_Params {
     // 导航栏实例
     pageStack?: NavPathStack;
 }
+import { RoleSelectPageBuilder } from "@normalized:N&&&entry/src/main/ets/pages/RoleSelectPage&";
+import { CartPageBuilder } from "@normalized:N&&&entry/src/main/ets/pages/Users/Cart/CartPage&";
+import { SearchProductPageBuilder } from "@normalized:N&&&entry/src/main/ets/pages/Users/Home/SearchProductPage&";
 const PREF_NAME = 'role_pref';
 const KEY_ROLE = 'role';
 class Index extends ViewPU {
@@ -67,8 +70,10 @@ class Index extends ViewPU {
     initialRender() {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Navigation.create(this.pageStack, { moduleName: "entry", pagePath: "entry/src/main/ets/pages/Index", isUserCreateStack: true });
+            Navigation.navDestination({ builder: this.PageMap.bind(this) });
             Navigation.onAppear(() => {
-                this.pageStack.replacePathByName("RoleSelectPage", null);
+                // 跳转到角色选择页
+                this.pageStack.pushPathByName("RoleSelectPage", null);
             });
             Navigation.hideNavBar(true);
             Navigation.mode(NavigationMode.Stack);
@@ -76,6 +81,32 @@ class Index extends ViewPU {
             Navigation.width('100%');
         }, Navigation);
         Navigation.pop();
+    }
+    // 路由映射表
+    PageMap(name: string, param: Object, parent = null) {
+        this.observeComponentCreation2((elmtId, isInitialRender) => {
+            If.create();
+            if (name === 'RoleSelectPage') {
+                this.ifElseBranchUpdateFunction(0, () => {
+                    RoleSelectPageBuilder.bind(this)();
+                });
+            }
+            else if (name === 'CartPage') {
+                this.ifElseBranchUpdateFunction(1, () => {
+                    CartPageBuilder.bind(this)();
+                });
+            }
+            else if (name === 'SearchProductPage') {
+                this.ifElseBranchUpdateFunction(2, () => {
+                    SearchProductPageBuilder.bind(this)();
+                });
+            }
+            else {
+                this.ifElseBranchUpdateFunction(3, () => {
+                });
+            }
+        }, If);
+        If.pop();
     }
     rerender() {
         this.updateDirtyElements();

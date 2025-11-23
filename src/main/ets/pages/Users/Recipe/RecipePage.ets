@@ -1,5 +1,6 @@
 import http from '@ohos.net.http';
-import prompt from '@ohos.prompt';
+import { promptAction } from '@kit.ArkUI';
+import { FloatingCartButton } from '../../../components/FloatingCartButton';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -23,15 +24,27 @@ interface AskResponse {
   timestamp: string;
 }
 
+@Builder
+export function RecipePageBuilder() {
+  RecipePage()
+}
+
 @Component
-export struct RecipePage {
+struct RecipePage {
   @State messages: Array<ChatMessage> = [];
   @State inputText: string = '';
   @State isLoading: boolean = false;
+  @StorageProp('globalPageStack') @Watch('onPageStackChange') pageStack: NavPathStack = new NavPathStack();
+  private scroller: Scroller = new Scroller();
+  
+  // 监听 pageStack 变化
+  onPageStackChange() {
+    console.info('[RecipePage] pageStack 已更新');
+  }
 
   private async sendQuestion() {
     if (this.inputText.trim() === '') {
-      prompt.showToast({ message: '请输入问题' });
+      promptAction.showToast({ message: '请输入问题' });
       return;
     }
 
@@ -65,23 +78,26 @@ export struct RecipePage {
       if (response.responseCode === 200 && response.result) {
         const data: AskResponse = JSON.parse(response.result as string);
         this.messages.push({ role: 'assistant', content: data.answer });
+        // 滚动到底部
+        this.scroller.scrollEdge(Edge.Bottom);
       } else {
-        prompt.showToast({ message: '请求失败，请检查服务器' });
+        promptAction.showToast({ message: '请求失败，请检查服务器' });
       }
 
       httpRequest.destroy();
     } catch (err) {
       console.error('请求出错: ', JSON.stringify(err));
-      prompt.showToast({ message: '网络错误，请稍后重试' });
+      promptAction.showToast({ message: '网络错误，请稍后重试' });
     } finally {
       this.isLoading = false;
     }
   }
 
   build() {
-    Column({ space: 12 }) {
-      // 顶部标题栏
-      Text('菜谱助手')
+    NavDestination() {
+      Column({ space: 12 }) {
+        // 顶部标题栏
+        Text('菜谱助手')
         .fontSize(26)
         .fontWeight(FontWeight.Bold)
         .padding(12)
@@ -91,7 +107,7 @@ export struct RecipePage {
         .textAlign(TextAlign.Center)
 
       // 聊天内容显示区
-      Scroll() {
+      Scroll(this.scroller) {
         Column({ space: 10 }) {
           ForEach(this.messages, (msg: ChatMessage, index: number) => {
             if (msg.role === 'user') {
@@ -127,15 +143,12 @@ export struct RecipePage {
 
       // 底部输入栏
       Row({ space: 8 }) {
-        TextInput({ placeholder: '请输入食材或问题' })
+        TextInput({ placeholder: '请输入食材或问题', text: $$this.inputText })
           .width('75%')
           .height(40)
           .borderRadius(8)
           .backgroundColor('#F5F5F5')
           .padding({ left: 10 })
-          .onChange((value: string) => {
-            this.inputText = value;
-          })
 
         Button('发送')
           .width('20%')
@@ -143,17 +156,29 @@ export struct RecipePage {
           .backgroundColor('#4CAF50')
           .fontColor(Color.White)
           .borderRadius(8)
-          .onClick(() =>
-          {
-            this.sendQuestion()
-            this.inputText = ''
-          }
-          )
+          .enabled(!this.isLoading)
+          .opacity(this.isLoading ? 0.5 : 1)
+          .onClick(() => {
+            this.sendQuestion();
+          })
       }
       .padding(10)
+      }
+      .backgroundColor('#EFEFEF')
+      .height('100%')
+      .width('100%')
+      
+      // 悬浮购物车按钮
+      FloatingCartButton({ pageStack: this.pageStack })
     }
-    .backgroundColor('#EFEFEF')
-    .height('100%')
-    .width('100%')
+    .hideTitleBar(true)
+    .onReady((context: NavDestinationContext) => {
+      // 也可以从 context 获取，作为备用
+      if (!this.pageStack) {
+        this.pageStack = context.pathStack;
+      }
+    })
   }
 }
+
+export { RecipePage };
