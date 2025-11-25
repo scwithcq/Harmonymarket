@@ -9,6 +9,8 @@ interface UserPage_Params {
     avatarUrl?: string;
     isEditing?: boolean;
     pageStack?: NavPathStack;
+    tempEmail?: string;
+    tempAddress?: string;
 }
 /*
 @Component
@@ -51,7 +53,11 @@ export class UserPage extends ViewPU {
         this.__address = new ObservedPropertySimplePU('北京市 海淀区', this, "address");
         this.__avatarUrl = new ObservedPropertySimplePU('https://img.icons8.com/color/96/user-male-circle--v1.png', this, "avatarUrl");
         this.__isEditing = new ObservedPropertySimplePU(false, this, "isEditing");
-        this.__pageStack = new ObservedPropertyObjectPU(null!, this, "pageStack");
+        this.__pageStack = new ObservedPropertyObjectPU(null!
+        // 临时编辑数据
+        , this, "pageStack");
+        this.__tempEmail = new ObservedPropertySimplePU('', this, "tempEmail");
+        this.__tempAddress = new ObservedPropertySimplePU('', this, "tempAddress");
         this.setInitiallyProvidedValue(params);
         this.finalizeConstruction();
     }
@@ -77,6 +83,12 @@ export class UserPage extends ViewPU {
         if (params.pageStack !== undefined) {
             this.pageStack = params.pageStack;
         }
+        if (params.tempEmail !== undefined) {
+            this.tempEmail = params.tempEmail;
+        }
+        if (params.tempAddress !== undefined) {
+            this.tempAddress = params.tempAddress;
+        }
     }
     updateStateVars(params: UserPage_Params) {
     }
@@ -88,6 +100,8 @@ export class UserPage extends ViewPU {
         this.__avatarUrl.purgeDependencyOnElmtId(rmElmtId);
         this.__isEditing.purgeDependencyOnElmtId(rmElmtId);
         this.__pageStack.purgeDependencyOnElmtId(rmElmtId);
+        this.__tempEmail.purgeDependencyOnElmtId(rmElmtId);
+        this.__tempAddress.purgeDependencyOnElmtId(rmElmtId);
     }
     aboutToBeDeleted() {
         this.__userName.aboutToBeDeleted();
@@ -97,6 +111,8 @@ export class UserPage extends ViewPU {
         this.__avatarUrl.aboutToBeDeleted();
         this.__isEditing.aboutToBeDeleted();
         this.__pageStack.aboutToBeDeleted();
+        this.__tempEmail.aboutToBeDeleted();
+        this.__tempAddress.aboutToBeDeleted();
         SubscriberManager.Get().delete(this.id__());
         this.aboutToBeDeletedInternal();
     }
@@ -149,6 +165,45 @@ export class UserPage extends ViewPU {
     set pageStack(newValue: NavPathStack) {
         this.__pageStack.set(newValue);
     }
+    // 临时编辑数据
+    private __tempEmail: ObservedPropertySimplePU<string>;
+    get tempEmail() {
+        return this.__tempEmail.get();
+    }
+    set tempEmail(newValue: string) {
+        this.__tempEmail.set(newValue);
+    }
+    private __tempAddress: ObservedPropertySimplePU<string>;
+    get tempAddress() {
+        return this.__tempAddress.get();
+    }
+    set tempAddress(newValue: string) {
+        this.__tempAddress.set(newValue);
+    }
+    // 保存编辑
+    saveChanges() {
+        this.email = this.tempEmail;
+        this.address = this.tempAddress;
+        this.isEditing = false;
+    }
+    // 取消编辑
+    cancelEdit() {
+        this.tempEmail = this.email;
+        this.tempAddress = this.address;
+        this.isEditing = false;
+    }
+    // 进入编辑模式
+    startEdit() {
+        this.tempEmail = this.email;
+        this.tempAddress = this.address;
+        this.isEditing = true;
+    }
+    // 返回角色选择页
+    goToRoleSelect() {
+        if (this.pageStack) {
+            this.pageStack.replacePathByName("RoleSelectPage", null, false);
+        }
+    }
     initialRender() {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             NavDestination.create(() => {
@@ -156,7 +211,7 @@ export class UserPage extends ViewPU {
                     Scroll.create();
                     Scroll.width('100%');
                     Scroll.height('100%');
-                    Scroll.backgroundColor('#F2F4F7');
+                    Scroll.backgroundColor(Color.White);
                 }, Scroll);
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                     Column.create();
@@ -176,7 +231,7 @@ export class UserPage extends ViewPU {
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                     Text.create('个人信息');
                     Text.fontSize(25);
-                    Text.fontColor('#2E8B57');
+                    Text.fontColor('#000000');
                     Text.fontWeight(FontWeight.Medium);
                     Text.letterSpacing(1);
                     Text.textOverflow({ overflow: TextOverflow.Ellipsis });
@@ -194,7 +249,7 @@ export class UserPage extends ViewPU {
                     // ---------- 用户卡片 ----------
                     Column.width('100%');
                     // ---------- 用户卡片 ----------
-                    Column.backgroundColor('#4CAF50');
+                    Column.backgroundColor('#000000');
                     // ---------- 用户卡片 ----------
                     Column.borderRadius(20);
                     // ---------- 用户卡片 ----------
@@ -240,15 +295,51 @@ export class UserPage extends ViewPU {
                 }, Blank);
                 Blank.pop();
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
-                    Button.createWithLabel(this.isEditing ? '完成' : '编辑');
-                    Button.type(ButtonType.Capsule);
-                    Button.backgroundColor('#ffffff');
-                    Button.fontColor('#2E8B57');
-                    Button.onClick(() => {
-                        this.isEditing = !this.isEditing;
-                    });
-                }, Button);
-                Button.pop();
+                    Row.create({ space: 8 });
+                }, Row);
+                this.observeComponentCreation2((elmtId, isInitialRender) => {
+                    If.create();
+                    if (this.isEditing) {
+                        this.ifElseBranchUpdateFunction(0, () => {
+                            this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                Button.createWithLabel('取消');
+                                Button.type(ButtonType.Capsule);
+                                Button.backgroundColor('#ffffff');
+                                Button.fontColor('#666666');
+                                Button.onClick(() => {
+                                    this.cancelEdit();
+                                });
+                            }, Button);
+                            Button.pop();
+                            this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                Button.createWithLabel('保存');
+                                Button.type(ButtonType.Capsule);
+                                Button.backgroundColor('#4CAF50');
+                                Button.fontColor('#ffffff');
+                                Button.onClick(() => {
+                                    this.saveChanges();
+                                });
+                            }, Button);
+                            Button.pop();
+                        });
+                    }
+                    else {
+                        this.ifElseBranchUpdateFunction(1, () => {
+                            this.observeComponentCreation2((elmtId, isInitialRender) => {
+                                Button.createWithLabel('编辑');
+                                Button.type(ButtonType.Capsule);
+                                Button.backgroundColor('#ffffff');
+                                Button.fontColor('#000000');
+                                Button.onClick(() => {
+                                    this.startEdit();
+                                });
+                            }, Button);
+                            Button.pop();
+                        });
+                    }
+                }, If);
+                If.pop();
+                Row.pop();
                 Row.pop();
                 // ---------- 用户卡片 ----------
                 Column.pop();
@@ -266,8 +357,8 @@ export class UserPage extends ViewPU {
                     // ---------- 信息卡片 ----------
                     Column.margin({ left: 16, right: 16, top: 40 });
                 }, Column);
-                this.infoItem.bind(this)('邮箱', this.email, (v: string) => this.email = v);
-                this.infoItem.bind(this)('地址', this.address, (v: string) => this.address = v);
+                this.infoItem.bind(this)('邮箱', this.isEditing ? this.tempEmail : this.email, (v: string) => this.tempEmail = v);
+                this.infoItem.bind(this)('地址', this.isEditing ? this.tempAddress : this.address, (v: string) => this.tempAddress = v);
                 // ---------- 信息卡片 ----------
                 Column.pop();
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
@@ -288,6 +379,15 @@ export class UserPage extends ViewPU {
                 this.menuItem.bind(this)('退出登录');
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                     Row.create();
+                    Row.width('100%');
+                    Row.padding({ left: 18, right: 18, top: 14, bottom: 14 });
+                    Row.alignItems(VerticalAlign.Center);
+                    Row.border({ width: 0.5, color: '#eeeeee', style: BorderStyle.Solid });
+                    Row.backgroundColor('#ffffff');
+                    Row.hoverEffect(HoverEffect.Highlight);
+                    Row.onClick(() => {
+                        this.goToRoleSelect();
+                    });
                 }, Row);
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                     Text.create('返回角色选择（测试）');
@@ -304,7 +404,6 @@ export class UserPage extends ViewPU {
                     Image.width(20);
                     Image.height(20);
                     Image.objectFit(ImageFit.Contain);
-                    Image.onClick(() => this.pageStack.replacePathByName("RoleSelectPage", null, false));
                 }, Image);
                 Row.pop();
                 // ---------- 菜单卡片 ----------
@@ -371,7 +470,7 @@ export class UserPage extends ViewPU {
             Row.alignItems(VerticalAlign.Center);
             Row.border({ width: 0.5, color: '#eeeeee', style: BorderStyle.Solid });
             Row.onClick(() => {
-                console.log(`点击了 ${title}`);
+                console.log('点击了 ' + title);
             });
             Row.backgroundColor('#ffffff');
             Row.hoverEffect(HoverEffect.Highlight);

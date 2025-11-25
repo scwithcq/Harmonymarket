@@ -36,8 +36,9 @@ export interface ProductResultData {
 
 // 模拟器访问宿主机地址
 // const BASE_URL = 'http://10.0.2.2:8080/api';  //这个用来模拟机测试
-const BASE_URL = 'http://192.168.85.10:8080/api'; //这个在连接我的热点70测试
+// const BASE_URL = 'http://192.168.85.10:8080/api'; //这个在连接我的热点70测试
 // const BASE_URL = 'http://s49b7b66.natappfree.cc/api'; //这个为短暂（3天）公网测试 映射到后端的localhost:8080
+const BASE_URL = 'http://8.130.212.116:8080/api'
 
 
 @Builder
@@ -55,6 +56,7 @@ struct SearchProductPage {
   @State cartVisible: Visibility = Visibility.Visible
   @State offsetX: number = 0
   @State offsetY: number = 0  // 用于垂直跳跃动画
+  @State animatingProductId: number = -1 // 当前正在执行动画的商品ID
   //这里用来渲染商品图片的放大
   @State showBig: boolean = false // 是否处于放大态
   @State bigUrl: string = '' // 要放大哪张图
@@ -169,7 +171,7 @@ struct SearchProductPage {
         { text: '取消', color: '#999999' },
         { text: '添加1件', color: '#4CAF50' },
         { text: '添加5件', color: '#4CAF50' },
-        { text: '自定义', color: '#FF6B35' }
+        { text: '自定义', color: '#000000' } // 黑白简约
       ]
     }).then(async (result) => {
       let quantity = 0;
@@ -220,6 +222,7 @@ struct SearchProductPage {
     
     if (success) {
       // 触发向上跳跃动画
+      this.animatingProductId = productId;
       this.offsetY = -20;
       promptAction.showToast({ message: `已加入购物车 ${quantity} 件 ✓` });
       await this.loadCartQuantities();
@@ -227,7 +230,13 @@ struct SearchProductPage {
         this.floatingCartButton.refresh();
       }
       // 400ms后回落
-      setTimeout(() => { this.offsetY = 0; }, 400);
+      setTimeout(() => { 
+        this.offsetY = 0; 
+        // 等待回落动画完成后重置ID
+        setTimeout(() => {
+          this.animatingProductId = -1;
+        }, 400);
+      }, 400);
     } else {
       promptAction.showToast({ message: '加入失败，请重试' });
     }
@@ -257,25 +266,48 @@ struct SearchProductPage {
             .height(30)
             .fontSize(18)
             .fontWeight(FontWeight.Bold)
-            .backgroundColor('#FF6B35')
+            .backgroundColor('#000000') // 黑白简约：减号用黑色
             .fontColor(Color.White)
             .onClick(async () => {
               const pid = item.id || item.productId || item.product_id;
               if (!pid) return;
               
+              const currentQty = this.getCartQuantity(pid);
+              console.info(`[SearchPage] 点击减号，商品ID: ${pid}, 当前数量: ${currentQty}`);
+              
+              if (currentQty <= 0) return;
+              
               // 找到购物车中的该商品项
               const cartList = await CartService.getCartList(this.currentUserId);
               const cartItem = cartList.find(c => c.productId === pid);
+              
               if (cartItem) {
-                if (cartItem.quantity > 1) {
-                  await CartService.updateQuantity(cartItem.cartId, cartItem.quantity - 1);
+                console.info(`[SearchPage] 找到购物车项，cartId: ${cartItem.cartId}, 原数量: ${cartItem.quantity}`);
+                
+                if (currentQty > 1) {
+                  // 数量>1，减1
+                  const newQty = currentQty - 1;
+                  console.info(`[SearchPage] 准备更新数量为: ${newQty}`);
+                  const success = await CartService.updateQuantity(cartItem.cartId, newQty);
+                  console.info(`[SearchPage] 更新结果: ${success}`);
+                  
+                  if (success) {
+                    promptAction.showToast({ message: `数量已更新为 ${newQty}` });
+                  }
                 } else {
+                  // 数量=1，删除
+                  console.info(`[SearchPage] 数量为1，准备删除商品`);
                   await CartService.deleteCartItem(cartItem.cartId);
+                  promptAction.showToast({ message: '已从购物车移除' });
                 }
+                
+                // 刷新购物车数量显示
                 await this.loadCartQuantities();
                 if (this.floatingCartButton) {
                   this.floatingCartButton.refresh();
                 }
+              } else {
+                console.error(`[SearchPage] 未找到购物车项，商品ID: ${pid}`);
               }
             })
           
@@ -285,7 +317,7 @@ struct SearchProductPage {
             .fontWeight(FontWeight.Bold)
             .width(40)
             .textAlign(TextAlign.Center)
-            .backgroundColor('#FFF8DC')
+            .backgroundColor(Color.White) // 黑白简约：背景白色
             .borderRadius(4)
             .padding({ top: 4, bottom: 4 })
             .onClick(() => {
@@ -300,16 +332,29 @@ struct SearchProductPage {
             .height(30)
             .fontSize(18)
             .fontWeight(FontWeight.Bold)
-            .backgroundColor('#4CAF50')
+            .backgroundColor('#4CAF50') // 绿色保留
             .fontColor(Color.White)
             .onClick(async () => {
               const pid = item.id || item.productId || item.product_id;
               if (!pid) return;
               
+              const currentQty = this.getCartQuantity(pid);
+              console.info(`[SearchPage] 点击加号，商品ID: ${pid}, 当前数量: ${currentQty}`);
+              
               const cartList = await CartService.getCartList(this.currentUserId);
               const cartItem = cartList.find(c => c.productId === pid);
+              
               if (cartItem) {
-                await CartService.updateQuantity(cartItem.cartId, cartItem.quantity + 1);
+                // 直接基于当前数量+1
+                const newQty = currentQty + 1;
+                console.info(`[SearchPage] 准备更新数量为: ${newQty}`);
+                const success = await CartService.updateQuantity(cartItem.cartId, newQty);
+                console.info(`[SearchPage] 更新结果: ${success}`);
+                
+                if (success) {
+                  promptAction.showToast({ message: `数量已更新为 ${newQty}` });
+                }
+                
                 await this.loadCartQuantities();
                 if (this.floatingCartButton) {
                   this.floatingCartButton.refresh();
@@ -323,7 +368,7 @@ struct SearchProductPage {
           Image($r('app.media.Shopping'))
             .width(50)
             .height(50)
-            .translate({ x: 0, y: this.offsetY })
+            .translate({ x: 0, y: this.animatingProductId === (item.id || item.productId || item.product_id) ? this.offsetY : 0 })
             .animation({ duration: 400, curve: Curve.FastOutSlowIn })
             .onClick(async () => {
               const pid = item.id || item.productId || item.product_id;
@@ -371,8 +416,10 @@ struct SearchProductPage {
                       .textOverflow({ overflow: TextOverflow.Ellipsis })*/
           //当我点击搜索的结果的时候，可以进行修改
           TextInput({
-            placeholder: this.keyword
+            text: this.productName,
+            placeholder: '搜索商品...'
           })
+            .backgroundColor(Color.White)
             .layoutWeight(1)
             .textAlign(TextAlign.Center)// .backgroundColor('#FEC4DF')
             .onChange((value: string) => {
@@ -520,54 +567,19 @@ struct SearchProductPage {
 
                   }
                   .border({ radius: 10 })
-                  .backgroundColor('#FFEFD5')
+                  .backgroundColor(Color.White) // 黑白简约：背景白色
+                  .shadow({ radius: 4, color: '#1A000000', offsetY: 2 })
                 })
 
               }
+              .scrollBar(BarState.Off)
 
               .width('100%')
-
-              /* ---------------- 放大态 ---------------- */
-              // if (this.showBig) {
-              //   Column() {
-              //     Image(this.bigUrl)
-              //       .width(300)
-              //       .height(300)
-              //       .borderRadius(16)
-              //       .shadow({ radius: 20, color: '#80000000' })
-              //       .onClick(() => { // 再点一次 -> 缩小
-              //         this.showBig = false
-              //       })
-              //   }
-              //   .width('100%')
-              //   .height('100%')
-              //   .backgroundColor('#80000000') // 半透明遮罩
-              //   .justifyContent(FlexAlign.Center)
-              //   .position({ x: 0, y: 0 }) // 悬浮全屏
-              //   .zIndex(999) // 保证在最上层
-              //   .transition({
-              //     type: TransitionType.Insert, // 出现时的动画
-              //     scale: {
-              //       x: 0,
-              //       y: 0,
-              //       centerX: 0.5,
-              //       centerY: 0.5
-              //     }   // 从 0 → 1
-              //   })
-              //   .transition({
-              //     type: TransitionType.Delete, // 消失时的动画
-              //     scale: {
-              //       x: 0,
-              //       y: 0,
-              //       centerX: 0.5,
-              //       centerY: 0.5
-              //     }   // 从 1 → 0
-              //   })
-              // }
 
             }
 
           }
+          .scrollBar(BarState.Off)
           .padding({ bottom: 100 })
         }
       }
@@ -595,6 +607,7 @@ struct SearchProductPage {
     .onReady((context: NavDestinationContext)=>{
       this.pageStack= context.pathStack;
       this.keyword = context.pathInfo.param as string ?? '';
+      this.productName = this.keyword; // 初始化搜索框内容
       if (this.keyword) this.fetchProductData();
     })
 

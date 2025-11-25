@@ -6,6 +6,13 @@ interface FloatingCartButton_Params {
     pageStack?: NavPathStack;
     currentUserId?: number;
     timer?: number;
+    positionX?: number;
+    positionY?: number;
+    screenWidth?: number;
+    screenHeight?: number;
+    buttonSize?: number;
+    startX?: number;
+    startY?: number;
 }
 import { CartService } from "@normalized:N&&&entry/src/main/ets/services/CartService&";
 export class FloatingCartButton extends ViewPU {
@@ -18,6 +25,13 @@ export class FloatingCartButton extends ViewPU {
         this.__pageStack = new SynchedPropertyObjectOneWayPU(params.pageStack, this, "pageStack");
         this.currentUserId = 1;
         this.timer = -1;
+        this.__positionX = new ObservedPropertySimplePU(0, this, "positionX");
+        this.__positionY = new ObservedPropertySimplePU(0, this, "positionY");
+        this.screenWidth = 360;
+        this.screenHeight = 780;
+        this.buttonSize = 60;
+        this.startX = 0;
+        this.startY = 0;
         this.setInitiallyProvidedValue(params);
         this.declareWatch("pageStack", this.onPageStackChange);
         this.finalizeConstruction();
@@ -32,6 +46,27 @@ export class FloatingCartButton extends ViewPU {
         if (params.timer !== undefined) {
             this.timer = params.timer;
         }
+        if (params.positionX !== undefined) {
+            this.positionX = params.positionX;
+        }
+        if (params.positionY !== undefined) {
+            this.positionY = params.positionY;
+        }
+        if (params.screenWidth !== undefined) {
+            this.screenWidth = params.screenWidth;
+        }
+        if (params.screenHeight !== undefined) {
+            this.screenHeight = params.screenHeight;
+        }
+        if (params.buttonSize !== undefined) {
+            this.buttonSize = params.buttonSize;
+        }
+        if (params.startX !== undefined) {
+            this.startX = params.startX;
+        }
+        if (params.startY !== undefined) {
+            this.startY = params.startY;
+        }
     }
     updateStateVars(params: FloatingCartButton_Params) {
         this.__pageStack.reset(params.pageStack);
@@ -39,10 +74,14 @@ export class FloatingCartButton extends ViewPU {
     purgeVariableDependenciesOnElmtId(rmElmtId) {
         this.__cartCount.purgeDependencyOnElmtId(rmElmtId);
         this.__pageStack.purgeDependencyOnElmtId(rmElmtId);
+        this.__positionX.purgeDependencyOnElmtId(rmElmtId);
+        this.__positionY.purgeDependencyOnElmtId(rmElmtId);
     }
     aboutToBeDeleted() {
         this.__cartCount.aboutToBeDeleted();
         this.__pageStack.aboutToBeDeleted();
+        this.__positionX.aboutToBeDeleted();
+        this.__positionY.aboutToBeDeleted();
         SubscriberManager.Get().delete(this.id__());
         this.aboutToBeDeletedInternal();
     }
@@ -62,6 +101,28 @@ export class FloatingCartButton extends ViewPU {
     }
     private currentUserId: number; // TODO: 从登录状态获取
     private timer: number;
+    // 拖拽位置状态
+    private __positionX: ObservedPropertySimplePU<number>;
+    get positionX() {
+        return this.__positionX.get();
+    }
+    set positionX(newValue: number) {
+        this.__positionX.set(newValue);
+    }
+    private __positionY: ObservedPropertySimplePU<number>;
+    get positionY() {
+        return this.__positionY.get();
+    }
+    set positionY(newValue: number) {
+        this.__positionY.set(newValue);
+    }
+    // 屏幕边界限制
+    private screenWidth: number;
+    private screenHeight: number;
+    private buttonSize: number;
+    // 拖拽起始位置
+    private startX: number;
+    private startY: number;
     // 监听 pageStack 变化
     onPageStackChange() {
         console.info('[FloatingCartButton] pageStack 已更新');
@@ -121,7 +182,7 @@ export class FloatingCartButton extends ViewPU {
             Stack.create();
             Stack.width(60);
             Stack.height(60);
-            Stack.position({ x: '85%', y: '85%' });
+            Stack.position({ x: '85%', y: '80%' });
             Stack.zIndex(999);
             Stack.onClick(() => this.onCartClick());
         }, Stack);
@@ -135,7 +196,7 @@ export class FloatingCartButton extends ViewPU {
             // 购物车图标
             Image.borderRadius(30);
             // 购物车图标
-            Image.backgroundColor('#FF6B35');
+            Image.backgroundColor('#4CAF50');
             // 购物车图标
             Image.padding(10);
             // 购物车图标

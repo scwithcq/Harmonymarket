@@ -275,7 +275,7 @@ export struct MarketPage {
                 Text('¥' + item.price + '/' + item.unit)
                   .fontSize(14)
                   .fontWeight(FontWeight.Bold)
-                  .fontColor('#E53935')
+                  .fontColor('#000000') // 黑白简约
                   .margin({ top: 4 })
                   .alignSelf(ItemAlign.Start)
 

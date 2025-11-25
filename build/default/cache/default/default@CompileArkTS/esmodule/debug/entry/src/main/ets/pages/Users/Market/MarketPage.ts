@@ -487,7 +487,7 @@ export class MarketPage extends ViewPU {
                     Text.create('¥' + item.price + '/' + item.unit);
                     Text.fontSize(14);
                     Text.fontWeight(FontWeight.Bold);
-                    Text.fontColor('#E53935');
+                    Text.fontColor('#000000');
                     Text.margin({ top: 4 });
                     Text.alignSelf(ItemAlign.Start);
                 }, Text);

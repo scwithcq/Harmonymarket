@@ -91,18 +91,114 @@ struct CartPage {
     }
     const stock = item.stock || 999;
     if (newQuantity > stock) {
-      promptAction.showToast({ message: `库存不足，仅剩 ${stock} ${item.unit}` });
+      promptAction.showToast({ message: '库存不足，仅剩 ' + stock + ' ' + item.unit });
       return;
     }
 
     // 调用接口更新
     const success = await CartService.updateQuantity(item.cartId, newQuantity);
     if (success) {
-      item.quantity = newQuantity;
-      this.calculateTotal();
+      // 重新加载购物车数据以触发界面更新
+      await this.loadCartData();
+      promptAction.showToast({ message: '数量已更新' });
     } else {
       promptAction.showToast({ message: '更新失败，请重试' });
     }
+  }
+
+  /**
+   * 自定义输入商品数量
+   */
+  showCustomQuantityDialog(item: CartItem) {
+    const stock = item.stock || 999;
+    promptAction.showDialog({
+      title: '修改数量',
+      message: '请输入数量（库存: ' + stock + ' ' + item.unit + '）',
+      buttons: [
+        { text: '取消', color: '#999999' },
+        { text: '1', color: '#4CAF50' },
+        { text: '5', color: '#4CAF50' },
+        { text: '10', color: '#4CAF50' },
+        { text: '自定义', color: '#000000' }
+      ]
+    }).then(async (result) => {
+      let newQuantity = 0;
+      
+      if (result.index === 1) {
+        newQuantity = 1;
+      } else if (result.index === 2) {
+        newQuantity = 5;
+      } else if (result.index === 3) {
+        newQuantity = 10;
+      } else if (result.index === 4) {
+        // 自定义数量：显示二级对话框
+        this.showCustomInputDialog(item);
+        return;
+      } else {
+        return; // 取消
+      }
+      
+      // 库存校验
+      if (newQuantity > stock) {
+        promptAction.showToast({ message: '库存不足，仅剩 ' + stock + ' ' + item.unit });
+        return;
+      }
+      
+      // 更新数量
+      const success = await CartService.updateQuantity(item.cartId, newQuantity);
+      if (success) {
+        // 重新加载购物车数据以触发界面更新
+        await this.loadCartData();
+        promptAction.showToast({ message: '数量已更新为 ' + newQuantity });
+      } else {
+        promptAction.showToast({ message: '更新失败，请重试' });
+      }
+    });
+  }
+
+  /**
+   * 显示自定义输入对话框（简化版：使用预设值）
+   */
+  showCustomInputDialog(item: CartItem) {
+    const stock = item.stock || 999;
+    promptAction.showDialog({
+      title: '自定义数量',
+      message: '请选择数量（库存: ' + stock + ' ' + item.unit + '）',
+      buttons: [
+        { text: '取消', color: '#999999' },
+        { text: '20', color: '#4CAF50' },
+        { text: '50', color: '#4CAF50' },
+        { text: '100', color: '#4CAF50' }
+      ]
+    }).then(async (result) => {
+      let newQuantity = 0;
+      
+      if (result.index === 1) {
+        newQuantity = 20;
+      } else if (result.index === 2) {
+        newQuantity = 50;
+      } else if (result.index === 3) {
+        newQuantity = 100;
+      } else {
+        return; // 取消
+      }
+      
+      // 库存校验
+      if (newQuantity > stock) {
+        promptAction.showToast({ message: '库存不足，仅剩 ' + stock + ' ' + item.unit });
+        return;
+      }
+      
+      // 更新数量
+      const success = await CartService.updateQuantity(item.cartId, newQuantity);
+      if (success) {
+        // 重新加载购物车数据以触发界面更新
+        await this.loadCartData();
+        promptAction.showToast({ message: '数量已更新为 ' + newQuantity });
+      } else {
+        promptAction.showToast({ message: '更新失败，请重试' });
+      }
+    });
   }
 
   /**
@@ -324,7 +420,7 @@ struct CartPage {
                             .width(30)
                             .height(30)
                             .fontSize(18)
-                            .backgroundColor(item.quantity <= 1 ? '#E0E0E0' : app_color.primary)
+                            .backgroundColor(item.quantity <= 1 ? '#E0E0E0' : '#000000')
                             .fontColor(Color.White)
                             .borderRadius(15)
                             .enabled(item.quantity > 1)
@@ -335,6 +431,10 @@ struct CartPage {
                             .fontColor(app_color.text1)
                             .width(40)
                             .textAlign(TextAlign.Center)
+                            .onClick(() => {
+                              // 点击数量可以弹出自定义数量对话框
+                              this.showCustomQuantityDialog(item);
+                            })
                           
                           Button('+')
                             .width(30)
@@ -378,7 +478,7 @@ struct CartPage {
             .padding({ left: 16, right: 16, top: 12 })
           }
           .layoutWeight(1)
-          .backgroundColor('#F5F5F5')
+          .backgroundColor(Color.White) // 黑白简约：背景白色
         }
 
         // 底部结算栏
@@ -439,7 +539,7 @@ struct CartPage {
                 Button('批量删除')
                   .height(40)
                   .padding({ left: 20, right: 20 })
-                  .backgroundColor('#FF6B6B')
+                  .backgroundColor('#000000') // 黑白简约
                   .fontColor(Color.White)
                   .fontSize(14)
                   .borderRadius(20)
@@ -448,8 +548,9 @@ struct CartPage {
                 Button('清空购物车')
                   .height(40)
                   .padding({ left: 20, right: 20 })
-                  .backgroundColor('#FFA500')
-                  .fontColor(Color.White)
+                  .backgroundColor(Color.White) // 黑白简约
+                  .fontColor('#000000')
+                  .border({ width: 1, color: '#000000' })
                   .fontSize(14)
                   .borderRadius(20)
                   .onClick(() => this.clearAllCart())
@@ -469,7 +570,7 @@ struct CartPage {
       }
       .width('100%')
       .height('100%')
-      .backgroundColor('#F5F5F5')
+      .backgroundColor(Color.White) // 黑白简约：背景白色
     }
     .hideTitleBar(true)
     .onReady((context: NavDestinationContext) => {

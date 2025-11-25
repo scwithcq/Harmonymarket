@@ -207,18 +207,115 @@ class CartPage extends ViewPU {
         }
         const stock = item.stock || 999;
         if (newQuantity > stock) {
-            promptAction.showToast({ message: `库存不足，仅剩 ${stock} ${item.unit}` });
+            promptAction.showToast({ message: '库存不足，仅剩 ' + stock + ' ' + item.unit });
             return;
         }
         // 调用接口更新
         const success = await CartService.updateQuantity(item.cartId, newQuantity);
         if (success) {
-            item.quantity = newQuantity;
-            this.calculateTotal();
+            // 重新加载购物车数据以触发界面更新
+            await this.loadCartData();
+            promptAction.showToast({ message: '数量已更新' });
         }
         else {
             promptAction.showToast({ message: '更新失败，请重试' });
         }
+    }
+    /**
+     * 自定义输入商品数量
+     */
+    showCustomQuantityDialog(item: CartItem) {
+        const stock = item.stock || 999;
+        promptAction.showDialog({
+            title: '修改数量',
+            message: '请输入数量（库存: ' + stock + ' ' + item.unit + '）',
+            buttons: [
+                { text: '取消', color: '#999999' },
+                { text: '1', color: '#4CAF50' },
+                { text: '5', color: '#4CAF50' },
+                { text: '10', color: '#4CAF50' },
+                { text: '自定义', color: '#000000' }
+            ]
+        }).then(async (result) => {
+            let newQuantity = 0;
+            if (result.index === 1) {
+                newQuantity = 1;
+            }
+            else if (result.index === 2) {
+                newQuantity = 5;
+            }
+            else if (result.index === 3) {
+                newQuantity = 10;
+            }
+            else if (result.index === 4) {
+                // 自定义数量：显示二级对话框
+                this.showCustomInputDialog(item);
+                return;
+            }
+            else {
+                return; // 取消
+            }
+            // 库存校验
+            if (newQuantity > stock) {
+                promptAction.showToast({ message: '库存不足，仅剩 ' + stock + ' ' + item.unit });
+                return;
+            }
+            // 更新数量
+            const success = await CartService.updateQuantity(item.cartId, newQuantity);
+            if (success) {
+                // 重新加载购物车数据以触发界面更新
+                await this.loadCartData();
+                promptAction.showToast({ message: '数量已更新为 ' + newQuantity });
+            }
+            else {
+                promptAction.showToast({ message: '更新失败，请重试' });
+            }
+        });
+    }
+    /**
+     * 显示自定义输入对话框（简化版：使用预设值）
+     */
+    showCustomInputDialog(item: CartItem) {
+        const stock = item.stock || 999;
+        promptAction.showDialog({
+            title: '自定义数量',
+            message: '请选择数量（库存: ' + stock + ' ' + item.unit + '）',
+            buttons: [
+                { text: '取消', color: '#999999' },
+                { text: '20', color: '#4CAF50' },
+                { text: '50', color: '#4CAF50' },
+                { text: '100', color: '#4CAF50' }
+            ]
+        }).then(async (result) => {
+            let newQuantity = 0;
+            if (result.index === 1) {
+                newQuantity = 20;
+            }
+            else if (result.index === 2) {
+                newQuantity = 50;
+            }
+            else if (result.index === 3) {
+                newQuantity = 100;
+            }
+            else {
+                return; // 取消
+            }
+            // 库存校验
+            if (newQuantity > stock) {
+                promptAction.showToast({ message: '库存不足，仅剩 ' + stock + ' ' + item.unit });
+                return;
+            }
+            // 更新数量
+            const success = await CartService.updateQuantity(item.cartId, newQuantity);
+            if (success) {
+                // 重新加载购物车数据以触发界面更新
+                await this.loadCartData();
+                promptAction.showToast({ message: '数量已更新为 ' + newQuantity });
+            }
+            else {
+                promptAction.showToast({ message: '更新失败，请重试' });
+            }
+        });
     }
     /**
      * 删除单个商品
@@ -317,7 +414,7 @@ class CartPage extends ViewPU {
                     Column.create();
                     Column.width('100%');
                     Column.height('100%');
-                    Column.backgroundColor('#F5F5F5');
+                    Column.backgroundColor(Color.White);
                 }, Column);
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                     // 顶部标题栏
@@ -459,7 +556,7 @@ class CartPage extends ViewPU {
                             this.observeComponentCreation2((elmtId, isInitialRender) => {
                                 Scroll.create();
                                 Scroll.layoutWeight(1);
-                                Scroll.backgroundColor('#F5F5F5');
+                                Scroll.backgroundColor(Color.White);
                             }, Scroll);
                             this.observeComponentCreation2((elmtId, isInitialRender) => {
                                 List.create({ space: 12 });
@@ -556,7 +653,7 @@ class CartPage extends ViewPU {
                                                             Button.width(30);
                                                             Button.height(30);
                                                             Button.fontSize(18);
-                                                            Button.backgroundColor(item.quantity <= 1 ? '#E0E0E0' : app_color.primary);
+                                                            Button.backgroundColor(item.quantity <= 1 ? '#E0E0E0' : '#000000');
                                                             Button.fontColor(Color.White);
                                                             Button.borderRadius(15);
                                                             Button.enabled(item.quantity > 1);
@@ -569,6 +666,10 @@ class CartPage extends ViewPU {
                                                             Text.fontColor(app_color.text1);
                                                             Text.width(40);
                                                             Text.textAlign(TextAlign.Center);
+                                                            Text.onClick(() => {
+                                                                // 点击数量可以弹出自定义数量对话框
+                                                                this.showCustomQuantityDialog(item);
+                                                            });
                                                         }, Text);
                                                         Text.pop();
                                                         this.observeComponentCreation2((elmtId, isInitialRender) => {
@@ -738,7 +839,7 @@ class CartPage extends ViewPU {
                                             Button.createWithLabel('批量删除');
                                             Button.height(40);
                                             Button.padding({ left: 20, right: 20 });
-                                            Button.backgroundColor('#FF6B6B');
+                                            Button.backgroundColor('#000000');
                                             Button.fontColor(Color.White);
                                             Button.fontSize(14);
                                             Button.borderRadius(20);
@@ -749,8 +850,9 @@ class CartPage extends ViewPU {
                                             Button.createWithLabel('清空购物车');
                                             Button.height(40);
                                             Button.padding({ left: 20, right: 20 });
-                                            Button.backgroundColor('#FFA500');
-                                            Button.fontColor(Color.White);
+                                            Button.backgroundColor(Color.White);
+                                            Button.fontColor('#000000');
+                                            Button.border({ width: 1, color: '#000000' });
                                             Button.fontSize(14);
                                             Button.borderRadius(20);
                                             Button.onClick(() => this.clearAllCart());

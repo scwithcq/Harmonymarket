@@ -1,7 +1,14 @@
 {
+  "entry\\src\\main\\ets\\pages\\Users\\Home\\UserHomePage.ets": [
+    "ohos.promptAction"
+  ],
   "entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": [
     "ohos.net.http",
     "ohos.promptAction",
     "ohos.display"
+  ],
+  "entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": [
+    "ohos.net.http",
+    "ohos.promptAction"
   ]
 }

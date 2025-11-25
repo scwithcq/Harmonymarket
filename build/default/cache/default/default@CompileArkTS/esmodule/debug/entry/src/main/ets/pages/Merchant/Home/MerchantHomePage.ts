@@ -188,7 +188,7 @@ export class MerchantHomePage extends ViewPU {
                     // 底部导航栏
                     Row.padding(10);
                     // 底部导航栏
-                    Row.backgroundColor('#F5F5F5');
+                    Row.backgroundColor(Color.White);
                 }, Row);
                 this.buildNavButton.bind(this)('拍照上传', '📸');
                 this.buildNavButton.bind(this)('商品管理', '🛒');
@@ -266,7 +266,7 @@ export class MerchantHomePage extends ViewPU {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Text.create(title);
             Text.fontSize(14);
-            Text.fontColor(this.selectedTab === title ? Color.Blue : Color.Black);
+            Text.fontColor(this.selectedTab === title ? '#4CAF50' : Color.Black);
         }, Text);
         Text.pop();
         Column.pop();

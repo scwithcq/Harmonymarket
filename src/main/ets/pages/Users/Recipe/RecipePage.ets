@@ -37,6 +37,14 @@ struct RecipePage {
   @StorageProp('globalPageStack') @Watch('onPageStackChange') pageStack: NavPathStack = new NavPathStack();
   private scroller: Scroller = new Scroller();
   
+  aboutToAppear() {
+    // 添加欢迎消息
+    this.messages.push({
+      role: 'assistant',
+      content: '你好！我是菜谱助手，很高兴为您服务😊\n\n您可以：\n• 输入食材名称，我会推荐相关菜谱\n• 询问烹饪技巧和步骤\n• 咨询食材搭配建议\n\n请问有什么可以帮您的吗？'
+    });
+  }
+  
   // 监听 pageStack 变化
   onPageStackChange() {
     console.info('[RecipePage] pageStack 已更新');
@@ -101,8 +109,8 @@ struct RecipePage {
         .fontSize(26)
         .fontWeight(FontWeight.Bold)
         .padding(12)
-        .backgroundColor('#4CAF50')
-        .fontColor(Color.White)
+        .backgroundColor(Color.White) // 黑白简约
+        .fontColor(Color.Black)
         .width('100%')
         .textAlign(TextAlign.Center)
 
@@ -115,7 +123,8 @@ struct RecipePage {
                 Blank() // 占位让用户消息靠右
                 Text(msg.content)
                   .padding(10)
-                  .backgroundColor('#DCF8C6')
+                  .backgroundColor('#4CAF50') // 用户消息绿色
+                  .fontColor(Color.White)
                   .borderRadius(10)
                   .width('70%')
               }.width('100%')
@@ -123,7 +132,8 @@ struct RecipePage {
               Row() {
                 Text(msg.content)
                   .padding(10)
-                  .backgroundColor('#FFFFFF')
+                  .backgroundColor('#F5F5F5') // 助手消息浅灰
+                  .fontColor(Color.Black)
                   .borderRadius(10)
                   .width('70%')
                 Blank()
@@ -164,7 +174,7 @@ struct RecipePage {
       }
       .padding(10)
       }
-      .backgroundColor('#EFEFEF')
+      .backgroundColor(Color.White) // 页面背景白色
       .height('100%')
       .width('100%')
       

@@ -38,11 +38,15 @@ struct Layout {
     Column({ space: 5 }) {
       Image(item.icon)
         .width(25)
-        .fillColor(this.currentIndex === index ? Color.Pink : Color.Green)
+        .fillColor(this.currentIndex === index ? '#4CAF50' : '#FFFFFF') // 选中绿色，未选中白色
       Text(item.text)
         .fontSize(14)
-        .fontColor(this.currentIndex === index ? Color.Pink : Color.Green)
+        .fontColor(this.currentIndex === index ? '#4CAF50' : '#FFFFFF') // 选中绿色，未选中白色
     }
+    .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
+    .backgroundColor('#000000') // 黑色背景
   }
 
   build() {
@@ -61,12 +65,12 @@ struct Layout {
             }
           }
           .tabBar(this.tabBuilder(item, index))
-          .backgroundColor(Color.Black)
+          .backgroundColor(Color.White) // 背景白色
           .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])
 
         })
       }
-      .backgroundColor('#3B4043')
+      .backgroundColor(Color.White) // 背景白色
       .onChange((index: number) => {
         this.currentIndex = index
       })

@@ -12,6 +12,19 @@ export struct FloatingCartButton {
   private currentUserId: number = 1; // TODO: 从登录状态获取
   private timer: number = -1;
   
+  // 拖拽位置状态
+  @State positionX: number = 0;
+  @State positionY: number = 0;
+  
+  // 屏幕边界限制
+  private screenWidth: number = 360;
+  private screenHeight: number = 780;
+  private buttonSize: number = 60;
+  
+  // 拖拽起始位置
+  private startX: number = 0;
+  private startY: number = 0;
+  
   // 监听 pageStack 变化
   onPageStackChange() {
     console.info('[FloatingCartButton] pageStack 已更新');
@@ -26,6 +39,8 @@ export struct FloatingCartButton {
       this.loadCartCount();
     }, 5000);
   }
+  
+
 
   aboutToDisappear() {
     // 清理定时器
@@ -81,7 +96,7 @@ export struct FloatingCartButton {
         .width(60)
         .height(60)
         .borderRadius(30)
-        .backgroundColor('#FF6B35')
+        .backgroundColor('#4CAF50') // 绿色主题
         .padding(10)
         .shadow({
           radius: 12,
@@ -105,7 +120,7 @@ export struct FloatingCartButton {
     }
     .width(60)
     .height(60)
-    .position({ x: '85%', y: '85%' })
+    .position({ x: '85%', y: '80%' })
     .zIndex(999)
     .onClick(() => this.onCartClick())
   }

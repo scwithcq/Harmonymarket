@@ -184,13 +184,13 @@ export class UserHomePage extends ViewPU {
             Column.create();
             Column.width('100%');
             Column.height('100%');
-            Column.backgroundColor('#F8F9FA');
+            Column.backgroundColor(Color.White);
         }, Column);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             // 顶部搜索栏
             Row.create();
             // 顶部搜索栏
-            Row.backgroundColor('#FEC4DF');
+            Row.backgroundColor(Color.White);
             // 顶部搜索栏
             Row.padding({
                 right: 10,
@@ -278,7 +278,7 @@ export class UserHomePage extends ViewPU {
             TextInput.create({
                 placeholder: '请输入商品名称'
             });
-            TextInput.backgroundColor('#FEC4DF');
+            TextInput.backgroundColor(Color.White);
             TextInput.width('70%');
             TextInput.onChange((value: string) => {
                 this.productName = value;
@@ -323,7 +323,7 @@ export class UserHomePage extends ViewPU {
             // 今日推荐标题
             Row.create();
             // 今日推荐标题
-            Row.backgroundColor('#27AE60');
+            Row.backgroundColor(Color.White);
             // 今日推荐标题
             Row.width('100%');
             // 今日推荐标题
@@ -524,7 +524,7 @@ export class UserHomePage extends ViewPU {
             // AI智能推荐标题
             Row.create();
             // AI智能推荐标题
-            Row.backgroundColor('#27AE60');
+            Row.backgroundColor(Color.White);
             // AI智能推荐标题
             Row.width('100%');
             // AI智能推荐标题

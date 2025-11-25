@@ -27,10 +27,18 @@ struct RoleSelectPage {
     NavDestination() {
       Column({ space: 40 }) {
         Text('请选择身份').fontSize(24).fontWeight(FontWeight.Bold)
-        Button('用户端').width(200).height(48).onClick(() => {
+        Button('用户端')
+          .width(200)
+          .height(48)
+          .backgroundColor('#4CAF50') // 绿色
+          .onClick(() => {
           this.pageStack.replacePathByName("Layout", null, false)
         })
-        Button('商家端').width(200).height(48).backgroundColor('#FF5722').onClick(() => {
+        Button('商家端')
+          .width(200)
+          .height(48)
+          .backgroundColor('#000000') // 黑色
+          .onClick(() => {
           this.pageStack.replacePathByName("MerchantHomePage", null, false)
         })
 

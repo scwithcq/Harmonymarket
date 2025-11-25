@@ -74,7 +74,7 @@ export struct MerchantHomePage {
         }
         .justifyContent(FlexAlign.SpaceEvenly)
         .padding(10)
-        .backgroundColor('#F5F5F5')
+        .backgroundColor(Color.White) // 底部导航背景白色
       }
       .width('100%')
       .height('100%')
@@ -142,7 +142,7 @@ export struct MerchantHomePage {
       Text(icon).fontSize(20)
       Text(title)
         .fontSize(14)
-        .fontColor(this.selectedTab === title ? Color.Blue : Color.Black)
+        .fontColor(this.selectedTab === title ? '#4CAF50' : Color.Black) // 选中绿色
     }
     .onClick(() => {
       this.selectedTab = title

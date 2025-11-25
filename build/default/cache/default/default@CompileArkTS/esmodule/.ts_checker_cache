@@ -13,7 +13,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets": {
-      "mtimeMs": 1763803603167.5417,
+      "mtimeMs": 1763999270517.5972,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
@@ -25,7 +25,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Market\\MarketPage.ets": {
-      "mtimeMs": 1763803603167.5417,
+      "mtimeMs": 1763884812271.7322,
       "children": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\components\\FloatingCartButton.ets"
       ],
@@ -35,7 +35,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\UserHomePage.ets": {
-      "mtimeMs": 1763804026134.3635,
+      "mtimeMs": 1763884959311.8274,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
@@ -50,7 +50,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\User\\UserPage.ets": {
-      "mtimeMs": 1761982088215.9526,
+      "mtimeMs": 1763885734710.0732,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts"
       ],
@@ -60,7 +60,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Layout.ets": {
-      "mtimeMs": 1763803603173.5413,
+      "mtimeMs": 1763999270522.5974,
       "children": [
         "Q:\\MarketApp\\ArktsFrontend\\oh_modules\\.ohpm\\@ohos+hypium@1.0.19\\oh_modules\\@ohos\\hypium\\index.ets",
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Recipe\\RecipePage.ets",
@@ -330,14 +330,17 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\Colors.ets": {
-      "mtimeMs": 1761232971705.6235,
+      "mtimeMs": 1763884836159.8872,
       "children": [],
       "parent": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\UserHomePage.ets",
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets",
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Cart\\CartPage.ets"
       ],
-      "error": false
+      "error": false,
+      "errorCodes": [
+        -1
+      ]
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\common\\Params\\SearchParams\\SearchParams.ets": {
       "mtimeMs": 1761385032273.7585,
@@ -2773,7 +2776,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\RoleSelectPage.ets": {
-      "mtimeMs": 1761979770043.5032,
+      "mtimeMs": 1763884812271.7322,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.data.preferences.d.ts"
       ],
@@ -2798,7 +2801,7 @@
       ]
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Merchant\\Home\\MerchantHomePage.ets": {
-      "mtimeMs": 1762002652877.338,
+      "mtimeMs": 1763884812275.7285,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\kits\\@kit.ArkUI.d.ts",
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\utils\\MqttClientPanel.ets"
@@ -2851,7 +2854,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Home\\SearchProductPage.ets": {
-      "mtimeMs": 1763818925835.2583,
+      "mtimeMs": 1763998201619.7925,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.router.d.ts",
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
@@ -4412,7 +4415,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\services\\CartService.ets": {
-      "mtimeMs": 1763817148255.4421,
+      "mtimeMs": 1763889944706.93,
       "children": [
         "Q:\\devecostudio\\devecostudio5.0.3.910\\DevEco Studio\\sdk\\default\\openharmony\\ets\\api\\@ohos.net.http.d.ts",
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\models\\CartItem.ets"
@@ -4438,7 +4441,7 @@
       ]
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\components\\FloatingCartButton.ets": {
-      "mtimeMs": 1763804625971.9014,
+      "mtimeMs": 1764000475747.2732,
       "children": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\services\\CartService.ets"
       ],
@@ -4451,7 +4454,7 @@
       "error": false
     },
     "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\pages\\Users\\Cart\\CartPage.ets": {
-      "mtimeMs": 1763817645602.0388,
+      "mtimeMs": 1763890669047.902,
       "children": [
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\models\\CartItem.ets",
         "Q:\\MarketApp\\ArktsFrontend\\entry\\src\\main\\ets\\services\\CartService.ets",

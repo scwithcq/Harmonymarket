@@ -9,6 +9,7 @@ interface SearchProductPage_Params {
     cartVisible?: Visibility;
     offsetX?: number;
     offsetY?: number;
+    animatingProductId?: number;
     showBig?: boolean;
     bigUrl?: string;
     bigShown?: boolean;
@@ -49,13 +50,14 @@ export interface ProductResultData {
 }
 // 模拟器访问宿主机地址
 // const BASE_URL = 'http://10.0.2.2:8080/api';  //这个用来模拟机测试
-const BASE_URL = 'http://192.168.85.10:8080/api'; //这个在连接我的热点70测试
+// const BASE_URL = 'http://192.168.85.10:8080/api'; //这个在连接我的热点70测试
 // const BASE_URL = 'http://s49b7b66.natappfree.cc/api'; //这个为短暂（3天）公网测试 映射到后端的localhost:8080
+const BASE_URL = 'http://8.130.212.116:8080/api';
 export function SearchProductPageBuilder(parent = null) {
     {
         (parent ? parent : this).observeComponentCreation2((elmtId, isInitialRender) => {
             if (isInitialRender) {
-                let componentCall = new SearchProductPage(parent ? parent : this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/SearchProductPage.ets", line: 45, col: 3 });
+                let componentCall = new SearchProductPage(parent ? parent : this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/SearchProductPage.ets", line: 46, col: 3 });
                 ViewPU.create(componentCall);
                 let paramsLambda = () => {
                     return {};
@@ -81,8 +83,10 @@ class SearchProductPage extends ViewPU {
         this.__cartVisible = new ObservedPropertySimplePU(Visibility.Visible, this, "cartVisible");
         this.__offsetX = new ObservedPropertySimplePU(0, this, "offsetX");
         this.__offsetY = new ObservedPropertySimplePU(0 // 用于垂直跳跃动画
-        //这里用来渲染商品图片的放大
         , this, "offsetY");
+        this.__animatingProductId = new ObservedPropertySimplePU(-1 // 当前正在执行动画的商品ID
+        //这里用来渲染商品图片的放大
+        , this, "animatingProductId");
         this.__showBig = new ObservedPropertySimplePU(false // 是否处于放大态
         , this, "showBig");
         this.__bigUrl = new ObservedPropertySimplePU('' // 要放大哪张图
@@ -118,6 +122,9 @@ class SearchProductPage extends ViewPU {
         if (params.offsetY !== undefined) {
             this.offsetY = params.offsetY;
         }
+        if (params.animatingProductId !== undefined) {
+            this.animatingProductId = params.animatingProductId;
+        }
         if (params.showBig !== undefined) {
             this.showBig = params.showBig;
         }
@@ -152,6 +159,7 @@ class SearchProductPage extends ViewPU {
         this.__cartVisible.purgeDependencyOnElmtId(rmElmtId);
         this.__offsetX.purgeDependencyOnElmtId(rmElmtId);
         this.__offsetY.purgeDependencyOnElmtId(rmElmtId);
+        this.__animatingProductId.purgeDependencyOnElmtId(rmElmtId);
         this.__showBig.purgeDependencyOnElmtId(rmElmtId);
         this.__bigUrl.purgeDependencyOnElmtId(rmElmtId);
         this.__bigShown.purgeDependencyOnElmtId(rmElmtId);
@@ -166,6 +174,7 @@ class SearchProductPage extends ViewPU {
         this.__cartVisible.aboutToBeDeleted();
         this.__offsetX.aboutToBeDeleted();
         this.__offsetY.aboutToBeDeleted();
+        this.__animatingProductId.aboutToBeDeleted();
         this.__showBig.aboutToBeDeleted();
         this.__bigUrl.aboutToBeDeleted();
         this.__bigShown.aboutToBeDeleted();
@@ -217,6 +226,13 @@ class SearchProductPage extends ViewPU {
     }
     set offsetY(newValue: number) {
         this.__offsetY.set(newValue);
+    }
+    private __animatingProductId: ObservedPropertySimplePU<number>; // 当前正在执行动画的商品ID
+    get animatingProductId() {
+        return this.__animatingProductId.get();
+    }
+    set animatingProductId(newValue: number) {
+        this.__animatingProductId.set(newValue);
     }
     //这里用来渲染商品图片的放大
     private __showBig: ObservedPropertySimplePU<boolean>; // 是否处于放大态
@@ -359,7 +375,7 @@ class SearchProductPage extends ViewPU {
                 { text: '取消', color: '#999999' },
                 { text: '添加1件', color: '#4CAF50' },
                 { text: '添加5件', color: '#4CAF50' },
-                { text: '自定义', color: '#FF6B35' }
+                { text: '自定义', color: '#000000' } // 黑白简约
             ]
         }).then(async (result) => {
             let quantity = 0;
@@ -408,6 +424,7 @@ class SearchProductPage extends ViewPU {
         } as AddCartRequest);
         if (success) {
             // 触发向上跳跃动画
+            this.animatingProductId = productId;
             this.offsetY = -20;
             promptAction.showToast({ message: `已加入购物车 ${quantity} 件 ✓` });
             await this.loadCartQuantities();
@@ -415,7 +432,13 @@ class SearchProductPage extends ViewPU {
                 this.floatingCartButton.refresh();
             }
             // 400ms后回落
-            setTimeout(() => { this.offsetY = 0; }, 400);
+            setTimeout(() => {
+                this.offsetY = 0;
+                // 等待回落动画完成后重置ID
+                setTimeout(() => {
+                    this.animatingProductId = -1;
+                }, 400);
+            }, 400);
         }
         else {
             promptAction.showToast({ message: '加入失败，请重试' });
@@ -470,7 +493,7 @@ class SearchProductPage extends ViewPU {
                         // 减少按钮
                         Button.fontWeight(FontWeight.Bold);
                         // 减少按钮
-                        Button.backgroundColor('#FF6B35');
+                        Button.backgroundColor('#000000');
                         // 减少按钮
                         Button.fontColor(Color.White);
                         // 减少按钮
@@ -478,20 +501,39 @@ class SearchProductPage extends ViewPU {
                             const pid = item.id || item.productId || item.product_id;
                             if (!pid)
                                 return;
+                            const currentQty = this.getCartQuantity(pid);
+                            console.info(`[SearchPage] 点击减号，商品ID: ${pid}, 当前数量: ${currentQty}`);
+                            if (currentQty <= 0)
+                                return;
                             // 找到购物车中的该商品项
                             const cartList = await CartService.getCartList(this.currentUserId);
                             const cartItem = cartList.find(c => c.productId === pid);
                             if (cartItem) {
-                                if (cartItem.quantity > 1) {
-                                    await CartService.updateQuantity(cartItem.cartId, cartItem.quantity - 1);
+                                console.info(`[SearchPage] 找到购物车项，cartId: ${cartItem.cartId}, 原数量: ${cartItem.quantity}`);
+                                if (currentQty > 1) {
+                                    // 数量>1，减1
+                                    const newQty = currentQty - 1;
+                                    console.info(`[SearchPage] 准备更新数量为: ${newQty}`);
+                                    const success = await CartService.updateQuantity(cartItem.cartId, newQty);
+                                    console.info(`[SearchPage] 更新结果: ${success}`);
+                                    if (success) {
+                                        promptAction.showToast({ message: `数量已更新为 ${newQty}` });
+                                    }
                                 }
                                 else {
+                                    // 数量=1，删除
+                                    console.info(`[SearchPage] 数量为1，准备删除商品`);
                                     await CartService.deleteCartItem(cartItem.cartId);
+                                    promptAction.showToast({ message: '已从购物车移除' });
                                 }
+                                // 刷新购物车数量显示
                                 await this.loadCartQuantities();
                                 if (this.floatingCartButton) {
                                     this.floatingCartButton.refresh();
                                 }
+                            }
+                            else {
+                                console.error(`[SearchPage] 未找到购物车项，商品ID: ${pid}`);
                             }
                         });
                     }, Button);
@@ -509,7 +551,7 @@ class SearchProductPage extends ViewPU {
                         // 显示数量
                         Text.textAlign(TextAlign.Center);
                         // 显示数量
-                        Text.backgroundColor('#FFF8DC');
+                        Text.backgroundColor(Color.White);
                         // 显示数量
                         Text.borderRadius(4);
                         // 显示数量
@@ -543,10 +585,19 @@ class SearchProductPage extends ViewPU {
                             const pid = item.id || item.productId || item.product_id;
                             if (!pid)
                                 return;
+                            const currentQty = this.getCartQuantity(pid);
+                            console.info(`[SearchPage] 点击加号，商品ID: ${pid}, 当前数量: ${currentQty}`);
                             const cartList = await CartService.getCartList(this.currentUserId);
                             const cartItem = cartList.find(c => c.productId === pid);
                             if (cartItem) {
-                                await CartService.updateQuantity(cartItem.cartId, cartItem.quantity + 1);
+                                // 直接基于当前数量+1
+                                const newQty = currentQty + 1;
+                                console.info(`[SearchPage] 准备更新数量为: ${newQty}`);
+                                const success = await CartService.updateQuantity(cartItem.cartId, newQty);
+                                console.info(`[SearchPage] 更新结果: ${success}`);
+                                if (success) {
+                                    promptAction.showToast({ message: `数量已更新为 ${newQty}` });
+                                }
                                 await this.loadCartQuantities();
                                 if (this.floatingCartButton) {
                                     this.floatingCartButton.refresh();
@@ -573,7 +624,7 @@ class SearchProductPage extends ViewPU {
                         Context.animation({ duration: 400, curve: Curve.FastOutSlowIn });
                         Image.width(50);
                         Image.height(50);
-                        Image.translate({ x: 0, y: this.offsetY });
+                        Image.translate({ x: 0, y: this.animatingProductId === (item.id || item.productId || item.product_id) ? this.offsetY : 0 });
                         Context.animation(null);
                         Image.onClick(async () => {
                             const pid = item.id || item.productId || item.product_id;
@@ -659,8 +710,21 @@ class SearchProductPage extends ViewPU {
                                 .textOverflow({ overflow: TextOverflow.Ellipsis })*/
                     //当我点击搜索的结果的时候，可以进行修改
                     TextInput.create({
-                        placeholder: this.keyword
+                        text: this.productName,
+                        placeholder: '搜索商品...'
                     });
+                    /*          Text('搜索结果')
+                                .fontSize(12)
+                                .fontColor(app_color.text2)
+                                .lineHeight(14)
+                              Text(this.keyword)
+                                .fontSize(16)
+                                .fontWeight(FontWeight.Medium)
+                                .fontColor(app_color.primary)
+                                .maxLines(1)
+                                .textOverflow({ overflow: TextOverflow.Ellipsis })*/
+                    //当我点击搜索的结果的时候，可以进行修改
+                    TextInput.backgroundColor(Color.White);
                     /*          Text('搜索结果')
                                 .fontSize(12)
                                 .fontColor(app_color.text2)
@@ -810,6 +874,7 @@ class SearchProductPage extends ViewPU {
                         this.ifElseBranchUpdateFunction(2, () => {
                             this.observeComponentCreation2((elmtId, isInitialRender) => {
                                 Scroll.create();
+                                Scroll.scrollBar(BarState.Off);
                                 Scroll.padding({ bottom: 100 });
                             }, Scroll);
                             this.observeComponentCreation2((elmtId, isInitialRender) => {
@@ -817,6 +882,7 @@ class SearchProductPage extends ViewPU {
                             }, Stack);
                             this.observeComponentCreation2((elmtId, isInitialRender) => {
                                 List.create({ space: 12 });
+                                List.scrollBar(BarState.Off);
                                 List.width('100%');
                             }, List);
                             this.observeComponentCreation2((elmtId, isInitialRender) => {
@@ -835,7 +901,8 @@ class SearchProductPage extends ViewPU {
                                         const itemCreation2 = (elmtId, isInitialRender) => {
                                             ListItem.create(deepRenderFunction, true);
                                             ListItem.border({ radius: 10 });
-                                            ListItem.backgroundColor('#FFEFD5');
+                                            ListItem.backgroundColor(Color.White);
+                                            ListItem.shadow({ radius: 4, color: '#1A000000', offsetY: 2 });
                                         };
                                         const deepRenderFunction = (elmtId, isInitialRender) => {
                                             itemCreation(elmtId, isInitialRender);
@@ -961,7 +1028,7 @@ class SearchProductPage extends ViewPU {
                         if (isInitialRender) {
                             let componentCall = new 
                             // 悬浮购物车按钮
-                            FloatingCartButton(this, { pageStack: this.pageStack }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/SearchProductPage.ets", line: 591, col: 7 });
+                            FloatingCartButton(this, { pageStack: this.pageStack }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Home/SearchProductPage.ets", line: 603, col: 7 });
                             ViewPU.create(componentCall);
                             let paramsLambda = () => {
                                 return {
@@ -982,6 +1049,7 @@ class SearchProductPage extends ViewPU {
             NavDestination.onReady((context: NavDestinationContext) => {
                 this.pageStack = context.pathStack;
                 this.keyword = context.pathInfo.param as string ?? '';
+                this.productName = this.keyword; // 初始化搜索框内容
                 if (this.keyword)
                     this.fetchProductData();
             });

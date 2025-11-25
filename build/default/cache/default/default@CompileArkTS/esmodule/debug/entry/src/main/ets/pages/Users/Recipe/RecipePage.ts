@@ -120,6 +120,13 @@ class RecipePage extends ViewPU {
         this.__pageStack.set(newValue);
     }
     private scroller: Scroller;
+    aboutToAppear() {
+        // 添加欢迎消息
+        this.messages.push({
+            role: 'assistant',
+            content: '你好！我是菜谱助手，很高兴为您服务😊\n\n您可以：\n• 输入食材名称，我会推荐相关菜谱\n• 询问烹饪技巧和步骤\n• 咨询食材搭配建议\n\n请问有什么可以帮您的吗？'
+        });
+    }
     // 监听 pageStack 变化
     onPageStackChange() {
         console.info('[RecipePage] pageStack 已更新');
@@ -174,7 +181,7 @@ class RecipePage extends ViewPU {
             NavDestination.create(() => {
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                     Column.create({ space: 12 });
-                    Column.backgroundColor('#EFEFEF');
+                    Column.backgroundColor(Color.White);
                     Column.height('100%');
                     Column.width('100%');
                 }, Column);
@@ -188,9 +195,9 @@ class RecipePage extends ViewPU {
                     // 顶部标题栏
                     Text.padding(12);
                     // 顶部标题栏
-                    Text.backgroundColor('#4CAF50');
+                    Text.backgroundColor(Color.White);
                     // 顶部标题栏
-                    Text.fontColor(Color.White);
+                    Text.fontColor(Color.Black);
                     // 顶部标题栏
                     Text.width('100%');
                     // 顶部标题栏
@@ -227,7 +234,8 @@ class RecipePage extends ViewPU {
                                     this.observeComponentCreation2((elmtId, isInitialRender) => {
                                         Text.create(msg.content);
                                         Text.padding(10);
-                                        Text.backgroundColor('#DCF8C6');
+                                        Text.backgroundColor('#4CAF50');
+                                        Text.fontColor(Color.White);
                                         Text.borderRadius(10);
                                         Text.width('70%');
                                     }, Text);
@@ -244,7 +252,8 @@ class RecipePage extends ViewPU {
                                     this.observeComponentCreation2((elmtId, isInitialRender) => {
                                         Text.create(msg.content);
                                         Text.padding(10);
-                                        Text.backgroundColor('#FFFFFF');
+                                        Text.backgroundColor('#F5F5F5');
+                                        Text.fontColor(Color.Black);
                                         Text.borderRadius(10);
                                         Text.width('70%');
                                     }, Text);
@@ -321,7 +330,7 @@ class RecipePage extends ViewPU {
                         if (isInitialRender) {
                             let componentCall = new 
                             // 悬浮购物车按钮
-                            FloatingCartButton(this, { pageStack: this.pageStack }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Recipe/RecipePage.ets", line: 172, col: 7 });
+                            FloatingCartButton(this, { pageStack: this.pageStack }, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Users/Recipe/RecipePage.ets", line: 182, col: 7 });
                             ViewPU.create(componentCall);
                             let paramsLambda = () => {
                                 return {

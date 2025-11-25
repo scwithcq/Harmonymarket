@@ -82,6 +82,7 @@ class RoleSelectPage extends ViewPU {
                     Button.createWithLabel('用户端');
                     Button.width(200);
                     Button.height(48);
+                    Button.backgroundColor('#4CAF50');
                     Button.onClick(() => {
                         this.pageStack.replacePathByName("Layout", null, false);
                     });
@@ -91,7 +92,7 @@ class RoleSelectPage extends ViewPU {
                     Button.createWithLabel('商家端');
                     Button.width(200);
                     Button.height(48);
-                    Button.backgroundColor('#FF5722');
+                    Button.backgroundColor('#000000');
                     Button.onClick(() => {
                         this.pageStack.replacePathByName("MerchantHomePage", null, false);
                     });

@@ -118,14 +118,21 @@ export class CartService {
     try {
       console.info(`[CartService] 更新数量, cartId: ${cartId}, quantity: ${quantity}`);
       
+      // 使用 POST 方法，添加自定义方法标识
       const resp = await httpReq.request(`${BASE_URL}/cart/${cartId}`, {
-        method: http.RequestMethod.PUT,
-        header: { 'Content-Type': 'application/json' },
-        extraData: JSON.stringify({ quantity } as UpdateQuantityRequest)
+        method: http.RequestMethod.POST,
+        header: { 
+          'Content-Type': 'application/json',
+          'X-HTTP-Method-Override': 'PATCH' // 告诉后端这是 PATCH 请求
+        },
+        extraData: JSON.stringify({ quantity: quantity } as UpdateQuantityRequest)
       });
       
       const success = resp.responseCode === 200;
-      console.info(`[CartService] 更新数量结果: ${success}`);
+      console.info(`[CartService] 更新数量结果: ${success}, 响应码: ${resp.responseCode}`);
+      if (!success) {
+        console.error(`[CartService] 更新失败，响应内容: ${resp.result.toString().substring(0, 200)}`);
+      }
       return success;
     } catch (err) {
       console.error('[CartService] 更新数量失败:', JSON.stringify(err));

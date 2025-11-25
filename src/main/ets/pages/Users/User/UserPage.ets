@@ -27,6 +27,38 @@ export struct UserPage {
   @State avatarUrl: string = 'https://img.icons8.com/color/96/user-male-circle--v1.png';
   @State isEditing: boolean = false;
   @State pageStack:NavPathStack = null!
+  
+  // 临时编辑数据
+  @State tempEmail: string = '';
+  @State tempAddress: string = '';
+  
+  // 保存编辑
+  saveChanges() {
+    this.email = this.tempEmail;
+    this.address = this.tempAddress;
+    this.isEditing = false;
+  }
+  
+  // 取消编辑
+  cancelEdit() {
+    this.tempEmail = this.email;
+    this.tempAddress = this.address;
+    this.isEditing = false;
+  }
+  
+  // 进入编辑模式
+  startEdit() {
+    this.tempEmail = this.email;
+    this.tempAddress = this.address;
+    this.isEditing = true;
+  }
+  
+  // 返回角色选择页
+  goToRoleSelect() {
+    if (this.pageStack) {
+      this.pageStack.replacePathByName("RoleSelectPage", null, false);
+    }
+  }
 
 
   build() {
@@ -38,7 +70,7 @@ export struct UserPage {
           Row(){
             Text('个人信息')
               .fontSize(25)
-              .fontColor('#2E8B57')
+              .fontColor('#000000') // 黑白简约
               .fontWeight(FontWeight.Medium)
               .letterSpacing(1)
               .textOverflow({ overflow: TextOverflow.Ellipsis })
@@ -79,13 +111,32 @@ export struct UserPage {
 
               Blank()
 
-              Button(this.isEditing ? '完成' : '编辑')
-                .type(ButtonType.Capsule)
-                .backgroundColor('#ffffff')
-                .fontColor('#2E8B57')
-                .onClick(() => {
-                  this.isEditing = !this.isEditing;
-                })
+              Row({ space: 8 }) {
+                if (this.isEditing) {
+                  Button('取消')
+                    .type(ButtonType.Capsule)
+                    .backgroundColor('#ffffff')
+                    .fontColor('#666666')
+                    .onClick(() => {
+                      this.cancelEdit();
+                    })
+                  Button('保存')
+                    .type(ButtonType.Capsule)
+                    .backgroundColor('#4CAF50')
+                    .fontColor('#ffffff')
+                    .onClick(() => {
+                      this.saveChanges();
+                    })
+                } else {
+                  Button('编辑')
+                    .type(ButtonType.Capsule)
+                    .backgroundColor('#ffffff')
+                    .fontColor('#000000')
+                    .onClick(() => {
+                      this.startEdit();
+                    })
+                }
+              }
             }
             .border({radius:14})
             .width('100%')
@@ -93,14 +144,14 @@ export struct UserPage {
             .alignItems(VerticalAlign.Center)
           }
           .width('100%')
-          .backgroundColor('#4CAF50') // 单色背景，兼容性最稳
+          .backgroundColor('#000000') // 黑白简约：卡片背景黑色
           .borderRadius(20)
           .shadow({ radius: 10, color: '#00000020', offsetY: 2 })
 
           // ---------- 信息卡片 ----------
           Column() {
-            this.infoItem('邮箱', this.email, (v: string) => this.email = v)
-            this.infoItem('地址', this.address, (v: string) => this.address = v)
+            this.infoItem('邮箱', this.isEditing ? this.tempEmail : this.email, (v: string) => this.tempEmail = v)
+            this.infoItem('地址', this.isEditing ? this.tempAddress : this.address, (v: string) => this.tempAddress = v)
           }
           .padding(20)
           .backgroundColor('#ffffff')
@@ -125,9 +176,16 @@ export struct UserPage {
                 .width(20)
                 .height(20)
                 .objectFit(ImageFit.Contain)
-                .onClick(() => this.pageStack.replacePathByName("RoleSelectPage",null,false))
-
             }
+            .width('100%')
+            .padding({ left: 18, right: 18, top: 14, bottom: 14 })
+            .alignItems(VerticalAlign.Center)
+            .border({ width: 0.5, color: '#eeeeee', style: BorderStyle.Solid })
+            .backgroundColor('#ffffff')
+            .hoverEffect(HoverEffect.Highlight)
+            .onClick(() => {
+              this.goToRoleSelect();
+            })
           }
           .backgroundColor('#ffffff')
           .borderRadius(16)
@@ -140,7 +198,7 @@ export struct UserPage {
       .width('100%')
       .height('100%') // ✅ 关键：填满屏幕
 
-      .backgroundColor('#F2F4F7')
+      .backgroundColor(Color.White) // 页面背景白色
     }
     .onReady((context: NavDestinationContext)=>{
       this.pageStack= context.pathStack
@@ -199,7 +257,7 @@ export struct UserPage {
     .alignItems(VerticalAlign.Center)
     .border({ width: 0.5, color: '#eeeeee', style: BorderStyle.Solid })
     .onClick(() => {
-      console.log(`点击了 ${title}`)
+      console.log('点击了 ' + title);
     })
     .backgroundColor('#ffffff')
     .hoverEffect(HoverEffect.Highlight)

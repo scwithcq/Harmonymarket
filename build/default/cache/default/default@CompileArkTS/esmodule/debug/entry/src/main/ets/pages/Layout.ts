@@ -53,16 +53,20 @@ class Layout extends ViewV2 {
     tabBuilder(item: TabClass, index: number, parent = null) {
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Column.create({ space: 5 });
+            Column.width('100%');
+            Column.height('100%');
+            Column.justifyContent(FlexAlign.Center);
+            Column.backgroundColor('#000000');
         }, Column);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Image.create(item.icon);
             Image.width(25);
-            Image.fillColor(this.currentIndex === index ? Color.Pink : Color.Green);
+            Image.fillColor(this.currentIndex === index ? '#4CAF50' : '#FFFFFF');
         }, Image);
         this.observeComponentCreation2((elmtId, isInitialRender) => {
             Text.create(item.text);
             Text.fontSize(14);
-            Text.fontColor(this.currentIndex === index ? Color.Pink : Color.Green);
+            Text.fontColor(this.currentIndex === index ? '#4CAF50' : '#FFFFFF');
         }, Text);
         Text.pop();
         Column.pop();
@@ -72,7 +76,7 @@ class Layout extends ViewV2 {
             NavDestination.create(() => {
                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                     Tabs.create({ barPosition: BarPosition.End });
-                    Tabs.backgroundColor('#3B4043');
+                    Tabs.backgroundColor(Color.White);
                     Tabs.onChange((index: number) => {
                         this.currentIndex = index;
                     });
@@ -91,7 +95,7 @@ class Layout extends ViewV2 {
                                             {
                                                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                                                     if (isInitialRender) {
-                                                        let componentCall = new UserHomePage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 54, col: 15 });
+                                                        let componentCall = new UserHomePage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 58, col: 15 });
                                                         ViewPU.create(componentCall);
                                                         let paramsLambda = () => {
                                                             return {};
@@ -110,7 +114,7 @@ class Layout extends ViewV2 {
                                             {
                                                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                                                     if (isInitialRender) {
-                                                        let componentCall = new RecipePage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 56, col: 15 });
+                                                        let componentCall = new RecipePage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 60, col: 15 });
                                                         ViewPU.create(componentCall);
                                                         let paramsLambda = () => {
                                                             return {};
@@ -129,7 +133,7 @@ class Layout extends ViewV2 {
                                             {
                                                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                                                     if (isInitialRender) {
-                                                        let componentCall = new MarketPage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 58, col: 15 });
+                                                        let componentCall = new MarketPage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 62, col: 15 });
                                                         ViewPU.create(componentCall);
                                                         let paramsLambda = () => {
                                                             return {};
@@ -148,7 +152,7 @@ class Layout extends ViewV2 {
                                             {
                                                 this.observeComponentCreation2((elmtId, isInitialRender) => {
                                                     if (isInitialRender) {
-                                                        let componentCall = new UserPage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 60, col: 15 });
+                                                        let componentCall = new UserPage(this, {}, undefined, elmtId, () => { }, { page: "entry/src/main/ets/pages/Layout.ets", line: 64, col: 15 });
                                                         ViewPU.create(componentCall);
                                                         let paramsLambda = () => {
                                                             return {};
@@ -172,7 +176,7 @@ class Layout extends ViewV2 {
                             TabContent.tabBar({ builder: () => {
                                     this.tabBuilder.call(this, item, index);
                                 } });
-                            TabContent.backgroundColor(Color.Black);
+                            TabContent.backgroundColor(Color.White);
                             TabContent.expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);
                         }, TabContent);
                         TabContent.pop();

@@ -108,7 +108,7 @@ export struct UserHomePage {
               TextInput({
                 placeholder: '请输入商品名称'
               })
-                .backgroundColor('#FEC4DF')
+                .backgroundColor(Color.White) // 搜索框白色背景
                 .width('70%')
                 .onChange((value: string) => {
                   this.productName = value;
@@ -148,7 +148,7 @@ export struct UserHomePage {
             .padding({ left: 16 })
             .border({ width: 1, color: '#E9ECEF' })
           }
-          .backgroundColor('#FEC4DF')
+          .backgroundColor(Color.White) // 顶部背景白色
           .padding({
             right: 10,
             top: 10,
@@ -167,7 +167,7 @@ export struct UserHomePage {
               .fontSize(14)
               .fontColor('#888')
           }
-          .backgroundColor('#27AE60')
+          .backgroundColor(Color.White) // 标题栏背景白色
           .width('100%')
           .padding({
             left: 16,
@@ -297,7 +297,7 @@ export struct UserHomePage {
               .fontSize(14)
               .fontColor('#888')
           }
-          .backgroundColor('#27AE60') //高饱和度暖绿色
+          .backgroundColor(Color.White) // 标题栏背景白色
           .width('100%')
           .padding({
             left: 16,
@@ -344,7 +344,7 @@ export struct UserHomePage {
         }
         .width('100%')
         .height('100%')
-        .backgroundColor('#F8F9FA')
+        .backgroundColor(Color.White) // 页面背景白色
       }
       .layoutWeight(1)
       
